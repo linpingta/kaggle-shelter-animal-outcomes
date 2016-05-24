@@ -107,7 +107,7 @@ class SimpleModel(object):
     def _transfer_weekday_info(self, animal_time):
 	s = time.strptime(animal_time, '%Y-%m-%d %H:%M:%S')
 	return s.tm_wday
-	#if s.tm_wday >= 5:
+	#if 5 <= s.tm_wday <= 6:
 	#	return 'weekend'
 	#else:
 	#	return 'weekday'
@@ -117,7 +117,7 @@ class SimpleModel(object):
 	return s.tm_hour
 	#if 0 <= s.tm_hour < 8:
 	#	return 'hour1'
-	#elif s.tm_hour < 18:
+	#elif s.tm_hour <= 18:
 	#	return 'hour2'
 	#else:
 	#	return 'hour3'
@@ -243,6 +243,8 @@ class SimpleModel(object):
 		# split data based on animal type
 		for animal in animals:
 			print animal
+			#if animal == 'Cat':
+			#   continue
 			#print cleaned_train_data[cleaned_train_data['AnimalType']==animal]
 			# transfer to model format
 			animal_train_data = cleaned_train_data[cleaned_train_data['AnimalType']==animal].copy()
@@ -321,9 +323,10 @@ class TsRandomForestClassfier(SimpleModel):
 	super(TsRandomForestClassfier, self).__init__(conf)
 
 	self.sub_tree_num = conf.getint('random_forest_classifier', 'sub_tree_num')
+	self.max_depth_num = conf.getint('random_forest_classifier', 'max_depth_num')
 
     def _get_model(self, logger):
-	return RandomForestClassifier(n_estimators=self.sub_tree_num)
+	return RandomForestClassifier(n_estimators=self.sub_tree_num, max_depth=self.max_depth_num)
 
 
 class TsRandomForestRegressor(SimpleModel):
@@ -331,9 +334,10 @@ class TsRandomForestRegressor(SimpleModel):
 	super(TsRandomForestRegressor, self).__init__(conf)
 
 	self.sub_tree_num = conf.getint('random_forest_regressor', 'sub_tree_num')
+	self.max_depth_num = conf.getint('random_forest_regressor', 'max_depth_num')
 
     def _get_model(self, logger):
-	return RandomForestRegressor(n_estimators=self.sub_tree_num)
+	return RandomForestRegressor(n_estimators=self.sub_tree_num, max_depth=self.max_depth_num)
 
 
 if __name__ == '__main__':
