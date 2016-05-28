@@ -13,6 +13,7 @@ try:
 except:
     import pickle
 
+from operator import itemgetter
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
@@ -20,6 +21,9 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.feature_extraction import DictVectorizer as DV
 from sklearn.externals import joblib
 from sklearn import cross_validation
+from sklearn.grid_search import GridSearchCV, RandomizedSearchCV
+
+backup_color_list = ['White', 'Green', 'Blue', 'Black', 'Pink', 'Red', 'Brown', 'Orange', 'Yellow', 'Silver', 'Gold', 'Gray', 'Tan']
 
 
 class SimpleModel(object):
@@ -33,6 +37,7 @@ class SimpleModel(object):
 	self.vc_filename = conf.get('simple_model', 'vc_filename')
 	self.le_filename = conf.get('simple_model', 'le_filename')
 	self.do_train = conf.getboolean('simple_model', 'do_train')
+	self.do_search_parameter = conf.getboolean('simple_model', 'do_search_parameter')
 	self.do_validate = conf.getboolean('simple_model', 'do_validate')
 	self.do_test = conf.getboolean('simple_model', 'do_test')
 	self.store_model = conf.getboolean('simple_model', 'store_model')
@@ -59,6 +64,7 @@ class SimpleModel(object):
     def _clean_data(self, data, logger):
 	data.fillna(0)
 	data = data.apply(lambda x: x.fillna(x.value_counts().index[0]))
+	#data = data[np.isfinite(data['SexuponOutcome'])]
 	return data
 
     def _transfer_age_info(self, age):
@@ -96,6 +102,117 @@ class SimpleModel(object):
 	#print 'new_age_info ', new_age_info
 	return new_age_info
 
+    def _transfer_mix_info(self, breed):
+	return 'Mix' if ('Mix' in breed or '/' in breed) else 'UnMix'
+
+    def _transfer_mix_infos(self, origin_breed_info):
+	breed = origin_breed_info.apply(self._transfer_mix_info)
+	return breed
+
+    def _transfer_color_count_info(self, color):
+	s = color.split('/')
+	return len(s)
+
+    def _transfer_color_count_infos(self, origin_color_info):
+	color_count = origin_color_info.apply(self._transfer_color_count_info)
+	return color_count
+
+    def _transfer_species_info(self, color):
+	pattern_list = []
+	s = color.split(' ')
+	total_elem = []
+	for elem in s:
+		total_elem.extend(elem.split('/'))
+	for elem in total_elem:
+		if elem not in backup_color_list:
+			pattern_list.append(elem)
+	if not pattern_list:
+		return 'no_pattern'
+	else:
+		return '_'.join(pattern_list)
+
+    def _transfer_species_infos(self, origin_color_info):
+	species = origin_color_info.apply(self._transfer_species_info)
+	return species
+
+    def _transfer_color_info(self, color):
+	s = color.split(' ')
+	if len(s) >= 2:
+		return s[0]
+	else:
+		for backup_color in backup_color_list:
+			if backup_color in s[0]:
+				return s[0]
+		return color
+		
+	#color_list = []
+	#total_elem = []
+	#for elem in s:
+	#	total_elem.extend(elem.split('/'))
+	#for elem in total_elem:
+	#	if elem in backup_color_list:
+	#		color_list.append(elem)
+	#	
+	#if not color_list:
+	#	return 'no_color'
+	#else:
+	#	return '_'.join(color_list)
+
+    def _transfer_color_infos(self, origin_color_info):
+	color = origin_color_info.apply(self._transfer_color_info)
+	return color
+
+    def _transfer_breed_type_info(self, breed, breed_type):
+	return breed_type in breed
+
+    def _transfer_breed_type_infos(self, origin_breed_info, breed_type):
+	has_breed = origin_breed_info.apply(self._transfer_breed_type_info)
+	return has_breed
+
+    def _transfer_breed_info(self, breed):
+	if 'Mix' in breed:
+		return breed.replace(' Mix', '')
+	elif '/' in breed:
+		return breed.split('/')[0]
+	else:
+		return breed
+
+    def _transfer_breed_infos(self, origin_breed_info):
+	breed = origin_breed_info.apply(self._transfer_breed_info)
+	return breed
+
+    def _transfer_sex_info(self, sex):
+	choices = ['Female', 'Male']
+	for choice in choices:
+		if choice in sex:
+			return choice
+	return 'Unknown'
+
+    def _transfer_sex_infos(self, origin_sex_info):
+	sex = origin_sex_info.apply(self._transfer_sex_info)
+	return sex
+
+    def _transfer_intact_info(self, sex):
+	choices = ['Intact', 'Neutered', 'Spayed']
+	for choice in choices:
+		if choice in sex:
+			return choice
+	return 'Unknown'
+
+    def _transfer_intact_infos(self, origin_sex_info):
+	intact = origin_sex_info.apply(self._transfer_intact_info)
+	return intact
+
+    def _transfer_name_info(self, name):
+	#return True if name else False
+	#return 'HasName' if name else 'HasNotName'
+	return len(name)
+
+    def _transfer_name_infos(self, origin_name_info):
+	#print 'origin_name_info', origin_name_info
+	has_name = origin_name_info.apply(self._transfer_name_info)
+	return has_name
+
     def _transfer_year_info(self, animal_time):
 	s = time.strptime(animal_time, '%Y-%m-%d %H:%M:%S')
 	return s.tm_year
@@ -114,13 +231,15 @@ class SimpleModel(object):
 
     def _transfer_hour_info(self, animal_time):
 	s = time.strptime(animal_time, '%Y-%m-%d %H:%M:%S')
-	return s.tm_hour
-	#if 0 <= s.tm_hour < 8:
-	#	return 'hour1'
-	#elif s.tm_hour <= 18:
-	#	return 'hour2'
-	#else:
-	#	return 'hour3'
+	#return s.tm_hour
+	if 5 <= s.tm_hour < 11:
+		return 'hour1'
+	elif 11 <= s.tm_hour < 16:
+		return 'hour2'
+	elif 16 <= s.tm_hour < 20:
+		return 'hour3'
+	else:
+		return 'hour4'
 
     def _transfer_time_infos(self, origin_time_info):
 	#print 'origin_time_info ', origin_time_info
@@ -136,15 +255,18 @@ class SimpleModel(object):
 	encode_y = le_y.transform(y)
 	return (encode_y, le_y)
 
-    def _transfer_data_to_model(self, data, animal, logger):
+    def _transfer_data_to_model(self, data, animal, total_info, logger):
 	''' extract data from DataFrame'''
+	total_breed = total_info[0]
 
 	# encode y
 	(encode_y, le_y) = self._encode_y(data['OutcomeType'].values,logger)
 	#print encode_y
 
 	# encode x
-	if animal == 'Dog':
+	#if animal in ('Dog', 'All'):
+	if True:
+	#if False:
 		new_age_info = self._transfer_age_infos(data['AgeuponOutcome'])
 		data['EncodeAgeuponOutcome'] = new_age_info
 
@@ -153,10 +275,28 @@ class SimpleModel(object):
 		data['EncodeMonth'] = month 
 		data['EncodeWeekday'] = weekday 
 		data['EncodeHour'] = hour 
+		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome', 'Breed', 'Color']
+		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome', 'Breed']
+		drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome']
+	else:
+		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'SexuponOutcome', 'Breed', 'Color']
+		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'SexuponOutcome', 'Breed']
+		drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'SexuponOutcome']
+
+	data['HasName'] = self._transfer_name_infos(data['Name'])
+	data['Sex'] = self._transfer_sex_infos(data['SexuponOutcome'])
+	data['Intact'] = self._transfer_intact_infos(data['SexuponOutcome'])
+	data['IsMix'] = self._transfer_mix_infos(data['Breed'])
+	#data['NewBreed'] = self._transfer_breed_infos(data['Breed'])
+	#data['Species'] = self._transfer_species_infos(data['Color'])
+	#data['NewColor'] = self._transfer_color_infos(data['Color'])
+	data['ColorMix'] = self._transfer_color_count_infos(data['Color'])
+	for breed_type in total_breed:
+		data['Has%s'% breed_type] = self._transfer_breed_type_infos(data['Breed'], breed_type)
 
 	#print np.isnan(data.any())
 	#print np.isfinite(data.all())
-	df = data.drop(['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome'], 1)
+	df = data.drop(drop_list, 1)
 	#print df.isnull().sum()
 	#print pd.isnull(df).any(1).nonzero()[0]
 
@@ -170,6 +310,9 @@ class SimpleModel(object):
     def _get_model(self, logger):
 	return None
 
+    def _get_grid_search_model(self, logger):
+	return None
+
     def _transfer_test_data(self, cleaned_test_data, animal_dict, logger):
 	test_x = cleaned_test_data.T.to_dict().values()
 	encode_test_y = []
@@ -178,18 +321,36 @@ class SimpleModel(object):
 			logger.error('%s is new type of animal, no model, skip' % test_xx['AnimalType'])
 			continue
 
-		clf = animal_dict[test_xx['AnimalType']]['clf']
-		vectorizer_x = animal_dict[test_xx['AnimalType']]['vectorizer_x']
-		le_y = animal_dict[test_xx['AnimalType']]['le_y']
+		if ('All' in animal_dict) and (test_xx['AnimalType'] == 'Dog'):
+			clf = animal_dict['All']['clf']
+			vectorizer_x = animal_dict['All']['vectorizer_x']
+			le_y = animal_dict['All']['le_y']
+		else:
+			clf = animal_dict[test_xx['AnimalType']]['clf']
+			vectorizer_x = animal_dict[test_xx['AnimalType']]['vectorizer_x']
+			le_y = animal_dict[test_xx['AnimalType']]['le_y']
 
 		new_test_xx = test_xx.copy()
-		if test_xx['AnimalType'] == 'Dog':
+		#if test_xx['AnimalType'] == 'Dog':
+		if True:
+		#if False:
 			new_test_xx['EncodeAgeuponOutcome'] = self._transfer_age_info(test_xx['AgeuponOutcome'])
 			new_test_xx['EncodeYear'] = self._transfer_year_info(test_xx['DateTime'])
 			new_test_xx['EncodeMonth'] = self._transfer_month_info(test_xx['DateTime'])
 			new_test_xx['EncodeWeekday'] = self._transfer_weekday_info(test_xx['DateTime'])
 			new_test_xx['EncodeHour'] = self._transfer_hour_info(test_xx['DateTime'])
-		remove_attributes = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome']
+			remove_attributes = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome', 'Breed', 'Color']
+		else:
+			remove_attributes = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'SexuponOutcome', 'Breed', 'Color']
+
+		new_test_xx['HasName'] = self._transfer_name_info(test_xx['Name'])
+		new_test_xx['Sex'] = self._transfer_sex_info(test_xx['SexuponOutcome'])
+		new_test_xx['Intact'] = self._transfer_intact_info(test_xx['SexuponOutcome'])
+		new_test_xx['IsMix'] = self._transfer_mix_info(test_xx['Breed'])
+		new_test_xx['NewBreed'] = self._transfer_breed_info(test_xx['Breed'])
+		new_test_xx['Species'] = self._transfer_species_info(test_xx['Color'])
+		new_test_xx['NewColor'] = self._transfer_color_info(test_xx['Color'])
+
 		for remove_attribute in remove_attributes:
 			new_test_xx.pop(remove_attribute, None)
 		#print new_test_xx
@@ -229,16 +390,51 @@ class SimpleModel(object):
 	    output_y_list.append(single_y_dict)
 	return output_y_list
 
+    def report(self, grid_scores, n_top, logger):
+        top_scores = sorted(grid_scores, key=itemgetter(1), reverse=True)[:n_top]
+        for i, score in enumerate(top_scores):
+            print("Model with rank: {0}".format(i + 1))
+            print("Mean validation score: {0:.3f} (std: {1:.3f})".format(
+                  score.mean_validation_score,
+                  np.std(score.cv_validation_scores)))
+            print("Parameters: {0}".format(score.parameters))
+            print("")
+            logger.debug("Model with rank: {0}".format(i + 1))
+            logger.debug("Mean validation score: {0:.3f} (std: {1:.3f})".format(
+                  score.mean_validation_score,
+                  np.std(score.cv_validation_scores)))
+            logger.debug("Parameters: {0}".format(score.parameters))
+
     def run(self, now, logger):
 
-	animals = ['Cat', 'Dog']
+	animals = ['All', 'Cat', 'Dog']
+	#animals = ['Cat', 'Dog']
+	#animals = ['All']
 	animal_dict = {}
 
+	# load train data
+	# data cleaning
+	train_data = self._load_csv_data(self.train_filename, logger)
+	cleaned_train_data = self._clean_data(train_data, logger)
+	
+	# load test data
+	# data cleaning
+	test_data = self._load_csv_data(self.test_filename, logger)
+	cleaned_test_data = self._clean_data(test_data, logger)
+		
+	train_breed = cleaned_train_data['Breed'].unique()
+	new_train_breed = []
+	for breed in train_breed:
+		tmp_breed = breed.replace(' Mix', '')
+		new_train_breed.extend(tmp_breed.split('/'))
+	test_breed = cleaned_test_data['Breed'].unique()
+	new_test_breed = []
+	for breed in test_breed:
+		tmp_breed = breed.replace(' Mix', '')
+		new_test_breed.extend(tmp_breed.split('/'))
+	total_breed = list(set(new_train_breed) | set(new_test_breed))
+
 	if self.do_train:
-		# load train data
-		# data cleaning
-		train_data = self._load_csv_data(self.train_filename, logger)
-		cleaned_train_data = self._clean_data(train_data, logger)
 
 		# split data based on animal type
 		for animal in animals:
@@ -247,37 +443,54 @@ class SimpleModel(object):
 			#   continue
 			#print cleaned_train_data[cleaned_train_data['AnimalType']==animal]
 			# transfer to model format
-			animal_train_data = cleaned_train_data[cleaned_train_data['AnimalType']==animal].copy()
+			if animal == 'All':
+				animal_train_data = cleaned_train_data.copy()
+			else:
+				animal_train_data = cleaned_train_data[cleaned_train_data['AnimalType']==animal].copy()
 			(train_x, train_y, vectorizer_x, le_y) = self._transfer_data_to_model(animal_train_data, animal, logger)
 
-			# select model
-			clf = self._get_model(logger)
-			clf.fit(train_x, train_y)
-			if not clf:
-			    logger.error('model not defined, no more train, quit')
-			    return
-			#print clf
+			if self.do_search_parameter:
+				# search momdel
+				print 'search parameter'
+				clf = self._get_grid_search_model(animal, logger)
+				param_grid = {"max_depth": range(3, 100, 5),
+				      "max_features": [1, 3, 10],
+				      "min_samples_split": [1, 3, 10],
+				      "min_samples_leaf": [1, 3, 10],
+				      "criterion": ["gini", "entropy"]}
+				grid_search = GridSearchCV(clf, scoring="log_loss", param_grid=param_grid)
+				grid_search.fit(train_x, train_y)
+				self.report(grid_search.grid_scores_, 3, logger)
+			else:
+				print 'train model'
+				# select model
+				clf = self._get_model(animal, logger)
+				clf.fit(train_x, train_y)
+				if not clf:
+				    logger.error('model not defined, no more train, quit')
+				    return
+				#print clf
 
-			animal_dict[animal] = {'clf': clf,
-			    'vectorizer_x': vectorizer_x,
-			    'le_y': le_y
-			}
+				animal_dict[animal] = {'clf': clf,
+				    'vectorizer_x': vectorizer_x,
+				    'le_y': le_y
+				}
 
-			joblib.dump(clf, '.'.join([self.model_filename,animal]))
-			joblib.dump(vectorizer_x, '.'.join([self.vc_filename,animal]))
-			joblib.dump(le_y, '.'.join([self.le_filename,animal]))
-			if self.store_model:
-				postfix_time = time.strftime('%Y%m%d%H%M', now)
-				model_postfix_filename = '.'.join([self.model_filename, animal, str(postfix_time)])
-				joblib.dump(clf, model_postfix_filename)
-				vc_postfix_filename = '.'.join([self.vc_filename, animal, str(postfix_time)])
-				joblib.dump(vectorizer_x, vc_postfix_filename)
-				le_postfix_filename = '.'.join([self.le_filename, animal, str(postfix_time)])
-				joblib.dump(le_y, le_postfix_filename)
+				joblib.dump(clf, '.'.join([self.model_filename,animal]))
+				joblib.dump(vectorizer_x, '.'.join([self.vc_filename,animal]))
+				joblib.dump(le_y, '.'.join([self.le_filename,animal]))
+				if self.store_model:
+					postfix_time = time.strftime('%Y%m%d%H%M', now)
+					model_postfix_filename = '.'.join([self.model_filename, animal, str(postfix_time)])
+					joblib.dump(clf, model_postfix_filename)
+					vc_postfix_filename = '.'.join([self.vc_filename, animal, str(postfix_time)])
+					joblib.dump(vectorizer_x, vc_postfix_filename)
+					le_postfix_filename = '.'.join([self.le_filename, animal, str(postfix_time)])
+					joblib.dump(le_y, le_postfix_filename)
 
-			if self.do_validate:
-				scores = cross_validation.cross_val_score(clf, train_x, train_y, pre_dispatch=1, scoring='log_loss')
-				print 'accrucy mean %0.2f +/- %0.2f' % (scores.mean(), scores.std()*2)
+				if self.do_validate:
+					scores = cross_validation.cross_val_score(clf, train_x, train_y, pre_dispatch=1, scoring='log_loss')
+					print 'accrucy mean %0.2f +/- %0.2f' % (scores.mean(), scores.std()*2)
 	else:
 		for animal in animals:
 			clf = joblib.load(self.model_filename)
@@ -299,11 +512,6 @@ class SimpleModel(object):
 	#	#print 'accrucy mean %0.2f +/- %0.2f' % (scores.mean(), scores.std()*2)
 		
 	if self.do_test:
-		# load test data
-		# data cleaning
-		test_data = self._load_csv_data(self.test_filename, logger)
-		cleaned_test_data = self._clean_data(test_data, logger)
-		
 		position_match_dict = {
 		    0:'Adoption',
 		    1:'Died',
@@ -324,9 +532,23 @@ class TsRandomForestClassfier(SimpleModel):
 
 	self.sub_tree_num = conf.getint('random_forest_classifier', 'sub_tree_num')
 	self.max_depth_num = conf.getint('random_forest_classifier', 'max_depth_num')
+	self.cat_sub_tree_num = conf.getint('random_forest_classifier', 'cat_sub_tree_num')
+	self.cat_max_depth_num = conf.getint('random_forest_classifier', 'cat_max_depth_num')
+	self.dog_sub_tree_num = conf.getint('random_forest_classifier', 'dog_sub_tree_num')
+	self.dog_max_depth_num = conf.getint('random_forest_classifier', 'dog_max_depth_num')
 
-    def _get_model(self, logger):
-	return RandomForestClassifier(n_estimators=self.sub_tree_num, max_depth=self.max_depth_num)
+    def _get_model(self, animal, logger):
+	
+	if animal == 'Cat':
+		return RandomForestClassifier(n_estimators=self.cat_sub_tree_num, max_depth=self.cat_max_depth_num)
+	elif animal == 'Dog':
+		return RandomForestClassifier(n_estimators=self.dog_sub_tree_num, max_depth=self.dog_max_depth_num)
+	else:
+		return RandomForestClassifier(n_estimators=self.sub_tree_num, max_depth=self.max_depth_num)
+	#return RandomForestClassifier(n_estimators=self.sub_tree_num)
+
+    def _get_grid_search_model(self, animal, logger):
+	return RandomForestClassifier(n_estimators=self.sub_tree_num)
 
 
 class TsRandomForestRegressor(SimpleModel):
@@ -338,6 +560,9 @@ class TsRandomForestRegressor(SimpleModel):
 
     def _get_model(self, logger):
 	return RandomForestRegressor(n_estimators=self.sub_tree_num, max_depth=self.max_depth_num)
+
+    def _get_grid_search_model(self, logger):
+	return RandomForestRegressor(n_estimators=self.sub_tree_num)
 
 
 if __name__ == '__main__':
