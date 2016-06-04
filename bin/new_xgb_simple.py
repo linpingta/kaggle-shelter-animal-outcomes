@@ -609,7 +609,7 @@ class TsXgbClassifier(SimpleModel):
 
     def _get_model(self, animal, logger):
 	return XGBClassifier(learning_rate=0.1,
-		n_estimators=45,
+		n_estimators=100,
 		#silent=False,
 		max_depth=9,
 		min_child_weight=5,

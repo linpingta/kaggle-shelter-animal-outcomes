@@ -106,8 +106,8 @@ class SimpleModel(object):
 	return new_age_info
 
     def _transfer_mix_info(self, breed):
-	#return 'Mix' if ('Mix' in breed or '/' in breed) else 'UnMix'
-	return len(breed.split('/')) + 1
+	return 'Mix' if ('Mix' in breed or '/' in breed) else 'UnMix'
+	#return len(breed.split('/')) + 1
 
     def _transfer_mix_infos(self, origin_breed_info):
 	breed = origin_breed_info.apply(self._transfer_mix_info)
@@ -173,7 +173,14 @@ class SimpleModel(object):
 	return has_color
 
     def _transfer_breed_type_info(self, breed, breed_type):
-	return breed_type in breed
+	if breed_type in breed:
+		if '/' in breed:
+			return 0.5
+		else:
+			return 1
+	else:
+		return 0
+	#return breed_type in breed
 
     def _transfer_breed_type_infos(self, origin_breed_info, breed_type):
 	has_breed = origin_breed_info.apply(self._transfer_breed_type_info, args=(breed_type,))
@@ -252,11 +259,11 @@ class SimpleModel(object):
     def _transfer_hour_info(self, animal_time):
 	s = time.strptime(animal_time, '%Y-%m-%d %H:%M:%S')
 	#return s.tm_hour
-	if 5 <= s.tm_hour < 11:
+	if 5 < s.tm_hour < 11:
 		return 'hour1'
-	elif 11 <= s.tm_hour < 16:
+	elif 10 < s.tm_hour < 16:
 		return 'hour2'
-	elif 16 <= s.tm_hour < 20:
+	elif 15 < s.tm_hour < 20:
 		return 'hour3'
 	else:
 		return 'hour4'
@@ -297,12 +304,8 @@ class SimpleModel(object):
 		data['EncodeWeekday'] = weekday 
 		data['EncodeHour'] = hour 
 		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome', 'Breed', 'Color']
-		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome', 'Breed']
-		drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome']
-	else:
-		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'SexuponOutcome', 'Breed', 'Color']
-		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'SexuponOutcome', 'Breed']
-		drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'SexuponOutcome']
+		drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome', 'Breed']
+		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome']
 
 	data['HasName'] = self._transfer_name_infos(data['Name'])
 	data['Sex'] = self._transfer_sex_infos(data['SexuponOutcome'])
@@ -312,8 +315,8 @@ class SimpleModel(object):
 	#data['Species'] = self._transfer_species_infos(data['Color'])
 	#data['NewColor'] = self._transfer_color_infos(data['Color'])
 	data['ColorMix'] = self._transfer_color_count_infos(data['Color'])
-	#for breed_type in total_breed:
-	#	data['Breed%s' % breed_type] = self._transfer_breed_type_infos(data['Breed'], breed_type)
+	for breed_type in total_breed:
+		data['Breed%s' % breed_type] = self._transfer_breed_type_infos(data['Breed'], breed_type)
 	#for color_type in total_color:
 	#	data['Color%s' % color_type] = self._transfer_color_type_infos(data['Color'], color_type)
 
@@ -510,8 +513,8 @@ class SimpleModel(object):
 				#	"colsample_bytree": [0.5, 0.7, 0.9]
 				#}
 				# xgboost parameter group3
-				param_grid = {"learning_rate": [0.1, 0.2, 0.3, 0.4, 0.5],
-					"n_estimators": [10, 20, 100, 200]
+				param_grid = {"learning_rate": [0.05, 0.1, 0.15, 0.2, 0.5],
+					"n_estimators": [50, 100, 250, 500]
 				}
 				# RF
 				#param_grid = {"max_depth": range(3, 100, 5),
@@ -596,7 +599,7 @@ class TsXgbClassifier(SimpleModel):
 
     def _get_model(self, animal, logger):
 	return XGBClassifier(learning_rate=0.1,
-		n_estimators=5,
+		n_estimators=100,
 		#silent=False,
 		max_depth=9,
 		min_child_weight=5,
