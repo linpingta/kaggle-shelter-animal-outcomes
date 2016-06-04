@@ -91,7 +91,8 @@ class SimpleModel(object):
 	    age_in_day = int(day_num) 
 
 	# manual split age
-	age_list = [0, 30, 90, 365 * 0.5, 365, 365 * 2, 365 * 5, 365 * 10]
+	#age_list = [0, 30, 90, 365 * 0.5, 365, 365 * 2, 365 * 5, 365 * 10]
+	age_list = [365]
 	for idx, start_age in enumerate(age_list):
 	    if age_in_day < start_age:
 		return 'age' + str(idx + 1)
@@ -106,17 +107,15 @@ class SimpleModel(object):
 	return new_age_info
 
     def _transfer_mix_info(self, breed):
-	#return 'Mix' if ('Mix' in breed or '/' in breed) else 'UnMix'
-	#return 'Mix' if ('Mix' in breed) else 'UnMix'
-	return len(breed.split('/')) + 1
+	return 'Mix' if ('Mix' in breed) else 'UnMix'
+	#return len(breed.split('/')) + 1
 
     def _transfer_mix_infos(self, origin_breed_info):
 	breed = origin_breed_info.apply(self._transfer_mix_info)
 	return breed
 
     def _transfer_color_count_info(self, color):
-	s = color.split('/')
-	return len(s) + 1
+	return len(color.split('/')) + 1
 
     def _transfer_color_count_infos(self, origin_color_info):
 	color_count = origin_color_info.apply(self._transfer_color_count_info)
@@ -141,15 +140,25 @@ class SimpleModel(object):
 	return species
 
     def _transfer_color_info(self, color):
+	#s = color.split(' ')
+	#if len(s) >= 2:
+	#	return s[0]
+	#else:
+	#	for backup_color in backup_color_list:
+	#		if backup_color in s[0]:
+	#			return s[0]
+	#	return color
+		
 	s = color.split(' ')
 	if len(s) >= 2:
 		return s[0]
-	else:
-		for backup_color in backup_color_list:
-			if backup_color in s[0]:
-				return s[0]
-		return color
-		
+
+	s = color.split('/')
+	if len(s) >= 2:
+		return s[0]
+	
+	return s
+
 	#color_list = []
 	#total_elem = []
 	#for elem in s:
@@ -182,12 +191,14 @@ class SimpleModel(object):
 	return has_breed
 
     def _transfer_breed_info(self, breed):
-	if 'Mix' in breed:
-		return breed.replace(' Mix', '')
-	elif '/' in breed:
-		return breed.split('/')[0]
-	else:
-		return breed
+	#if 'Mix' in breed:
+	#	return breed.replace(' Mix', '')
+	#elif '/' in breed:
+	#	return breed.split('/')[0]
+	#else:
+	#	return breed
+	breed = breed.replace(' Mix', '')
+	return breed.split('/')[0]
 
     def _transfer_breed_infos(self, origin_breed_info):
 	breed = origin_breed_info.apply(self._transfer_breed_info)
@@ -228,7 +239,7 @@ class SimpleModel(object):
 		return False
 	else:
 		return True
-	#return len(name)
+	#return len(name) > 0
 
     def _transfer_name_infos(self, origin_name_info):
 	#print 'origin_name_info', origin_name_info
@@ -245,20 +256,20 @@ class SimpleModel(object):
 
     def _transfer_weekday_info(self, animal_time):
 	s = time.strptime(animal_time, '%Y-%m-%d %H:%M:%S')
-	#return s.tm_wday
-	if 5 <= s.tm_wday <= 6:
-		return 'weekend'
-	else:
-		return 'weekday'
+	return s.tm_wday
+	#if 5 <= s.tm_wday <= 6:
+	#	return 'weekend'
+	#else:
+	#	return 'weekday'
 
     def _transfer_hour_info(self, animal_time):
 	s = time.strptime(animal_time, '%Y-%m-%d %H:%M:%S')
 	#return s.tm_hour
-	if 5 < s.tm_hour < 11:
+	if 5 <= s.tm_hour < 11:
 		return 'hour1'
-	elif 10 < s.tm_hour < 16:
+	elif 11 <= s.tm_hour < 16:
 		return 'hour2'
-	elif 15 < s.tm_hour < 20:
+	elif 16 <= s.tm_hour < 20:
 		return 'hour3'
 	else:
 		return 'hour4'
@@ -299,8 +310,8 @@ class SimpleModel(object):
 		data['EncodeWeekday'] = weekday 
 		data['EncodeHour'] = hour 
 		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome', 'Breed', 'Color']
-		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome', 'Breed']
-		drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome']
+		drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome', 'Breed']
+		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome']
 	else:
 		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'SexuponOutcome', 'Breed', 'Color']
 		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'SexuponOutcome', 'Breed']
@@ -310,7 +321,7 @@ class SimpleModel(object):
 	data['Sex'] = self._transfer_sex_infos(data['SexuponOutcome'])
 	data['Intact'] = self._transfer_intact_infos(data['SexuponOutcome'])
 	data['IsMix'] = self._transfer_mix_infos(data['Breed'])
-	#data['NewBreed'] = self._transfer_breed_infos(data['Breed'])
+	data['NewBreed'] = self._transfer_breed_infos(data['Breed'])
 	#data['Species'] = self._transfer_species_infos(data['Color'])
 	#data['NewColor'] = self._transfer_color_infos(data['Color'])
 	data['ColorMix'] = self._transfer_color_count_infos(data['Color'])
@@ -338,7 +349,9 @@ class SimpleModel(object):
     def _get_grid_search_model(self, logger):
 	return None
 
-    def _transfer_test_data(self, cleaned_test_data, animal_dict, logger):
+    def _transfer_test_data(self, cleaned_test_data, animal_dict, total_info, logger):
+	total_breed = total_info[0]
+	total_color = total_info[1]
 	test_x = cleaned_test_data.T.to_dict().values()
 	encode_test_y = []
 	for test_xx in test_x:
@@ -362,7 +375,7 @@ class SimpleModel(object):
 			new_test_xx['EncodeAgeuponOutcome'] = self._transfer_age_info(test_xx['AgeuponOutcome'])
 			new_test_xx['EncodeYear'] = self._transfer_year_info(test_xx['DateTime'])
 			new_test_xx['EncodeMonth'] = self._transfer_month_info(test_xx['DateTime'])
-			#new_test_xx['EncodeWeekday'] = self._transfer_weekday_info(test_xx['DateTime'])
+			new_test_xx['EncodeWeekday'] = self._transfer_weekday_info(test_xx['DateTime'])
 			new_test_xx['EncodeHour'] = self._transfer_hour_info(test_xx['DateTime'])
 			remove_attributes = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome']
 			#remove_attributes = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome', 'Breed', 'Color']
@@ -378,7 +391,11 @@ class SimpleModel(object):
 		#new_test_xx['Species'] = self._transfer_species_info(test_xx['Color'])
 		#new_test_xx['NewColor'] = self._transfer_color_info(test_xx['Color'])
 		new_test_xx['ColorMix'] = self._transfer_color_count_info(test_xx['Color'])
-
+#		for breed_type in total_breed:
+#			new_test_xx['Breed%s' % breed_type] = self._transfer_breed_type_info(test_xx['Breed'], breed_type)
+#		for color_type in total_color:
+#			new_test_xx['Color%s' % color_type] = self._transfer_color_type_info(test_xx['Color'], color_type)
+#
 		for remove_attribute in remove_attributes:
 			new_test_xx.pop(remove_attribute, None)
 		#print new_test_xx
@@ -482,7 +499,7 @@ class SimpleModel(object):
 
 		# split data based on animal type
 		for animal in animals:
-			print animal
+			print animal, 'train'
 			#if animal == 'Cat':
 			#   continue
 			#print cleaned_train_data[cleaned_train_data['AnimalType']==animal]
@@ -497,21 +514,34 @@ class SimpleModel(object):
 				# search momdel
 				print 'search parameter'
 				clf = self._get_grid_search_model(animal, logger)
-				param_grid = {"max_depth": range(3, 100, 5),
-				      "max_features": [1, 3, 10],
-				      "min_samples_split": [1, 3, 10],
-				      "min_samples_leaf": [1, 3, 10],
-				      "criterion": ["gini", "entropy"]}
+				# xgboost parameter group1
+				#param_grid = {"max_depth": range(3,10,2),
+				#	'min_child_weight':range(1,6,2),
+				#}
+				# xgboost parameter group2
+				#param_grid = {"subsample": [0.5, 0.7, 0.9],
+				#	"colsample_bytree": [0.5, 0.7, 0.9]
+				#}
+				# xgboost parameter group3
+				param_grid = {"learning_rate": [0.1, 0.2, 0.3, 0.4, 0.5],
+					"n_estimators": [10, 20, 100, 200]
+				}
+				# RF
+				#param_grid = {"max_depth": range(3, 100, 5),
+				#      "max_features": [1, 3, 10],
+				#      "min_samples_split": [1, 3, 10],
+				#      "min_samples_leaf": [1, 3, 10],
+				#      "criterion": ["gini", "entropy"]}
 				grid_search = GridSearchCV(clf, scoring="log_loss", param_grid=param_grid)
 				grid_search.fit(train_x, train_y)
 				self.report(grid_search.grid_scores_, 3, logger)
 			else:
 				print 'train model'
 				# select model
-				clf = self._get_model(animal, logger)
-				clf.fit(train_x, train_y)
 				#clf = self._get_model(animal, logger)
-				#clf.fit(train_x, train_y, eval_metric='mlogloss')
+				#clf.fit(train_x, train_y)
+				clf = self._get_model(animal, logger)
+				clf.fit(train_x, train_y, eval_metric='mlogloss')
 				if not clf:
 				    logger.error('model not defined, no more train, quit')
 				    return
@@ -537,7 +567,7 @@ class SimpleModel(object):
 				if self.do_validate:
 					scores = cross_validation.cross_val_score(clf, train_x, train_y, pre_dispatch=1, scoring='log_loss')
 					print 'accrucy mean %0.2f +/- %0.2f' % (scores.mean(), scores.std()*2)
-					logger.debug('ainmal %s accrucy mean %0.2f +/- %0.2f' % (animal, scores.mean(), scores.std()*2))
+					logger.info('animal %s accrucy mean %0.2f +/- %0.2f' % (animal, scores.mean(), scores.std()*2))
 	else:
 		for animal in animals:
 			clf = joblib.load(self.model_filename)
@@ -557,7 +587,8 @@ class SimpleModel(object):
 		    3:'Return_to_owner',
 		    4:'Transfer'
 		}
-		encode_test_y = self._transfer_test_data(cleaned_test_data, animal_dict, logger)
+		print 'test'
+		encode_test_y = self._transfer_test_data(cleaned_test_data, animal_dict, total_info, logger)
     		output_y_list = self._output_y(encode_test_y, position_match_dict, logger)
 		output_y = pd.DataFrame(output_y_list)
 		output_y.index += 1
@@ -568,16 +599,25 @@ class TsXgbClassifier(SimpleModel):
     def __init__(self, conf):
 	super(TsXgbClassifier, self).__init__(conf)
 
-	self.max_depth_num = conf.getint('xgb_classifier', 'max_depth_num')
+    def _get_grid_search_model(self, animal, logger):
+	return XGBClassifier(learning_rate=0.1, 
+		n_estimators=45,
+		max_depth=9,
+		subsample=0.7,
+		colsample_bytree=0.9,
+		min_child_weight=5)
 
     def _get_model(self, animal, logger):
 	return XGBClassifier(learning_rate=0.1,
-		max_depth=6,
-		min_child_weight=1,
-		subsample=0.75,
-		colsample_bytree=0.85,
+		n_estimators=45,
+		#silent=False,
+		max_depth=9,
+		min_child_weight=5,
+		subsample=0.7,
+		colsample_bytree=0.9,
+		#seed=121,
 		objective='multi:softprob',
-		seed=121)
+	)
 
 
 class TsRandomForestClassfier(SimpleModel):
@@ -592,7 +632,6 @@ class TsRandomForestClassfier(SimpleModel):
 	self.dog_max_depth_num = conf.getint('random_forest_classifier', 'dog_max_depth_num')
 
     def _get_model(self, animal, logger):
-	#return RandomForestClassifier(n_estimators=10, max_features=10, min_samples_split=10, max_depth=15, min_samples_leaf=1, bootstrap=True)
 	
 	if animal == 'Cat':
 		return RandomForestClassifier(n_estimators=self.cat_sub_tree_num, max_depth=self.cat_max_depth_num)
@@ -634,6 +673,7 @@ if __name__ == '__main__':
     logger = logging.getLogger('simple_test')
 
     now = time.localtime()
-    TsRandomForestClassfier(conf).run(now, logger)
+    #TsRandomForestClassfier(conf).run(now, logger)
+    TsXgbClassifier(conf).run(now, logger)
 
 
