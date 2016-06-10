@@ -37,6 +37,7 @@ class SimpleModel(object):
 	self.model_filename = conf.get('simple_model', 'model_filename')
 	self.vc_filename = conf.get('simple_model', 'vc_filename')
 	self.le_filename = conf.get('simple_model', 'le_filename')
+	self.intake_filename = conf.get('simple_model', 'intake_filename')
 	self.do_train = conf.getboolean('simple_model', 'do_train')
 	self.do_search_parameter = conf.getboolean('simple_model', 'do_search_parameter')
 	self.do_validate = conf.getboolean('simple_model', 'do_validate')
@@ -168,13 +169,27 @@ class SimpleModel(object):
 	return color
 
     def _transfer_color_type_info(self, color, color_type):
-	return color_type in color
+	if color_type in color:
+		if ' ' in color:
+			return 0.5
+		else:
+			return 1
+	else:
+		return 0
+	#return color_type in color
 
     def _transfer_color_type_infos(self, origin_color_info, color_type):
 	has_color = origin_color_info.apply(self._transfer_color_type_info, args=(color_type,))
 	return has_color
 
     def _transfer_breed_type_info(self, breed, breed_type):
+	#if breed_type in breed:
+	#	if '/' in breed:
+	#		return 0.5
+	#	else:
+	#		return 1
+	#else:
+	#	return 0
 	return breed_type in breed
 
     def _transfer_breed_type_infos(self, origin_breed_info, breed_type):
@@ -211,7 +226,8 @@ class SimpleModel(object):
 	if sex is np.nan:
 		return 'Unknown'
 
-	choices = ['Intact', 'Neutered', 'Spayed']
+	#choices = ['Intact', 'Neutered', 'Spayed']
+	choices = ['Intact']
 	for choice in choices:
 		if choice in sex:
 			return choice
@@ -271,6 +287,43 @@ class SimpleModel(object):
 	new_hour_info = origin_time_info.apply(self._transfer_hour_info)
 	return (new_year_info, new_month_info, new_weekday_info, new_hour_info)
 
+    def _transfer_intake_location(self, animal_id, intake_df):
+	animal_info = intake_df[intake_df['Animal ID'] == animal_id]
+	if not animal_info.empty:
+		return animal_info['Found Location']
+	else:
+		return 'Unknown'
+
+    def _transfer_intake_type(self, animal_id, intake_df):
+	animal_info = intake_df[intake_df['Animal ID'] == animal_id]
+	animal_intake_type_setting = ['Euthanasia Request', 'Owner Surrender', 'Public Assist', 'Stray', 'Wildlife']
+	if animal_info.empty:
+		return 'Unknown'
+	animal_intake_type = animal_info['Intake Type'].values[0].strip()
+	#print animal_intake_type
+	if animal_intake_type in animal_intake_type_setting:
+		return animal_intake_type
+	else:
+		return 'Unknown'
+
+    def _transfer_intake_condition(self, animal_id, intake_df):
+	animal_info = intake_df[intake_df['Animal ID'] == animal_id]
+	animal_intake_condition_setting = ['Aged', 'Feral', 'Injured', 'Normal', 'Nursing', 'Other', 'Pregnant', 'Sick']
+	if animal_info.empty:
+		return 'Unknown'
+	animal_intake_condition = animal_info['Intake Condition'].values[0].strip()
+	#print animal_intake_condition
+	if animal_intake_condition in animal_intake_condition_setting:
+		return animal_intake_condition
+	else:
+		return 'Unknown'
+
+    def _transfer_intake_infos(self, origin_animal_info, intake_df):
+	intake_location = origin_animal_info.apply(self._transfer_intake_location, args=(intake_df,))
+	intake_type = origin_animal_info.apply(self._transfer_intake_type, args=(intake_df,))
+	intake_condition = origin_animal_info.apply(self._transfer_intake_condition, args=(intake_df,))
+	return (intake_location, intake_type, intake_condition)
+
     def _encode_y(self, y, logger):
 	le_y = LabelEncoder()
 	le_y.fit(y)
@@ -281,6 +334,7 @@ class SimpleModel(object):
 	''' extract data from DataFrame'''
 	total_breed = total_info[0]
 	total_color = total_info[1]
+	intake_df = total_info[2]
 
 	# encode y
 	(encode_y, le_y) = self._encode_y(data['OutcomeType'].values,logger)
@@ -299,12 +353,8 @@ class SimpleModel(object):
 		data['EncodeWeekday'] = weekday 
 		data['EncodeHour'] = hour 
 		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome', 'Breed', 'Color']
-		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome', 'Breed']
-		drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome']
-	else:
-		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'SexuponOutcome', 'Breed', 'Color']
-		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'SexuponOutcome', 'Breed']
-		drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'SexuponOutcome']
+		drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome', 'Breed']
+		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome']
 
 	data['HasName'] = self._transfer_name_infos(data['Name'])
 	data['Sex'] = self._transfer_sex_infos(data['SexuponOutcome'])
@@ -314,10 +364,15 @@ class SimpleModel(object):
 	#data['Species'] = self._transfer_species_infos(data['Color'])
 	#data['NewColor'] = self._transfer_color_infos(data['Color'])
 	data['ColorMix'] = self._transfer_color_count_infos(data['Color'])
-	#for breed_type in total_breed:
-	#	data['Breed%s' % breed_type] = self._transfer_breed_type_infos(data['Breed'], breed_type)
+	for breed_type in total_breed:
+		data['Breed%s' % breed_type] = self._transfer_breed_type_infos(data['Breed'], breed_type)
 	#for color_type in total_color:
 	#	data['Color%s' % color_type] = self._transfer_color_type_infos(data['Color'], color_type)
+	#(intake_type, intake_condition) = self._transfer_intake_infos(data['AnimalID'], intake_df)
+	(found_location, intake_type, intake_condition) = self._transfer_intake_infos(data['AnimalID'], intake_df)
+	#data['FoundLocation'] = found_location
+	data['IntakeType'] = intake_type
+	data['IntakeCondition'] = intake_condition
 
 	#print np.isnan(data.any())
 	#print np.isfinite(data.all())
@@ -378,6 +433,9 @@ class SimpleModel(object):
 		#new_test_xx['Species'] = self._transfer_species_info(test_xx['Color'])
 		#new_test_xx['NewColor'] = self._transfer_color_info(test_xx['Color'])
 		new_test_xx['ColorMix'] = self._transfer_color_count_info(test_xx['Color'])
+		#new_test_xx['FoundLocation'] = self._transfer_intake_location(test_xx['AnimalID'], intake_df)
+		new_test_xx['IntakeType'] = self._transfer_intake_type(test_xx['AnimalID'], intake_df)
+		new_test_xx['IntakeCondition'] = self._transfer_intake_condition(test_xx['AnimalID'], intake_df)
 
 		for remove_attribute in remove_attributes:
 			new_test_xx.pop(remove_attribute, None)
@@ -468,15 +526,16 @@ class SimpleModel(object):
 	train_color = cleaned_train_data['Color'].unique()
 	new_train_color = []
 	for color in train_color:
-		tmp_color = color.replace(' Mix', '')
-		new_train_color.extend(tmp_color.split('/'))
+		new_train_color.extend(color.split(' '))
 	test_color = cleaned_test_data['Color'].unique()
 	new_test_color = []
 	for color in test_color:
-		tmp_color = color.replace(' Mix', '')
-		new_test_color.extend(tmp_color.split('/'))
+		new_train_color.extend(color.split(' '))
 	total_color = list(set(new_train_color) | set(new_test_color))
 	total_info.append(total_color)
+
+	intake_df = self._load_csv_data(self.intake_filename, logger)
+	total_info.append(intake_df)
 
 	if self.do_train:
 
