@@ -584,19 +584,20 @@ class SimpleModel(object):
 				joblib.dump(clf, '.'.join([self.model_filename,animal]))
 				joblib.dump(vectorizer_x, '.'.join([self.vc_filename,animal]))
 				joblib.dump(le_y, '.'.join([self.le_filename,animal]))
-				if self.store_model:
-					postfix_time = time.strftime('%Y%m%d%H%M', now)
-					model_postfix_filename = '.'.join([self.model_filename, animal, str(postfix_time)])
-					joblib.dump(clf, model_postfix_filename)
-					vc_postfix_filename = '.'.join([self.vc_filename, animal, str(postfix_time)])
-					joblib.dump(vectorizer_x, vc_postfix_filename)
-					le_postfix_filename = '.'.join([self.le_filename, animal, str(postfix_time)])
-					joblib.dump(le_y, le_postfix_filename)
-
 				if self.do_validate:
 					scores = cross_validation.cross_val_score(clf, train_x, train_y, pre_dispatch=1, scoring='log_loss')
 					print 'accrucy mean %0.2f +/- %0.2f' % (scores.mean(), scores.std()*2)
 					logger.debug('ainmal %s accrucy mean %0.2f +/- %0.2f' % (animal, scores.mean(), scores.std()*2))
+
+					if self.store_model:
+						postfix_time = time.strftime('%Y%m%d%H%M', now)
+						score_info = str(scores.mean())
+						model_postfix_filename = '.'.join([self.model_filename, animal, str(postfix_time), score_info])
+						joblib.dump(clf, model_postfix_filename)
+						vc_postfix_filename = '.'.join([self.vc_filename, animal, str(postfix_time), score_info])
+						joblib.dump(vectorizer_x, vc_postfix_filename)
+						le_postfix_filename = '.'.join([self.le_filename, animal, str(postfix_time), score_info])
+						joblib.dump(le_y, le_postfix_filename)
 	else:
 		for animal in animals:
 			clf = joblib.load('.'.join([self.model_filename, animal]))
