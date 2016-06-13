@@ -599,9 +599,9 @@ class SimpleModel(object):
 					logger.debug('ainmal %s accrucy mean %0.2f +/- %0.2f' % (animal, scores.mean(), scores.std()*2))
 	else:
 		for animal in animals:
-			clf = joblib.load(self.model_filename)
-			vectorizer_x = joblib.load(self.vc_filename)
-			le_y = joblib.load(self.le_filename)
+			clf = joblib.load('.'.join([self.model_filename, animal]))
+			vectorizer_x = joblib.load('.'.join([self.vc_filename, animal]))
+			le_y = joblib.load('.'.join([self.le_filename, animal]))
 
 			animal_dict[animal] = {'clf': clf,
 			    'vectorizer_x': vectorizer_x,

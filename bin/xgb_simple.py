@@ -564,9 +564,9 @@ class SimpleModel(object):
 				print 'search parameter'
 				clf = self._get_grid_search_model(animal, logger)
 				# xgboost parameter group1
-				param_grid = {"max_depth": range(9,15,2),
-					'min_child_weight':range(5,10,2),
-				}
+				#param_grid = {"max_depth": range(9,15,2),
+				#	'min_child_weight':range(5,10,2),
+				#}
 				# xgboost parameter group2
 				#param_grid = {"subsample": [0.5, 0.7, 0.9],
 				#	"colsample_bytree": [0.5, 0.7, 0.9]
@@ -576,6 +576,16 @@ class SimpleModel(object):
 				#	"n_estimators": [100, 250, 500],
 				#	#"max_depth": range(7,15,2),
 				#}
+				# xgboost parameter group1
+				#param_grid = {
+				#	'min_child_weight':range(1,5,2),
+				#}
+				# xgboost parameter group1
+				#param_grid = {"learning_rate": [0.03, 0.04, 0.05],
+				#}
+				param_grid = {
+					"n_estimators": [40, 60, 80],
+				}
 				# RF
 				#param_grid = {"max_depth": range(3, 100, 5),
 				#      "max_features": [1, 3, 10],
@@ -620,9 +630,9 @@ class SimpleModel(object):
 					logger.info('animal %s accrucy mean %0.2f +/- %0.2f' % (animal, scores.mean(), scores.std()*2))
 	else:
 		for animal in animals:
-			clf = joblib.load(self.model_filename)
-			vectorizer_x = joblib.load(self.vc_filename)
-			le_y = joblib.load(self.le_filename)
+			clf = joblib.load('.'.join([self.model_filename, animal]))
+			vectorizer_x = joblib.load('.'.join([self.vc_filename, animal]))
+			le_y = joblib.load('.'.join([self.le_filename, animal]))
 
 			animal_dict[animal] = {'clf': clf,
 			    'vectorizer_x': vectorizer_x,
@@ -651,20 +661,20 @@ class TsXgbClassifier(SimpleModel):
 
     def _get_grid_search_model(self, animal, logger):
 	return XGBClassifier(
-		learning_rate=0.03,
-		n_estimators=200,
-		#max_depth=9,
+		learning_rate=0.04,
+		#n_estimators=200,
+		max_depth=11,
 		subsample=0.75,
 		colsample_bytree=0.85,
-		#min_child_weight=5
+		min_child_weight=3
 		)
 
     def _get_model(self, animal, logger):
 	return XGBClassifier(learning_rate=0.03,
 		n_estimators=200,
 		#silent=False,
-		max_depth=9,
-		min_child_weight=7,
+		max_depth=11,
+		min_child_weight=3,
 		subsample=0.75,
 		colsample_bytree=0.85,
 		seed=121,
