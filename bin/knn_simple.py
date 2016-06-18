@@ -565,7 +565,10 @@ class SimpleModel(object):
 				print 'search parameter'
 				clf = self._get_grid_search_model(animal, logger)
 				param_grid = {
-					"n_neighbors": [3, 5, 7]
+					"n_neighbors": [130, 150, 170]
+					#"leaf_size": [10, 20, 30, 40],
+					#"algorithm": ['ball_tree', 'kd_tree', 'auto']
+					#"algorithm": ['ball_tree', 'kd_tree', 'brute', 'auto']
 				}
 				grid_search = GridSearchCV(clf, scoring="log_loss", param_grid=param_grid)
 				grid_search.fit(train_x, train_y)
@@ -637,7 +640,8 @@ class TsKNNClassifier(SimpleModel):
 	super(TsKNNClassifier, self).__init__(conf)
 
     def _get_grid_search_model(self, animal, logger):
-	return KNeighborsClassifier(n_neighbors=5)
+	return KNeighborsClassifier(n_neighbors=150,
+		leaf_size=10)
 
     def _get_model(self, animal, logger):
 	return KNeighborsClassifier(n_neighbors=5)

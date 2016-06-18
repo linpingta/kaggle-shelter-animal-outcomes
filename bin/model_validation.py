@@ -21,8 +21,11 @@ from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.preprocessing import LabelEncoder
 from sklearn.feature_extraction import DictVectorizer as DV
 from sklearn.externals import joblib
+from sklearn import metrics
 from sklearn import cross_validation
 from sklearn.grid_search import GridSearchCV, RandomizedSearchCV
+from sklearn.cross_validation import KFold
+
 
 backup_color_list = ['White', 'Green', 'Blue', 'Black', 'Pink', 'Red', 'Brown', 'Orange', 'Yellow', 'Silver', 'Gold', 'Gray', 'Tan']
 
@@ -549,9 +552,6 @@ class SimpleModel(object):
 		# split data based on animal type
 		for animal in animals:
 			print animal, 'train'
-			#if animal == 'Cat':
-			#   continue
-			#print cleaned_train_data[cleaned_train_data['AnimalType']==animal]
 			# transfer to model format
 			if animal == 'All':
 				animal_train_data = cleaned_train_data.copy()
@@ -563,53 +563,35 @@ class SimpleModel(object):
 				# search momdel
 				print 'search parameter'
 				clf = self._get_grid_search_model(animal, logger)
-				# xgboost parameter group1
-				#param_grid = {"max_depth": range(9,15,2),
-				#	'min_child_weight':range(5,10,2),
-				#}
-				# xgboost parameter group2
-				#param_grid = {"subsample": [0.5, 0.7, 0.9],
-				#	"colsample_bytree": [0.5, 0.7, 0.9]
-				#}
-				# xgboost parameter group3
-				#param_grid = {"learning_rate": [0.05, 0.1, 0.15, 0.2, 0.5],
-				#	"n_estimators": [100, 250, 500],
-				#	#"max_depth": range(7,15,2),
-				#}
-				# xgboost parameter group1
-				#param_grid = {
-				#	'min_child_weight':range(1,5,2),
-				#}
-				# xgboost parameter group1
-				#param_grid = {"learning_rate": [0.03, 0.04, 0.05],
-				#}
 				param_grid = {
 					"colsample_bytree": [0.7, 0.8, 0.9]
 				}
-				# RF
-				#param_grid = {"max_depth": range(3, 100, 5),
-				#      "max_features": [1, 3, 10],
-				#      "min_samples_split": [1, 3, 10],
-				#      "min_samples_leaf": [1, 3, 10],
-				#      "criterion": ["gini", "entropy"]}
 				grid_search = GridSearchCV(clf, scoring="log_loss", param_grid=param_grid)
 				grid_search.fit(train_x, train_y)
 				self.report(grid_search.grid_scores_, 3, logger)
 			else:
-				print 'train model'
+				print train_y
 				clf_dict = self._get_models(animal, logger)
 
 				if self.do_validate:
-					n = len(train_y)
-					kf = KFold(n)
-					for train_idx, test_idx in kf:
-						X_train, X_test = train_x[train_idx], train_x[test_idx]
-						y_train, y_test = train_y[train_idx], train_x[test_idx]
-						for clf_name, clf in clf_dict.iteritems():
-							clf.fit(X_train, y_train)
-							score = clf.score(X_test, y_test)
-							print score
-							logger.info('animal %s clf_name %s score %s' % (animal, clf_name, str(score)))
+					clf_weight = {'rf_classifier': 0.5, 'xgb_classifier': 0.5}
+					total_predicted = 0
+					for clf_name, clf in clf_dict.iteritems():
+						if clf_name not in clf_weight:
+							continue
+						clf_predicted = cross_validation.cross_val_predict(clf, train_x, train_y)
+						total_predicted = total_predicted + clf_predicted * clf_weight[clf_name]
+						print type(total_predicted)
+					try:
+						print 'total_predicted', total_predicted
+						print train_y
+						total_score = metrics.accuracy_score(train_y, total_predicted)
+						print total_score
+					except Exception as e:
+						logger.exception(e)
+					else:
+						logger.info('animal[%s] total_score %s' % (animal, str(total_score)))
+						
 	else:
 		for animal in animals:
 			clf = joblib.load('.'.join([self.model_filename, animal]))
@@ -713,7 +695,7 @@ class TsMultiModelClassifier(SimpleModel):
 
     def _get_models(self, animal, logger):
 	rf_classifier = RandomForestClassifier(n_estimators=self.sub_tree_num, max_depth=self.max_depth_num)
-	 xgb_classifier = XGBClassifier(learning_rate=0.03,
+	xgb_classifier = XGBClassifier(learning_rate=0.03,
 		n_estimators=200,
 		#silent=False,
 		max_depth=11,
@@ -724,9 +706,10 @@ class TsMultiModelClassifier(SimpleModel):
 		objective='multi:softprob',
 	)
 	clf_name_dict =  { 
-		'randomforest': rf_classifier,
-		'xgb': xgb_classifier
+		'rf_classifier': rf_classifier,
+		'xgb_classifier': xgb_classifier
 	}
+	return clf_name_dict
 
 
 if __name__ == '__main__':
@@ -743,7 +726,6 @@ if __name__ == '__main__':
     logger = logging.getLogger('simple_test')
 
     now = time.localtime()
-    #TsRandomForestClassfier(conf).run(now, logger)
-    TsXgbClassifier(conf).run(now, logger)
+    TsMultiModelClassifier(conf).run(now, logger)
 
 
