@@ -1,0 +1,2111 @@
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:35:49;INFO] model external_loader loads [/home/chutong/model_trainer/data/train.csv]
+[csv_loader.py:22 - load Thu, 30 Jun 2016 19:35:49;ERROR] File /home/chutong/model_trainer/data/train.csv does not exist
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/external_loader/csv_loader.py", line 20, in load
+    return pd.read_csv(filename)
+  File "/usr/lib/python2.7/dist-packages/pandas/io/parsers.py", line 420, in parser_f
+    return _read(filepath_or_buffer, kwds)
+  File "/usr/lib/python2.7/dist-packages/pandas/io/parsers.py", line 218, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/usr/lib/python2.7/dist-packages/pandas/io/parsers.py", line 502, in __init__
+    self._make_engine(self.engine)
+  File "/usr/lib/python2.7/dist-packages/pandas/io/parsers.py", line 610, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/usr/lib/python2.7/dist-packages/pandas/io/parsers.py", line 972, in __init__
+    self._reader = _parser.TextReader(src, **kwds)
+  File "parser.pyx", line 330, in pandas.parser.TextReader.__cinit__ (pandas/parser.c:3200)
+  File "parser.pyx", line 557, in pandas.parser.TextReader._setup_parser_source (pandas/parser.c:5559)
+IOError: File /home/chutong/model_trainer/data/train.csv does not exist
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:35:49;INFO] model external_loader loads [/home/chutong/model_trainer/data/test.csv]
+[csv_loader.py:22 - load Thu, 30 Jun 2016 19:35:49;ERROR] File /home/chutong/model_trainer/data/test.csv does not exist
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/external_loader/csv_loader.py", line 20, in load
+    return pd.read_csv(filename)
+  File "/usr/lib/python2.7/dist-packages/pandas/io/parsers.py", line 420, in parser_f
+    return _read(filepath_or_buffer, kwds)
+  File "/usr/lib/python2.7/dist-packages/pandas/io/parsers.py", line 218, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/usr/lib/python2.7/dist-packages/pandas/io/parsers.py", line 502, in __init__
+    self._make_engine(self.engine)
+  File "/usr/lib/python2.7/dist-packages/pandas/io/parsers.py", line 610, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/usr/lib/python2.7/dist-packages/pandas/io/parsers.py", line 972, in __init__
+    self._reader = _parser.TextReader(src, **kwds)
+  File "parser.pyx", line 330, in pandas.parser.TextReader.__cinit__ (pandas/parser.c:3200)
+  File "parser.pyx", line 557, in pandas.parser.TextReader._setup_parser_source (pandas/parser.c:5559)
+IOError: File /home/chutong/model_trainer/data/test.csv does not exist
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:36:49;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:36:49;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:38:03;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:38:03;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:38:40;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:38:40;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Thu, 30 Jun 2016 19:38:40;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Thu, 30 Jun 2016 19:38:40;DEBUG] test_data shape (11456, 8)
+[base_model.py:199 - run Thu, 30 Jun 2016 19:38:40;INFO] load trained model...
+[base_model.py:201 - run Thu, 30 Jun 2016 19:38:40;INFO] splited_key[all] load trained model
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:39:23;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:39:23;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Thu, 30 Jun 2016 19:39:23;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Thu, 30 Jun 2016 19:39:23;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Thu, 30 Jun 2016 19:39:23;INFO] do model train...
+[base_model.py:173 - run Thu, 30 Jun 2016 19:39:23;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:39:37;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:39:37;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Thu, 30 Jun 2016 19:39:37;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Thu, 30 Jun 2016 19:39:37;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Thu, 30 Jun 2016 19:39:37;INFO] do model train...
+[base_model.py:173 - run Thu, 30 Jun 2016 19:39:37;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:39:50;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:39:50;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Thu, 30 Jun 2016 19:39:50;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Thu, 30 Jun 2016 19:39:50;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Thu, 30 Jun 2016 19:39:50;INFO] do model train...
+[base_model.py:173 - run Thu, 30 Jun 2016 19:39:50;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:39:59;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:39:59;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Thu, 30 Jun 2016 19:39:59;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Thu, 30 Jun 2016 19:39:59;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Thu, 30 Jun 2016 19:39:59;INFO] do model train...
+[base_model.py:173 - run Thu, 30 Jun 2016 19:39:59;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:40:18;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:40:18;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Thu, 30 Jun 2016 19:40:18;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Thu, 30 Jun 2016 19:40:18;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Thu, 30 Jun 2016 19:40:18;INFO] do model train...
+[base_model.py:173 - run Thu, 30 Jun 2016 19:40:18;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:40:23;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:40:23;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Thu, 30 Jun 2016 19:40:23;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Thu, 30 Jun 2016 19:40:23;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Thu, 30 Jun 2016 19:40:23;INFO] do model train...
+[base_model.py:173 - run Thu, 30 Jun 2016 19:40:23;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:40:39;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:40:40;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Thu, 30 Jun 2016 19:40:40;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Thu, 30 Jun 2016 19:40:40;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Thu, 30 Jun 2016 19:40:40;INFO] do model train...
+[base_model.py:173 - run Thu, 30 Jun 2016 19:40:40;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:40:50;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:40:50;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Thu, 30 Jun 2016 19:40:50;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Thu, 30 Jun 2016 19:40:50;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Thu, 30 Jun 2016 19:40:50;INFO] do model train...
+[base_model.py:173 - run Thu, 30 Jun 2016 19:40:50;INFO] splited_key[all] transfer origin data
+[base_model.py:180 - run Thu, 30 Jun 2016 19:40:56;INFO] splited_key[all] do train
+[base_model.py:183 - run Thu, 30 Jun 2016 19:40:56;ERROR] splited_key[all] model not defined
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:42:05;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Thu, 30 Jun 2016 19:42:05;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Thu, 30 Jun 2016 19:42:05;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Thu, 30 Jun 2016 19:42:05;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Thu, 30 Jun 2016 19:42:05;INFO] do model train...
+[base_model.py:173 - run Thu, 30 Jun 2016 19:42:05;INFO] splited_key[all] transfer origin data
+[base_model.py:175 - run Thu, 30 Jun 2016 19:42:10;DEBUG] train_x.shape (26729, 306)
+[base_model.py:176 - run Thu, 30 Jun 2016 19:42:10;DEBUG] train_y.shape (26729,)
+[base_model.py:182 - run Thu, 30 Jun 2016 19:42:10;INFO] splited_key[all] do train
+[base_model.py:185 - run Thu, 30 Jun 2016 19:42:10;ERROR] splited_key[all] model not defined
+[base_model.py:64 - _load_and_clean_data Fri, 01 Jul 2016 13:19:39;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Fri, 01 Jul 2016 13:19:39;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Fri, 01 Jul 2016 13:19:39;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Fri, 01 Jul 2016 13:19:39;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Fri, 01 Jul 2016 13:19:39;INFO] do model train...
+[base_model.py:173 - run Fri, 01 Jul 2016 13:19:39;INFO] splited_key[all] transfer origin data
+[base_model.py:175 - run Fri, 01 Jul 2016 13:19:45;DEBUG] train_x.shape (26729, 306)
+[base_model.py:176 - run Fri, 01 Jul 2016 13:19:45;DEBUG] train_y.shape (26729,)
+[base_model.py:182 - run Fri, 01 Jul 2016 13:19:45;INFO] splited_key[all] do train
+[base_model.py:64 - _load_and_clean_data Fri, 01 Jul 2016 13:20:38;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Fri, 01 Jul 2016 13:20:38;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Fri, 01 Jul 2016 13:20:38;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Fri, 01 Jul 2016 13:20:38;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Fri, 01 Jul 2016 13:20:38;INFO] do model train...
+[base_model.py:173 - run Fri, 01 Jul 2016 13:20:38;INFO] splited_key[all] transfer origin data
+[base_model.py:175 - run Fri, 01 Jul 2016 13:20:44;DEBUG] train_x.shape (26729, 306)
+[base_model.py:176 - run Fri, 01 Jul 2016 13:20:44;DEBUG] train_y.shape (26729,)
+[base_model.py:182 - run Fri, 01 Jul 2016 13:20:44;INFO] splited_key[all] do train
+[base_model.py:188 - run Fri, 01 Jul 2016 13:20:44;DEBUG] splited_key[all] fit data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:18:40;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:18:40;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Sat, 02 Jul 2016 19:18:40;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Sat, 02 Jul 2016 19:18:40;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Sat, 02 Jul 2016 19:18:40;INFO] do model train...
+[base_model.py:173 - run Sat, 02 Jul 2016 19:18:40;INFO] splited_key[all] transfer origin data
+[base_model.py:175 - run Sat, 02 Jul 2016 19:18:46;DEBUG] train_x.shape (26729, 306)
+[base_model.py:176 - run Sat, 02 Jul 2016 19:18:46;DEBUG] train_y.shape (26729,)
+[base_model.py:182 - run Sat, 02 Jul 2016 19:18:46;INFO] splited_key[all] do train
+[base_model.py:188 - run Sat, 02 Jul 2016 19:18:46;DEBUG] splited_key[all] fit data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:20:03;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:20:03;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Sat, 02 Jul 2016 19:20:03;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Sat, 02 Jul 2016 19:20:03;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Sat, 02 Jul 2016 19:20:03;INFO] do model train...
+[base_model.py:173 - run Sat, 02 Jul 2016 19:20:03;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:20:34;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:20:34;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Sat, 02 Jul 2016 19:20:34;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Sat, 02 Jul 2016 19:20:34;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Sat, 02 Jul 2016 19:20:34;INFO] do model train...
+[base_model.py:173 - run Sat, 02 Jul 2016 19:20:34;INFO] splited_key[all] transfer origin data
+[base_model.py:175 - run Sat, 02 Jul 2016 19:20:52;DEBUG] train_x.shape (26729, 322)
+[base_model.py:176 - run Sat, 02 Jul 2016 19:20:52;DEBUG] train_y.shape (26729,)
+[base_model.py:182 - run Sat, 02 Jul 2016 19:20:52;INFO] splited_key[all] do train
+[base_model.py:188 - run Sat, 02 Jul 2016 19:20:52;DEBUG] splited_key[all] fit data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:32:13;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:32:14;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Sat, 02 Jul 2016 19:32:14;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Sat, 02 Jul 2016 19:32:14;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Sat, 02 Jul 2016 19:32:14;INFO] do model train...
+[base_model.py:173 - run Sat, 02 Jul 2016 19:32:14;INFO] splited_key[all] transfer origin data
+[base_model.py:175 - run Sat, 02 Jul 2016 19:32:32;DEBUG] train_x.shape (26729, 322)
+[base_model.py:176 - run Sat, 02 Jul 2016 19:32:32;DEBUG] train_y.shape (26729,)
+[base_model.py:182 - run Sat, 02 Jul 2016 19:32:32;INFO] splited_key[all] do train
+[base_model.py:185 - run Sat, 02 Jul 2016 19:32:32;ERROR] splited_key[all] model not defined
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:34:13;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:34:13;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Sat, 02 Jul 2016 19:34:13;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Sat, 02 Jul 2016 19:34:13;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Sat, 02 Jul 2016 19:34:13;INFO] do model train...
+[base_model.py:173 - run Sat, 02 Jul 2016 19:34:13;INFO] splited_key[all] transfer origin data
+[base_model.py:175 - run Sat, 02 Jul 2016 19:34:32;DEBUG] train_x.shape (26729, 322)
+[base_model.py:176 - run Sat, 02 Jul 2016 19:34:32;DEBUG] train_y.shape (26729,)
+[base_model.py:182 - run Sat, 02 Jul 2016 19:34:32;INFO] splited_key[all] do train
+[base_model.py:185 - run Sat, 02 Jul 2016 19:34:32;ERROR] splited_key[all] model not defined
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:39:17;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:39:17;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Sat, 02 Jul 2016 19:39:17;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Sat, 02 Jul 2016 19:39:17;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Sat, 02 Jul 2016 19:39:17;INFO] do model train...
+[base_model.py:173 - run Sat, 02 Jul 2016 19:39:17;INFO] splited_key[all] transfer origin data
+[base_model.py:175 - run Sat, 02 Jul 2016 19:39:35;DEBUG] train_x.shape (26729, 322)
+[base_model.py:176 - run Sat, 02 Jul 2016 19:39:35;DEBUG] train_y.shape (26729,)
+[base_model.py:182 - run Sat, 02 Jul 2016 19:39:35;INFO] splited_key[all] do train
+[base_model.py:185 - run Sat, 02 Jul 2016 19:39:35;ERROR] splited_key[all] model not defined
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:40:15;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:40:15;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:163 - run Sat, 02 Jul 2016 19:40:15;DEBUG] train_data shape (26729, 10)
+[base_model.py:164 - run Sat, 02 Jul 2016 19:40:15;DEBUG] test_data shape (11456, 8)
+[base_model.py:173 - run Sat, 02 Jul 2016 19:40:15;INFO] do model train...
+[base_model.py:175 - run Sat, 02 Jul 2016 19:40:15;INFO] splited_key[all] transfer origin data
+[base_model.py:177 - run Sat, 02 Jul 2016 19:40:33;DEBUG] train_x.shape (26729, 322)
+[base_model.py:178 - run Sat, 02 Jul 2016 19:40:33;DEBUG] train_y.shape (26729,)
+[base_model.py:184 - run Sat, 02 Jul 2016 19:40:33;INFO] splited_key[all] do train
+[base_model.py:187 - run Sat, 02 Jul 2016 19:40:33;ERROR] splited_key[all] model not defined
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:40:59;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:40:59;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:163 - run Sat, 02 Jul 2016 19:40:59;DEBUG] train_data shape (26729, 10)
+[base_model.py:164 - run Sat, 02 Jul 2016 19:40:59;DEBUG] test_data shape (11456, 8)
+[base_model.py:173 - run Sat, 02 Jul 2016 19:40:59;INFO] do model train...
+[base_model.py:175 - run Sat, 02 Jul 2016 19:40:59;INFO] splited_key[all] transfer origin data
+[base_model.py:177 - run Sat, 02 Jul 2016 19:41:17;DEBUG] train_x.shape (26729, 322)
+[base_model.py:178 - run Sat, 02 Jul 2016 19:41:17;DEBUG] train_y.shape (26729,)
+[base_model.py:184 - run Sat, 02 Jul 2016 19:41:17;INFO] splited_key[all] do train
+[base_model.py:187 - run Sat, 02 Jul 2016 19:41:17;ERROR] splited_key[all] model not defined
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:41:52;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:41:52;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Sat, 02 Jul 2016 19:41:52;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Sat, 02 Jul 2016 19:41:52;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Sat, 02 Jul 2016 19:41:52;INFO] do model train...
+[base_model.py:173 - run Sat, 02 Jul 2016 19:41:52;INFO] splited_key[all] transfer origin data
+[base_model.py:175 - run Sat, 02 Jul 2016 19:42:11;DEBUG] train_x.shape (26729, 322)
+[base_model.py:176 - run Sat, 02 Jul 2016 19:42:11;DEBUG] train_y.shape (26729,)
+[base_model.py:182 - run Sat, 02 Jul 2016 19:42:11;INFO] splited_key[all] do train
+[base_model.py:186 - run Sat, 02 Jul 2016 19:42:11;ERROR] splited_key[all] model not defined
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:42:42;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:42:42;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Sat, 02 Jul 2016 19:42:42;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Sat, 02 Jul 2016 19:42:42;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Sat, 02 Jul 2016 19:42:42;INFO] do model train...
+[base_model.py:173 - run Sat, 02 Jul 2016 19:42:42;INFO] splited_key[all] transfer origin data
+[base_model.py:175 - run Sat, 02 Jul 2016 19:43:00;DEBUG] train_x.shape (26729, 322)
+[base_model.py:176 - run Sat, 02 Jul 2016 19:43:00;DEBUG] train_y.shape (26729,)
+[base_model.py:182 - run Sat, 02 Jul 2016 19:43:00;INFO] splited_key[all] do train
+[base_model.py:187 - run Sat, 02 Jul 2016 19:43:00;ERROR] splited_key[all] model not defined
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:43:13;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:43:13;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Sat, 02 Jul 2016 19:43:13;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Sat, 02 Jul 2016 19:43:13;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Sat, 02 Jul 2016 19:43:13;INFO] do model train...
+[base_model.py:173 - run Sat, 02 Jul 2016 19:43:13;INFO] splited_key[all] transfer origin data
+[base_model.py:175 - run Sat, 02 Jul 2016 19:43:32;DEBUG] train_x.shape (26729, 322)
+[base_model.py:176 - run Sat, 02 Jul 2016 19:43:32;DEBUG] train_y.shape (26729,)
+[base_model.py:182 - run Sat, 02 Jul 2016 19:43:32;INFO] splited_key[all] do train
+[base_model.py:188 - run Sat, 02 Jul 2016 19:43:32;DEBUG] splited_key[all] fit data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:46:44;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:46:44;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Sat, 02 Jul 2016 19:46:44;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Sat, 02 Jul 2016 19:46:44;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Sat, 02 Jul 2016 19:46:44;INFO] do model train...
+[base_model.py:173 - run Sat, 02 Jul 2016 19:46:44;INFO] splited_key[all] transfer origin data
+[base_model.py:175 - run Sat, 02 Jul 2016 19:47:03;DEBUG] train_x.shape (26729, 322)
+[base_model.py:176 - run Sat, 02 Jul 2016 19:47:03;DEBUG] train_y.shape (26729,)
+[base_model.py:182 - run Sat, 02 Jul 2016 19:47:03;INFO] splited_key[all] do train
+[base_model.py:188 - run Sat, 02 Jul 2016 19:47:03;DEBUG] splited_key[all] fit data
+[base_model.py:122 - _store_trained_model Sat, 02 Jul 2016 19:47:04;ERROR] global name 'joiblib' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 116, in _store_trained_model
+    self.model_loader.dump_model(clf, '.'.join([self.model_filename, splited_key]), logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 32, in dump_model
+    joiblib.dump(data, filename)
+NameError: global name 'joiblib' is not defined
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:48:28;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:48:28;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:161 - run Sat, 02 Jul 2016 19:48:28;DEBUG] train_data shape (26729, 10)
+[base_model.py:162 - run Sat, 02 Jul 2016 19:48:28;DEBUG] test_data shape (11456, 8)
+[base_model.py:171 - run Sat, 02 Jul 2016 19:48:28;INFO] do model train...
+[base_model.py:173 - run Sat, 02 Jul 2016 19:48:28;INFO] splited_key[all] transfer origin data
+[base_model.py:175 - run Sat, 02 Jul 2016 19:48:47;DEBUG] train_x.shape (26729, 322)
+[base_model.py:176 - run Sat, 02 Jul 2016 19:48:47;DEBUG] train_y.shape (26729,)
+[base_model.py:182 - run Sat, 02 Jul 2016 19:48:47;INFO] splited_key[all] do train
+[base_model.py:188 - run Sat, 02 Jul 2016 19:48:47;DEBUG] splited_key[all] fit data
+[base_model.py:122 - _store_trained_model Sat, 02 Jul 2016 19:48:48;ERROR] global name 'joiblib' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 116, in _store_trained_model
+    self.model_loader.dump_model(clf, '.'.join([self.model_filename, splited_key]), logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 32, in dump_model
+    joiblib.dump(data, filename)
+NameError: global name 'joiblib' is not defined
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:54:09;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:54:09;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 19:54:09;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 19:54:09;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 19:54:09;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 19:54:09;INFO] splited_key[all] transfer origin data
+[base_model.py:182 - run Sat, 02 Jul 2016 19:54:28;DEBUG] train_x.shape (26729, 322)
+[base_model.py:183 - run Sat, 02 Jul 2016 19:54:28;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Sat, 02 Jul 2016 19:54:28;INFO] splited_key[all] do train
+[base_model.py:195 - run Sat, 02 Jul 2016 19:54:28;DEBUG] splited_key[all] fit data
+[base_model.py:127 - _store_trained_model Sat, 02 Jul 2016 19:54:30;ERROR] global name 'joiblib' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 121, in _store_trained_model
+    self.model_loader.dump_model(clf, '.'.join([self.model_filename, splited_key]), logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 32, in dump_model
+    joiblib.dump(data, filename)
+NameError: global name 'joiblib' is not defined
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:55:53;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:55:53;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 19:55:53;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 19:55:53;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 19:55:53;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 19:55:53;INFO] splited_key[all] transfer origin data
+[base_model.py:182 - run Sat, 02 Jul 2016 19:56:11;DEBUG] train_x.shape (26729, 322)
+[base_model.py:183 - run Sat, 02 Jul 2016 19:56:11;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Sat, 02 Jul 2016 19:56:11;INFO] splited_key[all] do train
+[base_model.py:195 - run Sat, 02 Jul 2016 19:56:11;DEBUG] splited_key[all] fit data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:58:22;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 19:58:22;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 19:58:22;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 19:58:22;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 19:58:22;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 19:58:22;INFO] splited_key[all] transfer origin data
+[base_model.py:182 - run Sat, 02 Jul 2016 19:58:41;DEBUG] train_x.shape (26729, 322)
+[base_model.py:183 - run Sat, 02 Jul 2016 19:58:41;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Sat, 02 Jul 2016 19:58:41;INFO] splited_key[all] do train
+[base_model.py:195 - run Sat, 02 Jul 2016 19:58:41;DEBUG] splited_key[all] fit data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 20:00:14;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 20:00:14;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 20:00:14;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 20:00:14;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 20:00:14;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 20:00:14;INFO] splited_key[all] transfer origin data
+[base_model.py:182 - run Sat, 02 Jul 2016 20:00:32;DEBUG] train_x.shape (26729, 322)
+[base_model.py:183 - run Sat, 02 Jul 2016 20:00:32;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Sat, 02 Jul 2016 20:00:32;INFO] splited_key[all] do train
+[base_model.py:195 - run Sat, 02 Jul 2016 20:00:32;DEBUG] splited_key[all] fit data
+[base_model.py:134 - _do_validation Sat, 02 Jul 2016 20:00:36;INFO] splited_key[all] accrucy mean -1.23 +/- 0.12
+[base_model.py:135 - _do_validation Sat, 02 Jul 2016 20:00:36;INFO] splited_key[all] clf RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=28, max_features='auto', max_leaf_nodes=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, n_estimators=12, n_jobs=1,
+            oob_score=False, random_state=None, verbose=0,
+            warm_start=False)
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 20:11:18;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 20:11:18;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 20:11:18;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 20:11:18;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 20:11:18;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 20:11:18;INFO] splited_key[all] transfer origin data
+[base_model.py:182 - run Sat, 02 Jul 2016 20:11:24;DEBUG] train_x.shape (26729, 306)
+[base_model.py:183 - run Sat, 02 Jul 2016 20:11:24;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Sat, 02 Jul 2016 20:11:24;INFO] splited_key[all] do train
+[base_model.py:195 - run Sat, 02 Jul 2016 20:11:24;DEBUG] splited_key[all] fit data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:06:48;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:06:48;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 21:06:48;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 21:06:48;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 21:06:48;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 21:06:48;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:08:22;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:08:22;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 21:08:22;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 21:08:22;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 21:08:22;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 21:08:22;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:09:15;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:09:15;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 21:09:15;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 21:09:15;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 21:09:15;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 21:09:15;INFO] splited_key[all] transfer origin data
+[base_model.py:182 - run Sat, 02 Jul 2016 21:09:21;DEBUG] train_x.shape (26729, 306)
+[base_model.py:183 - run Sat, 02 Jul 2016 21:09:21;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Sat, 02 Jul 2016 21:09:21;INFO] splited_key[all] do train
+[base_model.py:195 - run Sat, 02 Jul 2016 21:09:21;DEBUG] splited_key[all] fit data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:10:06;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:10:06;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 21:10:06;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 21:10:06;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 21:10:06;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 21:10:06;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:10:56;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:10:56;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 21:10:56;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 21:10:56;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 21:10:56;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 21:10:56;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:11:43;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:11:43;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 21:11:43;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 21:11:43;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 21:11:43;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 21:11:43;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:13:05;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:13:05;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 21:13:05;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 21:13:05;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 21:13:05;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 21:13:05;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:17:14;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:17:14;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 21:17:14;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 21:17:14;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 21:17:14;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 21:17:14;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:19:00;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:19:00;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 21:19:00;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 21:19:00;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 21:19:00;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 21:19:00;INFO] splited_key[all] transfer origin data
+[base_model.py:182 - run Sat, 02 Jul 2016 21:19:06;DEBUG] train_x.shape (26729, 305)
+[base_model.py:183 - run Sat, 02 Jul 2016 21:19:06;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Sat, 02 Jul 2016 21:19:06;INFO] splited_key[all] do train
+[base_model.py:195 - run Sat, 02 Jul 2016 21:19:06;DEBUG] splited_key[all] fit data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:42:22;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:42:22;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 21:42:22;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 21:42:22;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 21:42:22;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 21:42:22;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:47:27;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:47:27;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 21:47:27;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 21:47:27;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 21:47:27;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 21:47:27;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:47:55;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:47:55;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 21:47:55;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 21:47:55;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 21:47:55;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 21:47:55;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:48:19;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:48:19;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 21:48:19;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 21:48:19;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 21:48:19;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 21:48:19;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:49:27;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:49:27;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 21:49:27;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 21:49:27;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 21:49:27;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 21:49:27;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:51:05;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:51:05;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 21:51:05;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 21:51:05;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 21:51:05;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 21:51:05;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:53:08;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 21:53:08;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 21:53:08;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 21:53:08;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 21:53:08;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 21:53:08;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:10:20;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:10:21;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 22:10:21;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 22:10:21;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 22:10:21;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 22:10:21;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:12:09;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:12:09;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 22:12:09;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 22:12:09;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 22:12:09;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 22:12:09;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:12:26;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:12:26;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 22:12:26;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 22:12:26;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 22:12:26;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 22:12:26;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:15:47;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:15:47;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 22:15:47;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 22:15:47;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 22:15:47;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 22:15:47;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:18:27;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:18:27;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 22:18:27;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 22:18:27;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 22:18:27;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 22:18:27;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:26:19;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:26:19;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 22:26:19;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 22:26:19;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 22:26:19;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 22:26:19;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:33:44;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:33:44;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 22:33:44;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 22:33:44;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 22:33:44;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 22:33:44;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:34:45;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:34:45;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 22:34:45;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 22:34:45;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 22:34:45;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 22:34:45;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:36:06;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:36:06;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 22:36:06;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 22:36:06;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 22:36:06;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 22:36:06;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:36:16;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 22:36:16;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 22:36:16;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 22:36:16;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 22:36:16;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 22:36:16;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 23:04:37;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 23:04:37;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 23:04:37;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 23:04:37;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 23:04:37;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 23:04:37;INFO] splited_key[all] transfer origin data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 23:05:13;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 23:05:13;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 23:05:13;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 23:05:13;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 23:05:13;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 23:05:13;INFO] splited_key[all] transfer origin data
+[base_model.py:182 - run Sat, 02 Jul 2016 23:05:16;DEBUG] train_x.shape (26729, 2)
+[base_model.py:183 - run Sat, 02 Jul 2016 23:05:16;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Sat, 02 Jul 2016 23:05:16;INFO] splited_key[all] do train
+[base_model.py:195 - run Sat, 02 Jul 2016 23:05:16;DEBUG] splited_key[all] fit data
+[base_model.py:134 - _do_validation Sat, 02 Jul 2016 23:05:16;INFO] splited_key[all] accrucy mean -1.18 +/- 0.01
+[base_model.py:135 - _do_validation Sat, 02 Jul 2016 23:05:16;INFO] splited_key[all] clf RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=28, max_features='auto', max_leaf_nodes=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, n_estimators=12, n_jobs=1,
+            oob_score=False, random_state=None, verbose=0,
+            warm_start=False)
+[base_model.py:127 - _store_trained_model Sat, 02 Jul 2016 23:05:17;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 124, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 23:07:03;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 23:07:03;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 23:07:03;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 23:07:03;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 23:07:03;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 23:07:03;INFO] splited_key[all] transfer origin data
+[base_model.py:182 - run Sat, 02 Jul 2016 23:07:22;DEBUG] train_x.shape (26729, 309)
+[base_model.py:183 - run Sat, 02 Jul 2016 23:07:22;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Sat, 02 Jul 2016 23:07:22;INFO] splited_key[all] do train
+[base_model.py:195 - run Sat, 02 Jul 2016 23:07:22;DEBUG] splited_key[all] fit data
+[base_model.py:134 - _do_validation Sat, 02 Jul 2016 23:07:26;INFO] splited_key[all] accrucy mean -1.24 +/- 0.09
+[base_model.py:135 - _do_validation Sat, 02 Jul 2016 23:07:26;INFO] splited_key[all] clf RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=28, max_features='auto', max_leaf_nodes=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, n_estimators=12, n_jobs=1,
+            oob_score=False, random_state=None, verbose=0,
+            warm_start=False)
+[base_model.py:127 - _store_trained_model Sat, 02 Jul 2016 23:07:26;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 124, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 23:09:51;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 23:09:51;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 23:09:51;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 23:09:51;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 23:09:51;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 23:09:51;INFO] splited_key[all] transfer origin data
+[base_model.py:182 - run Sat, 02 Jul 2016 23:10:14;DEBUG] train_x.shape (26729, 309)
+[base_model.py:183 - run Sat, 02 Jul 2016 23:10:14;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Sat, 02 Jul 2016 23:10:14;INFO] splited_key[all] do train
+[base_model.py:195 - run Sat, 02 Jul 2016 23:10:14;DEBUG] splited_key[all] fit data
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 23:41:19;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:64 - _load_and_clean_data Sat, 02 Jul 2016 23:41:19;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:168 - run Sat, 02 Jul 2016 23:41:19;DEBUG] train_data shape (26729, 10)
+[base_model.py:169 - run Sat, 02 Jul 2016 23:41:19;DEBUG] test_data shape (11456, 8)
+[base_model.py:178 - run Sat, 02 Jul 2016 23:41:19;INFO] do model train...
+[base_model.py:180 - run Sat, 02 Jul 2016 23:41:19;INFO] splited_key[all] transfer origin data
+[base_model.py:182 - run Sat, 02 Jul 2016 23:41:38;DEBUG] train_x.shape (26729, 309)
+[base_model.py:183 - run Sat, 02 Jul 2016 23:41:38;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Sat, 02 Jul 2016 23:41:38;INFO] splited_key[all] do train
+[base_model.py:195 - run Sat, 02 Jul 2016 23:41:38;DEBUG] splited_key[all] fit data
+[base_model.py:134 - _do_validation Sun, 03 Jul 2016 00:11:51;INFO] splited_key[all] accrucy mean -0.81 +/- 0.00
+[base_model.py:135 - _do_validation Sun, 03 Jul 2016 00:11:51;INFO] splited_key[all] clf XGBClassifier(base_score=0.5, colsample_bylevel=1, colsample_bytree=0.85,
+       gamma=0, learning_rate=0.04, max_delta_step=0, max_depth=11,
+       min_child_weight=1, missing=None, n_estimators=200, nthread=-1,
+       objective='multi:softprob', reg_alpha=0, reg_lambda=1,
+       scale_pos_weight=1, seed=121, silent=True, subsample=0.75)
+[base_model.py:127 - _store_trained_model Sun, 03 Jul 2016 00:11:52;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 124, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:65 - _load_and_clean_data Sun, 03 Jul 2016 00:29:03;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:65 - _load_and_clean_data Sun, 03 Jul 2016 00:29:03;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:169 - run Sun, 03 Jul 2016 00:29:03;DEBUG] train_data shape (26729, 10)
+[base_model.py:170 - run Sun, 03 Jul 2016 00:29:03;DEBUG] test_data shape (11456, 8)
+[base_model.py:179 - run Sun, 03 Jul 2016 00:29:03;INFO] do model train...
+[base_model.py:181 - run Sun, 03 Jul 2016 00:29:03;INFO] splited_key[all] transfer origin data
+[base_model.py:183 - run Sun, 03 Jul 2016 00:29:22;DEBUG] train_x.shape (26729, 305)
+[base_model.py:184 - run Sun, 03 Jul 2016 00:29:22;DEBUG] train_y.shape (26729,)
+[base_model.py:190 - run Sun, 03 Jul 2016 00:29:22;INFO] splited_key[all] do train
+[base_model.py:196 - run Sun, 03 Jul 2016 00:29:22;DEBUG] splited_key[all] fit data
+[base_model.py:65 - _load_and_clean_data Sun, 03 Jul 2016 00:30:10;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:65 - _load_and_clean_data Sun, 03 Jul 2016 00:30:10;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:169 - run Sun, 03 Jul 2016 00:30:10;DEBUG] train_data shape (26729, 10)
+[base_model.py:170 - run Sun, 03 Jul 2016 00:30:10;DEBUG] test_data shape (11456, 8)
+[base_model.py:179 - run Sun, 03 Jul 2016 00:30:10;INFO] do model train...
+[base_model.py:181 - run Sun, 03 Jul 2016 00:30:10;INFO] splited_key[all] transfer origin data
+[base_model.py:183 - run Sun, 03 Jul 2016 00:30:30;DEBUG] train_x.shape (26729, 308)
+[base_model.py:184 - run Sun, 03 Jul 2016 00:30:30;DEBUG] train_y.shape (26729,)
+[base_model.py:190 - run Sun, 03 Jul 2016 00:30:30;INFO] splited_key[all] do train
+[base_model.py:196 - run Sun, 03 Jul 2016 00:30:30;DEBUG] splited_key[all] fit data
+[base_model.py:65 - _load_and_clean_data Sun, 03 Jul 2016 00:35:10;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:65 - _load_and_clean_data Sun, 03 Jul 2016 00:35:10;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:169 - run Sun, 03 Jul 2016 00:35:11;DEBUG] train_data shape (26729, 10)
+[base_model.py:170 - run Sun, 03 Jul 2016 00:35:11;DEBUG] test_data shape (11456, 8)
+[base_model.py:179 - run Sun, 03 Jul 2016 00:35:11;INFO] do model train...
+[base_model.py:181 - run Sun, 03 Jul 2016 00:35:11;INFO] splited_key[all] transfer origin data
+[base_model.py:183 - run Sun, 03 Jul 2016 00:35:30;DEBUG] train_x.shape (26729, 308)
+[base_model.py:184 - run Sun, 03 Jul 2016 00:35:30;DEBUG] train_y.shape (26729,)
+[base_model.py:190 - run Sun, 03 Jul 2016 00:35:30;INFO] splited_key[all] do train
+[base_model.py:65 - _load_and_clean_data Sun, 03 Jul 2016 00:51:03;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:65 - _load_and_clean_data Sun, 03 Jul 2016 00:51:03;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:169 - run Sun, 03 Jul 2016 00:51:03;DEBUG] train_data shape (26729, 10)
+[base_model.py:170 - run Sun, 03 Jul 2016 00:51:03;DEBUG] test_data shape (11456, 8)
+[base_model.py:179 - run Sun, 03 Jul 2016 00:51:03;INFO] do model train...
+[base_model.py:181 - run Sun, 03 Jul 2016 00:51:03;INFO] splited_key[all] transfer origin data
+[base_model.py:183 - run Sun, 03 Jul 2016 00:51:23;DEBUG] train_x.shape (26729, 308)
+[base_model.py:184 - run Sun, 03 Jul 2016 00:51:23;DEBUG] train_y.shape (26729,)
+[base_model.py:190 - run Sun, 03 Jul 2016 00:51:23;INFO] splited_key[all] do train
+[base_model.py:65 - _load_and_clean_data Sun, 03 Jul 2016 07:32:15;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:65 - _load_and_clean_data Sun, 03 Jul 2016 07:32:15;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:169 - run Sun, 03 Jul 2016 07:32:15;DEBUG] train_data shape (26729, 10)
+[base_model.py:170 - run Sun, 03 Jul 2016 07:32:15;DEBUG] test_data shape (11456, 8)
+[base_model.py:179 - run Sun, 03 Jul 2016 07:32:15;INFO] do model train...
+[base_model.py:181 - run Sun, 03 Jul 2016 07:32:15;INFO] splited_key[all] transfer origin data
+[base_model.py:65 - _load_and_clean_data Sun, 03 Jul 2016 07:35:11;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:65 - _load_and_clean_data Sun, 03 Jul 2016 07:35:11;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:169 - run Sun, 03 Jul 2016 07:35:11;DEBUG] train_data shape (26729, 10)
+[base_model.py:170 - run Sun, 03 Jul 2016 07:35:11;DEBUG] test_data shape (11456, 8)
+[base_model.py:179 - run Sun, 03 Jul 2016 07:35:11;INFO] do model train...
+[base_model.py:181 - run Sun, 03 Jul 2016 07:35:11;INFO] splited_key[all] transfer origin data
+[base_model.py:183 - run Sun, 03 Jul 2016 07:35:34;DEBUG] train_x.shape (26729, 308)
+[base_model.py:184 - run Sun, 03 Jul 2016 07:35:34;DEBUG] train_y.shape (26729,)
+[base_model.py:190 - run Sun, 03 Jul 2016 07:35:34;INFO] splited_key[all] do train
+[base_model.py:65 - _load_and_clean_data Sun, 03 Jul 2016 08:03:51;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:65 - _load_and_clean_data Sun, 03 Jul 2016 08:03:51;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:169 - run Sun, 03 Jul 2016 08:03:51;DEBUG] train_data shape (26729, 10)
+[base_model.py:170 - run Sun, 03 Jul 2016 08:03:51;DEBUG] test_data shape (11456, 8)
+[base_model.py:179 - run Sun, 03 Jul 2016 08:03:51;INFO] do model train...
+[base_model.py:181 - run Sun, 03 Jul 2016 08:03:51;INFO] splited_key[all] transfer origin data
+[base_model.py:183 - run Sun, 03 Jul 2016 08:04:10;DEBUG] train_x.shape (26729, 308)
+[base_model.py:184 - run Sun, 03 Jul 2016 08:04:10;DEBUG] train_y.shape (26729,)
+[base_model.py:190 - run Sun, 03 Jul 2016 08:04:10;INFO] splited_key[all] do train
+[base_model.py:196 - run Sun, 03 Jul 2016 08:04:10;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 08:04:22;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 08:04:22;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 08:04:23;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 08:04:23;DEBUG] test_data shape (11456, 8)
+[base_model.py:180 - run Sun, 03 Jul 2016 08:04:23;INFO] do model train...
+[base_model.py:182 - run Sun, 03 Jul 2016 08:04:23;INFO] splited_key[all] transfer origin data
+[base_model.py:184 - run Sun, 03 Jul 2016 08:04:42;DEBUG] train_x.shape (26729, 308)
+[base_model.py:185 - run Sun, 03 Jul 2016 08:04:42;DEBUG] train_y.shape (26729,)
+[base_model.py:191 - run Sun, 03 Jul 2016 08:04:42;INFO] splited_key[all] do train
+[base_model.py:197 - run Sun, 03 Jul 2016 08:04:42;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 08:04:52;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 08:04:52;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 08:04:52;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 08:04:52;DEBUG] test_data shape (11456, 8)
+[base_model.py:180 - run Sun, 03 Jul 2016 08:04:52;INFO] do model train...
+[base_model.py:182 - run Sun, 03 Jul 2016 08:04:52;INFO] splited_key[all] transfer origin data
+[base_model.py:184 - run Sun, 03 Jul 2016 08:05:11;DEBUG] train_x.shape (26729, 308)
+[base_model.py:185 - run Sun, 03 Jul 2016 08:05:11;DEBUG] train_y.shape (26729,)
+[base_model.py:191 - run Sun, 03 Jul 2016 08:05:11;INFO] splited_key[all] do train
+[base_model.py:197 - run Sun, 03 Jul 2016 08:05:11;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 08:06:05;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 08:06:05;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 08:06:05;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 08:06:05;DEBUG] test_data shape (11456, 8)
+[base_model.py:180 - run Sun, 03 Jul 2016 08:06:05;INFO] do model train...
+[base_model.py:182 - run Sun, 03 Jul 2016 08:06:05;INFO] splited_key[all] transfer origin data
+[base_model.py:184 - run Sun, 03 Jul 2016 08:06:24;DEBUG] train_x.shape (26729, 308)
+[base_model.py:185 - run Sun, 03 Jul 2016 08:06:24;DEBUG] train_y.shape (26729,)
+[base_model.py:191 - run Sun, 03 Jul 2016 08:06:24;INFO] splited_key[all] do train
+[base_model.py:197 - run Sun, 03 Jul 2016 08:06:24;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 08:07:28;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 08:07:28;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 08:07:28;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 08:07:28;DEBUG] test_data shape (11456, 8)
+[base_model.py:180 - run Sun, 03 Jul 2016 08:07:28;INFO] do model train...
+[base_model.py:182 - run Sun, 03 Jul 2016 08:07:28;INFO] splited_key[all] transfer origin data
+[base_model.py:184 - run Sun, 03 Jul 2016 08:07:46;DEBUG] train_x.shape (26729, 308)
+[base_model.py:185 - run Sun, 03 Jul 2016 08:07:46;DEBUG] train_y.shape (26729,)
+[base_model.py:191 - run Sun, 03 Jul 2016 08:07:46;INFO] splited_key[all] do train
+[base_model.py:197 - run Sun, 03 Jul 2016 08:07:46;DEBUG] splited_key[all] fit data
+[base_model.py:136 - _do_validation Sun, 03 Jul 2016 08:28:53;INFO] splited_key[all] accrucy mean -0.81 +/- 0.00
+[base_model.py:137 - _do_validation Sun, 03 Jul 2016 08:28:53;INFO] splited_key[all] clf XGBClassifier(base_score=0.5, colsample_bylevel=1, colsample_bytree=0.85,
+       gamma=0, learning_rate=0.03, max_delta_step=0, max_depth=11,
+       min_child_weight=1, missing=None, n_estimators=200, nthread=-1,
+       objective='multi:softprob', reg_alpha=0, reg_lambda=1,
+       scale_pos_weight=1, seed=121, silent=True, subsample=0.75)
+[base_model.py:129 - _store_trained_model Sun, 03 Jul 2016 08:28:53;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 126, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 08:44:51;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 08:44:51;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 08:44:51;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 08:44:51;DEBUG] test_data shape (11456, 8)
+[base_model.py:180 - run Sun, 03 Jul 2016 08:44:51;INFO] do model train...
+[base_model.py:182 - run Sun, 03 Jul 2016 08:44:51;INFO] splited_key[all] transfer origin data
+[base_model.py:184 - run Sun, 03 Jul 2016 08:45:10;DEBUG] train_x.shape (26729, 308)
+[base_model.py:185 - run Sun, 03 Jul 2016 08:45:10;DEBUG] train_y.shape (26729,)
+[base_model.py:191 - run Sun, 03 Jul 2016 08:45:10;INFO] splited_key[all] do train
+[base_model.py:197 - run Sun, 03 Jul 2016 08:45:10;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 09:00:20;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 09:00:20;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 09:00:20;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 09:00:20;DEBUG] test_data shape (11456, 8)
+[base_model.py:180 - run Sun, 03 Jul 2016 09:00:20;INFO] do model train...
+[base_model.py:182 - run Sun, 03 Jul 2016 09:00:20;INFO] splited_key[all] transfer origin data
+[base_model.py:184 - run Sun, 03 Jul 2016 09:00:39;DEBUG] train_x.shape (26729, 308)
+[base_model.py:185 - run Sun, 03 Jul 2016 09:00:39;DEBUG] train_y.shape (26729,)
+[base_model.py:191 - run Sun, 03 Jul 2016 09:00:39;INFO] splited_key[all] do train
+[base_model.py:197 - run Sun, 03 Jul 2016 09:00:39;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 09:16:08;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 09:16:08;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 09:16:08;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 09:16:08;DEBUG] test_data shape (11456, 8)
+[base_model.py:180 - run Sun, 03 Jul 2016 09:16:08;INFO] do model train...
+[base_model.py:182 - run Sun, 03 Jul 2016 09:16:08;INFO] splited_key[all] transfer origin data
+[base_model.py:184 - run Sun, 03 Jul 2016 09:16:27;DEBUG] train_x.shape (26729, 308)
+[base_model.py:185 - run Sun, 03 Jul 2016 09:16:27;DEBUG] train_y.shape (26729,)
+[base_model.py:191 - run Sun, 03 Jul 2016 09:16:27;INFO] splited_key[all] do train
+[base_model.py:197 - run Sun, 03 Jul 2016 09:16:27;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 09:18:53;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 09:18:53;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 09:18:53;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 09:18:53;DEBUG] test_data shape (11456, 8)
+[base_model.py:180 - run Sun, 03 Jul 2016 09:18:53;INFO] do model train...
+[base_model.py:182 - run Sun, 03 Jul 2016 09:18:53;INFO] splited_key[all] transfer origin data
+[base_model.py:184 - run Sun, 03 Jul 2016 09:19:12;DEBUG] train_x.shape (26729, 308)
+[base_model.py:185 - run Sun, 03 Jul 2016 09:19:12;DEBUG] train_y.shape (26729,)
+[base_model.py:191 - run Sun, 03 Jul 2016 09:19:12;INFO] splited_key[all] do train
+[base_model.py:197 - run Sun, 03 Jul 2016 09:19:12;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 09:25:54;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 09:25:54;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 09:25:54;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 09:25:54;DEBUG] test_data shape (11456, 8)
+[base_model.py:180 - run Sun, 03 Jul 2016 09:25:54;INFO] do model train...
+[base_model.py:182 - run Sun, 03 Jul 2016 09:25:54;INFO] splited_key[all] transfer origin data
+[base_model.py:184 - run Sun, 03 Jul 2016 09:26:13;DEBUG] train_x.shape (26729, 308)
+[base_model.py:185 - run Sun, 03 Jul 2016 09:26:13;DEBUG] train_y.shape (26729,)
+[base_model.py:191 - run Sun, 03 Jul 2016 09:26:13;INFO] splited_key[all] do train
+[base_model.py:197 - run Sun, 03 Jul 2016 09:26:13;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 09:44:22;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 09:44:22;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 09:44:22;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 09:44:22;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 09:44:22;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 09:44:22;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 09:45:21;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 09:45:22;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 09:45:22;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 09:45:22;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 09:45:22;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 09:45:22;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 09:47:57;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 09:47:57;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 09:47:57;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 09:47:57;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 09:47:57;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 09:47:57;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 09:48:24;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 09:48:24;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Sun, 03 Jul 2016 09:48:24;DEBUG] test_x.shape (11456, 309)
+[base_model.py:196 - run Sun, 03 Jul 2016 09:48:24;INFO] splited_key[all] do train
+[base_model.py:202 - run Sun, 03 Jul 2016 09:48:24;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 09:49:02;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 09:49:02;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 09:49:03;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 09:49:03;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 09:49:03;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 09:49:03;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 09:49:30;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 09:49:30;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Sun, 03 Jul 2016 09:49:30;DEBUG] test_x.shape (11456, 309)
+[base_model.py:196 - run Sun, 03 Jul 2016 09:49:30;INFO] splited_key[all] do train
+[base_model.py:202 - run Sun, 03 Jul 2016 09:49:30;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 10:02:52;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 10:02:52;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 10:02:52;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 10:02:52;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 10:02:52;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 10:02:52;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 10:03:44;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 10:03:44;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 10:03:44;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 10:03:44;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 10:03:44;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 10:03:44;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 10:04:03;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 10:04:03;DEBUG] train_y.shape (26729,)
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 10:22:07;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 10:22:07;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 10:22:07;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 10:22:07;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 10:22:07;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 10:22:07;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 10:22:26;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 10:22:26;DEBUG] train_y.shape (26729,)
+[base_model.py:196 - run Sun, 03 Jul 2016 10:22:26;INFO] splited_key[all] do train
+[base_model.py:202 - run Sun, 03 Jul 2016 10:22:26;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 10:32:05;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 10:32:05;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 10:32:05;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 10:32:05;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 10:32:05;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 10:32:05;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 10:32:24;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 10:32:24;DEBUG] train_y.shape (26729,)
+[base_model.py:196 - run Sun, 03 Jul 2016 10:32:24;INFO] splited_key[all] do train
+[base_model.py:202 - run Sun, 03 Jul 2016 10:32:24;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 10:33:36;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 10:33:36;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 10:33:36;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 10:33:36;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 10:33:36;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 10:33:36;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 10:33:56;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 10:33:56;DEBUG] train_y.shape (26729,)
+[base_model.py:196 - run Sun, 03 Jul 2016 10:33:56;INFO] splited_key[all] do train
+[base_model.py:202 - run Sun, 03 Jul 2016 10:33:56;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 10:35:25;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 10:35:25;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 10:35:25;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 10:35:25;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 10:35:25;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 10:35:25;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 10:35:44;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 10:35:44;DEBUG] train_y.shape (26729,)
+[base_model.py:196 - run Sun, 03 Jul 2016 10:35:44;INFO] splited_key[all] do train
+[base_model.py:202 - run Sun, 03 Jul 2016 10:35:44;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 10:37:41;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 10:37:41;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 10:37:41;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 10:37:41;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 10:37:41;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 10:37:41;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 10:38:00;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 10:38:00;DEBUG] train_y.shape (26729,)
+[base_model.py:196 - run Sun, 03 Jul 2016 10:38:00;INFO] splited_key[all] do train
+[base_model.py:202 - run Sun, 03 Jul 2016 10:38:00;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 10:42:10;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 10:42:10;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 10:42:10;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 10:42:10;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 10:42:10;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 10:42:10;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 10:42:29;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 10:42:29;DEBUG] train_y.shape (26729,)
+[base_model.py:196 - run Sun, 03 Jul 2016 10:42:29;INFO] splited_key[all] do train
+[base_model.py:202 - run Sun, 03 Jul 2016 10:42:29;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:20:12;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:20:12;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 11:20:12;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 11:20:12;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 11:20:12;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 11:20:12;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:20:27;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:20:27;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 11:20:27;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 11:20:27;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 11:20:27;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 11:20:27;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 11:20:48;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 11:20:48;DEBUG] train_y.shape (26729,)
+[base_model.py:201 - run Sun, 03 Jul 2016 11:20:49;INFO] splited_key[all] do train
+[base_model.py:207 - run Sun, 03 Jul 2016 11:20:49;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:23:59;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:23:59;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 11:23:59;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 11:23:59;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 11:23:59;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 11:23:59;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:24:26;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:24:26;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 11:24:26;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 11:24:26;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 11:24:26;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 11:24:26;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:25:15;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:25:15;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 11:25:15;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 11:25:15;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 11:25:15;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 11:25:15;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:25:38;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:25:38;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 11:25:38;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 11:25:38;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 11:25:38;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 11:25:38;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:27:17;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:27:17;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 11:27:17;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 11:27:17;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 11:27:18;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 11:27:18;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 11:27:36;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 11:27:36;DEBUG] train_y.shape (26729,)
+[base_model.py:203 - run Sun, 03 Jul 2016 11:27:46;INFO] splited_key[all] do train
+[base_model.py:209 - run Sun, 03 Jul 2016 11:27:46;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:35:42;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:35:42;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 11:35:42;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 11:35:42;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 11:35:42;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 11:35:42;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 11:36:01;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 11:36:01;DEBUG] train_y.shape (26729,)
+[base_model.py:207 - run Sun, 03 Jul 2016 11:36:11;INFO] splited_key[all] do train
+[base_model.py:213 - run Sun, 03 Jul 2016 11:36:11;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:38:12;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:38:12;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 11:38:12;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 11:38:12;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 11:38:12;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 11:38:12;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 11:38:31;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 11:38:31;DEBUG] train_y.shape (26729,)
+[base_model.py:207 - run Sun, 03 Jul 2016 11:38:40;INFO] splited_key[all] do train
+[base_model.py:213 - run Sun, 03 Jul 2016 11:38:40;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:43:39;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:43:39;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 11:43:39;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 11:43:39;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 11:43:39;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 11:43:39;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 11:43:58;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 11:43:58;DEBUG] train_y.shape (26729,)
+[base_model.py:207 - run Sun, 03 Jul 2016 11:44:07;INFO] splited_key[all] do train
+[base_model.py:213 - run Sun, 03 Jul 2016 11:44:07;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:55:50;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:55:50;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 11:55:50;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 11:55:50;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 11:55:50;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 11:55:50;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 11:56:09;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 11:56:09;DEBUG] train_y.shape (26729,)
+[base_model.py:207 - run Sun, 03 Jul 2016 11:56:18;INFO] splited_key[all] do train
+[base_model.py:213 - run Sun, 03 Jul 2016 11:56:18;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:57:38;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 11:57:38;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 11:57:38;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 11:57:38;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 11:57:38;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 11:57:38;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 11:57:57;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 11:57:57;DEBUG] train_y.shape (26729,)
+[base_model.py:207 - run Sun, 03 Jul 2016 11:58:06;INFO] splited_key[all] do train
+[base_model.py:213 - run Sun, 03 Jul 2016 11:58:06;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 12:02:09;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 12:02:09;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 12:02:09;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 12:02:09;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 12:02:10;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 12:02:10;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 12:02:29;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 12:02:29;DEBUG] train_y.shape (26729,)
+[base_model.py:207 - run Sun, 03 Jul 2016 12:02:38;INFO] splited_key[all] do train
+[base_model.py:213 - run Sun, 03 Jul 2016 12:02:38;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 12:28:31;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 12:28:32;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 12:28:32;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 12:28:32;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 12:28:32;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 12:28:32;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 12:28:50;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 12:28:50;DEBUG] train_y.shape (26729,)
+[base_model.py:207 - run Sun, 03 Jul 2016 12:28:59;INFO] splited_key[all] do train
+[base_model.py:213 - run Sun, 03 Jul 2016 12:29:00;DEBUG] splited_key[all] fit data
+[base_model.py:136 - _do_validation Sun, 03 Jul 2016 13:20:38;INFO] splited_key[all] accrucy mean -0.89 +/- 0.19
+[base_model.py:137 - _do_validation Sun, 03 Jul 2016 13:20:38;INFO] splited_key[all] clf XGBClassifier(base_score=0.5, colsample_bylevel=1, colsample_bytree=0.85,
+       gamma=0, learning_rate=0.03, max_delta_step=0, max_depth=11,
+       min_child_weight=1, missing=None, n_estimators=200, nthread=-1,
+       objective='multi:softprob', reg_alpha=0, reg_lambda=1,
+       scale_pos_weight=1, seed=121, silent=True, subsample=0.75)
+[base_model.py:129 - _store_trained_model Sun, 03 Jul 2016 13:20:38;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 126, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 19:41:26;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 19:41:26;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 19:41:26;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 19:41:26;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 19:41:26;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 19:41:26;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 19:41:45;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 19:41:45;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Sun, 03 Jul 2016 19:41:54;INFO] splited_key[all] do train
+[base_model.py:212 - run Sun, 03 Jul 2016 19:41:54;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 19:45:04;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 19:45:04;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 19:45:04;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 19:45:04;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 19:45:05;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 19:45:05;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 19:45:23;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 19:45:23;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Sun, 03 Jul 2016 19:45:32;INFO] splited_key[all] do train
+[base_model.py:212 - run Sun, 03 Jul 2016 19:45:32;DEBUG] splited_key[all] fit data
+[base_model.py:129 - _store_trained_model Sun, 03 Jul 2016 19:47:06;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 126, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:246 - run Sun, 03 Jul 2016 19:47:06;INFO] load test model...
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 19:49:29;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 19:49:30;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 19:49:30;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 19:49:30;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 19:49:30;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 19:49:30;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 19:49:48;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 19:49:48;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Sun, 03 Jul 2016 19:49:57;INFO] splited_key[all] do train
+[base_model.py:212 - run Sun, 03 Jul 2016 19:49:57;DEBUG] splited_key[all] fit data
+[base_model.py:129 - _store_trained_model Sun, 03 Jul 2016 19:51:31;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 126, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:246 - run Sun, 03 Jul 2016 19:51:31;INFO] load test model...
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 19:55:00;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 19:55:00;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 19:55:00;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 19:55:00;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 19:55:00;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 19:55:00;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 19:55:30;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 19:55:30;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 19:55:30;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 19:55:30;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 19:55:30;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 19:55:30;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 19:55:49;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 19:55:49;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Sun, 03 Jul 2016 19:55:58;INFO] splited_key[all] do train
+[base_model.py:212 - run Sun, 03 Jul 2016 19:55:58;DEBUG] splited_key[all] fit data
+[base_model.py:129 - _store_trained_model Sun, 03 Jul 2016 19:56:46;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 126, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:246 - run Sun, 03 Jul 2016 19:56:46;INFO] load test model...
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 20:00:57;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 20:00:57;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 20:00:57;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 20:00:57;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 20:00:57;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 20:00:57;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 20:01:16;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 20:01:16;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Sun, 03 Jul 2016 20:01:25;INFO] splited_key[all] do train
+[base_model.py:212 - run Sun, 03 Jul 2016 20:01:25;DEBUG] splited_key[all] fit data
+[base_model.py:129 - _store_trained_model Sun, 03 Jul 2016 20:02:13;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 126, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:246 - run Sun, 03 Jul 2016 20:02:13;INFO] load test model...
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 20:04:37;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 20:04:37;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 20:04:37;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 20:04:37;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 20:04:37;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 20:04:37;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 20:04:56;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 20:04:56;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Sun, 03 Jul 2016 20:05:04;INFO] splited_key[all] do train
+[base_model.py:212 - run Sun, 03 Jul 2016 20:05:04;DEBUG] splited_key[all] fit data
+[base_model.py:129 - _store_trained_model Sun, 03 Jul 2016 20:05:52;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 126, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:246 - run Sun, 03 Jul 2016 20:05:52;INFO] load test model...
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 20:06:43;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 20:06:43;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 20:06:43;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 20:06:43;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 20:06:43;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 20:06:43;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 20:07:02;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 20:07:02;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Sun, 03 Jul 2016 20:07:11;INFO] splited_key[all] do train
+[base_model.py:212 - run Sun, 03 Jul 2016 20:07:11;DEBUG] splited_key[all] fit data
+[base_model.py:129 - _store_trained_model Sun, 03 Jul 2016 20:07:59;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 126, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:246 - run Sun, 03 Jul 2016 20:07:59;INFO] load test model...
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 20:09:32;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Sun, 03 Jul 2016 20:09:32;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Sun, 03 Jul 2016 20:09:32;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Sun, 03 Jul 2016 20:09:32;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Sun, 03 Jul 2016 20:09:32;INFO] do model train...
+[base_model.py:183 - run Sun, 03 Jul 2016 20:09:32;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Sun, 03 Jul 2016 20:09:51;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Sun, 03 Jul 2016 20:09:51;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Sun, 03 Jul 2016 20:10:00;INFO] splited_key[all] do train
+[base_model.py:212 - run Sun, 03 Jul 2016 20:10:00;DEBUG] splited_key[all] fit data
+[base_model.py:129 - _store_trained_model Sun, 03 Jul 2016 21:11:43;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 126, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:246 - run Sun, 03 Jul 2016 21:11:43;INFO] load test model...
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:31:17;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:31:17;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 17:31:17;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 17:31:17;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 17:31:17;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 17:31:17;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Wed, 06 Jul 2016 17:31:40;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Wed, 06 Jul 2016 17:31:40;DEBUG] train_y.shape (26729,)
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:35:07;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:35:07;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 17:35:07;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 17:35:07;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 17:35:07;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 17:35:07;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:36:51;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:36:51;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 17:36:51;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 17:36:51;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 17:36:51;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 17:36:51;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:37:26;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:37:26;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 17:37:26;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 17:37:26;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 17:37:26;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 17:37:26;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Wed, 06 Jul 2016 17:37:50;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Wed, 06 Jul 2016 17:37:50;DEBUG] train_y.shape (26729,)
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:40:48;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:40:48;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 17:40:48;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 17:40:48;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 17:40:48;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 17:40:48;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:41:04;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:41:04;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 17:41:04;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 17:41:04;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 17:41:04;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 17:41:04;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Wed, 06 Jul 2016 17:41:28;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Wed, 06 Jul 2016 17:41:28;DEBUG] train_y.shape (26729,)
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:57:43;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:57:43;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 17:57:43;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 17:57:43;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 17:57:43;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 17:57:43;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:58:53;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:58:53;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 17:58:53;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 17:58:53;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 17:58:53;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 17:58:53;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:59:13;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 17:59:13;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 17:59:13;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 17:59:13;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 17:59:13;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 17:59:13;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 18:02:43;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 18:02:43;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 18:02:43;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 18:02:43;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 18:02:43;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 18:02:43;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 18:56:35;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 18:56:35;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 18:56:35;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 18:56:35;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 18:56:35;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 18:56:35;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 18:56:53;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 18:56:53;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 18:56:53;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 18:56:53;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 18:56:53;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 18:56:53;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Wed, 06 Jul 2016 18:57:17;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Wed, 06 Jul 2016 18:57:17;DEBUG] train_y.shape (26729,)
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 19:03:09;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 19:03:09;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 19:03:09;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 19:03:09;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 19:03:09;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 19:03:09;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Wed, 06 Jul 2016 19:03:33;DEBUG] train_x.shape (26729, 308)
+[base_model.py:188 - run Wed, 06 Jul 2016 19:03:33;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Wed, 06 Jul 2016 19:03:33;INFO] splited_key[all] do train
+[base_model.py:212 - run Wed, 06 Jul 2016 19:03:33;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 19:38:56;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 19:38:56;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 19:38:56;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 19:38:56;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 19:38:56;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 19:38:56;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Wed, 06 Jul 2016 19:39:21;DEBUG] train_x.shape (26729, 309)
+[base_model.py:188 - run Wed, 06 Jul 2016 19:39:21;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Wed, 06 Jul 2016 19:39:21;INFO] splited_key[all] do train
+[base_model.py:212 - run Wed, 06 Jul 2016 19:39:21;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 20:09:02;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 20:09:02;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 20:09:02;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 20:09:02;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 20:09:02;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 20:09:02;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Wed, 06 Jul 2016 20:09:27;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Wed, 06 Jul 2016 20:09:27;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Wed, 06 Jul 2016 20:09:27;INFO] splited_key[all] do train
+[base_model.py:212 - run Wed, 06 Jul 2016 20:09:27;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 21:38:31;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 21:38:31;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 21:38:31;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 21:38:31;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 21:38:31;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 21:38:31;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Wed, 06 Jul 2016 21:38:56;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Wed, 06 Jul 2016 21:38:56;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Wed, 06 Jul 2016 21:38:56;INFO] splited_key[all] do train
+[base_model.py:212 - run Wed, 06 Jul 2016 21:38:56;DEBUG] splited_key[all] fit data
+[base_model.py:129 - _store_trained_model Wed, 06 Jul 2016 22:41:31;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 126, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:247 - run Wed, 06 Jul 2016 22:41:31;INFO] load test model...
+[shelter.py:48 - <module> Wed, 06 Jul 2016 22:41:31;ERROR] 'DateTime'
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 248, in run
+    test_x = self._transfer_test_to_model(cleaned_test_data, model_dict, combine_data, external_data, logger)
+  File "/home/test/model_trainer/lib/shelter_common_model.py", line 193, in _transfer_test_to_model
+    data['EncodeYear'] = data['DateTime'].apply(self._transfer_year_info)
+KeyError: 'DateTime'
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 22:48:38;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Wed, 06 Jul 2016 22:48:38;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Wed, 06 Jul 2016 22:48:38;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Wed, 06 Jul 2016 22:48:38;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Wed, 06 Jul 2016 22:48:38;INFO] do model train...
+[base_model.py:183 - run Wed, 06 Jul 2016 22:48:38;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Wed, 06 Jul 2016 22:49:02;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Wed, 06 Jul 2016 22:49:02;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Wed, 06 Jul 2016 22:49:02;INFO] splited_key[all] do train
+[base_model.py:212 - run Wed, 06 Jul 2016 22:49:02;DEBUG] splited_key[all] fit data
+[shelter.py:48 - <module> Wed, 06 Jul 2016 22:49:10;ERROR] [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 222, in run
+    metrics='mlogloss', seed = 121, verbose_eval=True, callbacks=[xgb.callback.print_evaluation(show_stdv=True)])
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/training.py", line 418, in cv
+    evaluation_result_list=res))
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/callback.py", line 46, in callback
+    rabit.tracker_print('[%d]\t%s\n' % (i, msg))
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/rabit.py", line 78, in tracker_print
+    sys.stdout.write(msg)
+IOError: [Errno 5] Input/output error
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 09:45:13;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 09:45:13;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 09:45:13;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 09:45:13;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Thu, 07 Jul 2016 09:45:13;INFO] do model train...
+[base_model.py:183 - run Thu, 07 Jul 2016 09:45:13;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Thu, 07 Jul 2016 09:45:38;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Thu, 07 Jul 2016 09:45:38;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Thu, 07 Jul 2016 09:45:38;INFO] splited_key[all] do train
+[base_model.py:212 - run Thu, 07 Jul 2016 09:45:38;DEBUG] splited_key[all] fit data
+[base_model.py:129 - _store_trained_model Thu, 07 Jul 2016 09:46:17;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 126, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:246 - run Thu, 07 Jul 2016 09:46:17;INFO] load test model...
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 09:49:32;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 09:49:32;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 09:49:33;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 09:49:33;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Thu, 07 Jul 2016 09:49:33;INFO] do model train...
+[base_model.py:183 - run Thu, 07 Jul 2016 09:49:33;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Thu, 07 Jul 2016 09:49:57;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Thu, 07 Jul 2016 09:49:57;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Thu, 07 Jul 2016 09:49:57;INFO] splited_key[all] do train
+[base_model.py:212 - run Thu, 07 Jul 2016 09:49:57;DEBUG] splited_key[all] fit data
+[base_model.py:129 - _store_trained_model Thu, 07 Jul 2016 10:52:46;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 126, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:246 - run Thu, 07 Jul 2016 10:52:46;INFO] load test model...
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 12:22:59;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 12:22:59;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 12:22:59;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 12:22:59;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Thu, 07 Jul 2016 12:22:59;INFO] do model train...
+[base_model.py:183 - run Thu, 07 Jul 2016 12:22:59;INFO] splited_key[all] transfer origin data
+[shelter.py:48 - <module> Thu, 07 Jul 2016 12:23:24;ERROR] local variable 'test_splited_data_dict' referenced before assignment
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 185, in run
+    test_splited_data = test_splited_data_dict[splited_key]
+UnboundLocalError: local variable 'test_splited_data_dict' referenced before assignment
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 12:28:07;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 12:28:07;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 12:28:07;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 12:28:07;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Thu, 07 Jul 2016 12:28:07;INFO] do model train...
+[base_model.py:183 - run Thu, 07 Jul 2016 12:28:07;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Thu, 07 Jul 2016 12:28:39;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Thu, 07 Jul 2016 12:28:39;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Thu, 07 Jul 2016 12:28:39;DEBUG] test_x.shape (11456, 312)
+[base_model.py:206 - run Thu, 07 Jul 2016 12:28:39;INFO] splited_key[all] do train
+[base_model.py:212 - run Thu, 07 Jul 2016 12:28:39;DEBUG] splited_key[all] fit data
+[shelter.py:48 - <module> Thu, 07 Jul 2016 12:28:39;ERROR] invalid cache item: DataFrame
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 224, in run
+    bst = xgb.train(param, dtrain, num_round, watch_list)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/training.py", line 205, in train
+    xgb_model=xgb_model, callbacks=callbacks)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/training.py", line 32, in _train_internal
+    bst = Booster(params, [dtrain] + [d[0] for d in evals])
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/core.py", line 644, in __init__
+    raise TypeError('invalid cache item: {}'.format(type(d).__name__))
+TypeError: invalid cache item: DataFrame
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 12:38:19;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 12:38:19;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 12:38:19;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 12:38:19;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Thu, 07 Jul 2016 12:38:19;INFO] do model train...
+[base_model.py:183 - run Thu, 07 Jul 2016 12:38:19;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Thu, 07 Jul 2016 12:38:46;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Thu, 07 Jul 2016 12:38:46;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Thu, 07 Jul 2016 12:38:46;DEBUG] test_x.shape (11456, 312)
+[base_model.py:206 - run Thu, 07 Jul 2016 12:38:46;INFO] splited_key[all] do train
+[base_model.py:212 - run Thu, 07 Jul 2016 12:38:46;DEBUG] splited_key[all] fit data
+[shelter.py:48 - <module> Thu, 07 Jul 2016 12:38:47;ERROR] invalid cache item: ndarray
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 224, in run
+    bst = xgb.train(param, dtrain, num_round, watch_list)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/training.py", line 205, in train
+    xgb_model=xgb_model, callbacks=callbacks)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/training.py", line 32, in _train_internal
+    bst = Booster(params, [dtrain] + [d[0] for d in evals])
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/core.py", line 644, in __init__
+    raise TypeError('invalid cache item: {}'.format(type(d).__name__))
+TypeError: invalid cache item: ndarray
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 12:42:20;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 12:42:20;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 12:42:21;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 12:42:21;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Thu, 07 Jul 2016 12:42:21;INFO] do model train...
+[base_model.py:183 - run Thu, 07 Jul 2016 12:42:21;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Thu, 07 Jul 2016 12:42:48;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Thu, 07 Jul 2016 12:42:48;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Thu, 07 Jul 2016 12:42:48;DEBUG] test_x.shape (11456, 312)
+[base_model.py:206 - run Thu, 07 Jul 2016 12:42:48;INFO] splited_key[all] do train
+[base_model.py:212 - run Thu, 07 Jul 2016 12:42:48;DEBUG] splited_key[all] fit data
+[shelter.py:48 - <module> Thu, 07 Jul 2016 12:42:48;ERROR] 'module' object has no attribute 'DateFrame'
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 217, in run
+    dtrain = xgb.DMatrix(pd.DateFrame(train_x), label=train_y)
+AttributeError: 'module' object has no attribute 'DateFrame'
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 12:45:57;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 12:45:57;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 12:45:57;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 12:45:57;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Thu, 07 Jul 2016 12:45:57;INFO] do model train...
+[base_model.py:183 - run Thu, 07 Jul 2016 12:45:57;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Thu, 07 Jul 2016 12:46:24;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Thu, 07 Jul 2016 12:46:24;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Thu, 07 Jul 2016 12:46:24;DEBUG] test_x.shape (11456, 312)
+[base_model.py:206 - run Thu, 07 Jul 2016 12:46:24;INFO] splited_key[all] do train
+[base_model.py:212 - run Thu, 07 Jul 2016 12:46:24;DEBUG] splited_key[all] fit data
+[shelter.py:48 - <module> Thu, 07 Jul 2016 12:46:24;ERROR] invalid cache item: ndarray
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 224, in run
+    bst = xgb.train(param, dtrain, num_round, watch_list)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/training.py", line 205, in train
+    xgb_model=xgb_model, callbacks=callbacks)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/training.py", line 32, in _train_internal
+    bst = Booster(params, [dtrain] + [d[0] for d in evals])
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/core.py", line 644, in __init__
+    raise TypeError('invalid cache item: {}'.format(type(d).__name__))
+TypeError: invalid cache item: ndarray
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 12:48:15;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 12:48:15;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 12:48:15;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 12:48:15;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Thu, 07 Jul 2016 12:48:15;INFO] do model train...
+[base_model.py:183 - run Thu, 07 Jul 2016 12:48:15;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Thu, 07 Jul 2016 12:48:48;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Thu, 07 Jul 2016 12:48:48;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Thu, 07 Jul 2016 12:48:48;DEBUG] test_x.shape (11456, 312)
+[base_model.py:206 - run Thu, 07 Jul 2016 12:48:48;INFO] splited_key[all] do train
+[base_model.py:212 - run Thu, 07 Jul 2016 12:48:48;DEBUG] splited_key[all] fit data
+[shelter.py:48 - <module> Thu, 07 Jul 2016 12:48:48;ERROR] invalid cache item: DataFrame
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 224, in run
+    bst = xgb.train(param, dtrain, num_round, watch_list)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/training.py", line 205, in train
+    xgb_model=xgb_model, callbacks=callbacks)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/training.py", line 32, in _train_internal
+    bst = Booster(params, [dtrain] + [d[0] for d in evals])
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/core.py", line 644, in __init__
+    raise TypeError('invalid cache item: {}'.format(type(d).__name__))
+TypeError: invalid cache item: DataFrame
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 12:55:56;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 12:55:56;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 12:55:56;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 12:55:56;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Thu, 07 Jul 2016 12:55:56;INFO] do model train...
+[base_model.py:183 - run Thu, 07 Jul 2016 12:55:56;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Thu, 07 Jul 2016 12:56:30;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Thu, 07 Jul 2016 12:56:30;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Thu, 07 Jul 2016 12:56:30;DEBUG] test_x.shape (11456, 312)
+[base_model.py:206 - run Thu, 07 Jul 2016 12:56:30;INFO] splited_key[all] do train
+[base_model.py:212 - run Thu, 07 Jul 2016 12:56:30;DEBUG] splited_key[all] fit data
+[shelter.py:48 - <module> Thu, 07 Jul 2016 12:56:30;ERROR] train() got an unexpected keyword argument 'eval_result'
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 226, in run
+    bst = xgb.train(param, dtrain, num_round, eval_result=eval_result)
+TypeError: train() got an unexpected keyword argument 'eval_result'
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 13:00:12;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 13:00:12;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 13:00:12;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 13:00:12;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Thu, 07 Jul 2016 13:00:12;INFO] do model train...
+[base_model.py:183 - run Thu, 07 Jul 2016 13:00:12;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Thu, 07 Jul 2016 13:00:46;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Thu, 07 Jul 2016 13:00:46;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Thu, 07 Jul 2016 13:00:46;DEBUG] test_x.shape (11456, 312)
+[base_model.py:206 - run Thu, 07 Jul 2016 13:00:46;INFO] splited_key[all] do train
+[base_model.py:212 - run Thu, 07 Jul 2016 13:00:46;DEBUG] splited_key[all] fit data
+[shelter.py:48 - <module> Thu, 07 Jul 2016 13:21:40;ERROR] 'eval'
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 229, in run
+    print(evals_result['eval']['mlogloss'])
+KeyError: 'eval'
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 13:37:38;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 13:37:38;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 13:37:38;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 13:37:38;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Thu, 07 Jul 2016 13:37:38;INFO] do model train...
+[base_model.py:183 - run Thu, 07 Jul 2016 13:37:38;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Thu, 07 Jul 2016 13:38:11;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Thu, 07 Jul 2016 13:38:11;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Thu, 07 Jul 2016 13:38:11;DEBUG] test_x.shape (11456, 312)
+[base_model.py:206 - run Thu, 07 Jul 2016 13:38:11;INFO] splited_key[all] do train
+[base_model.py:212 - run Thu, 07 Jul 2016 13:38:11;DEBUG] splited_key[all] fit data
+[base_model.py:129 - _store_trained_model Thu, 07 Jul 2016 13:59:01;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 126, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:252 - run Thu, 07 Jul 2016 13:59:01;INFO] load test model...
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 14:08:59;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 14:08:59;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 14:08:59;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 14:08:59;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Thu, 07 Jul 2016 14:08:59;INFO] do model train...
+[base_model.py:183 - run Thu, 07 Jul 2016 14:08:59;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Thu, 07 Jul 2016 14:09:32;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Thu, 07 Jul 2016 14:09:32;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Thu, 07 Jul 2016 14:09:32;DEBUG] test_x.shape (11456, 312)
+[base_model.py:206 - run Thu, 07 Jul 2016 14:09:32;INFO] splited_key[all] do train
+[base_model.py:212 - run Thu, 07 Jul 2016 14:09:32;DEBUG] splited_key[all] fit data
+[base_model.py:129 - _store_trained_model Thu, 07 Jul 2016 14:51:23;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 126, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:247 - run Thu, 07 Jul 2016 14:51:23;INFO] load test model...
+[shelter.py:48 - <module> Thu, 07 Jul 2016 14:51:31;ERROR] global name 'bst' is not defined
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 256, in run
+    predict_y = bst.predict(dtest)
+NameError: global name 'bst' is not defined
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 15:11:03;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 15:11:03;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 15:11:03;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 15:11:03;DEBUG] test_data shape (11456, 8)
+[shelter.py:48 - <module> Thu, 07 Jul 2016 15:11:03;ERROR] global name 'part_breeds' is not defined
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 174, in run
+    (combine_data, external_data) = self._generate_combine_and_external_data(cleaned_train_data, cleaned_test_data, logger)
+  File "/home/test/model_trainer/lib/shelter_common_model.py", line 46, in _generate_combine_and_external_data
+    new_train_breed = self._transfer_breed_input(train_breed, logger)
+  File "/home/test/model_trainer/lib/shelter_common_model.py", line 32, in _transfer_breed_input
+    for part_breed in part_breeds:
+NameError: global name 'part_breeds' is not defined
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 15:15:16;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 15:15:16;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 15:15:16;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 15:15:16;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Thu, 07 Jul 2016 15:15:16;INFO] do model train...
+[base_model.py:183 - run Thu, 07 Jul 2016 15:15:16;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Thu, 07 Jul 2016 15:15:49;DEBUG] train_x.shape (26729, 311)
+[base_model.py:188 - run Thu, 07 Jul 2016 15:15:49;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Thu, 07 Jul 2016 15:15:49;DEBUG] test_x.shape (11456, 311)
+[base_model.py:206 - run Thu, 07 Jul 2016 15:15:49;INFO] splited_key[all] do train
+[base_model.py:212 - run Thu, 07 Jul 2016 15:15:49;DEBUG] splited_key[all] fit data
+[base_model.py:129 - _store_trained_model Thu, 07 Jul 2016 15:47:17;ERROR] global name 'os' is not defined
+Traceback (most recent call last):
+  File "/home/test/model_trainer/lib/base_model.py", line 126, in _store_trained_model
+    self.model_loader.dump_model_infos(model_infos, self.model_info_filename_prefix, splited_key, logger)
+  File "/home/test/model_trainer/lib/model_loader/joblib_loader.py", line 41, in dump_model_infos
+    model_filename = os.path.join(model_info_filename_prefix, '.'.join([model_name, splited_key]))
+NameError: global name 'os' is not defined
+[base_model.py:247 - run Thu, 07 Jul 2016 15:47:17;INFO] load test model...
+[shelter.py:48 - <module> Thu, 07 Jul 2016 15:47:25;ERROR] global name 'bst' is not defined
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 256, in run
+    predict_y = bst.predict(dtest)
+NameError: global name 'bst' is not defined
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 16:28:34;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 16:28:34;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 16:28:34;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 16:28:34;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Thu, 07 Jul 2016 16:28:34;INFO] do model train...
+[base_model.py:183 - run Thu, 07 Jul 2016 16:28:34;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Thu, 07 Jul 2016 16:29:08;DEBUG] train_x.shape (26729, 311)
+[base_model.py:188 - run Thu, 07 Jul 2016 16:29:08;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Thu, 07 Jul 2016 16:29:08;DEBUG] test_x.shape (11456, 311)
+[base_model.py:206 - run Thu, 07 Jul 2016 16:29:08;INFO] splited_key[all] do train
+[base_model.py:212 - run Thu, 07 Jul 2016 16:29:08;DEBUG] splited_key[all] fit data
+[shelter.py:48 - <module> Thu, 07 Jul 2016 16:29:08;ERROR] invalid cache item: DataFrame
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 224, in run
+    bst = xgb.train(param, dtrain, num_round, watch_list)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/training.py", line 205, in train
+    xgb_model=xgb_model, callbacks=callbacks)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/training.py", line 32, in _train_internal
+    bst = Booster(params, [dtrain] + [d[0] for d in evals])
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/core.py", line 644, in __init__
+    raise TypeError('invalid cache item: {}'.format(type(d).__name__))
+TypeError: invalid cache item: DataFrame
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 16:34:18;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 16:34:18;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 16:34:18;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 16:34:18;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Thu, 07 Jul 2016 16:34:18;INFO] do model train...
+[base_model.py:183 - run Thu, 07 Jul 2016 16:34:18;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Thu, 07 Jul 2016 16:34:52;DEBUG] train_x.shape (26729, 311)
+[base_model.py:188 - run Thu, 07 Jul 2016 16:34:52;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Thu, 07 Jul 2016 16:34:52;DEBUG] test_x.shape (11456, 311)
+[base_model.py:206 - run Thu, 07 Jul 2016 16:34:52;INFO] splited_key[all] do train
+[base_model.py:212 - run Thu, 07 Jul 2016 16:34:52;DEBUG] splited_key[all] fit data
+[base_model.py:247 - run Thu, 07 Jul 2016 16:50:33;INFO] load test model...
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 17:37:29;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Thu, 07 Jul 2016 17:37:29;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Thu, 07 Jul 2016 17:37:29;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Thu, 07 Jul 2016 17:37:29;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Thu, 07 Jul 2016 17:37:29;INFO] do model train...
+[base_model.py:183 - run Thu, 07 Jul 2016 17:37:29;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Thu, 07 Jul 2016 17:38:01;DEBUG] train_x.shape (26729, 311)
+[base_model.py:188 - run Thu, 07 Jul 2016 17:38:01;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Thu, 07 Jul 2016 17:38:01;DEBUG] test_x.shape (11456, 311)
+[base_model.py:206 - run Thu, 07 Jul 2016 17:38:11;INFO] splited_key[all] do train
+[base_model.py:212 - run Thu, 07 Jul 2016 17:38:11;DEBUG] splited_key[all] fit data
+[base_model.py:247 - run Thu, 07 Jul 2016 18:24:48;INFO] load test model...
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 09:26:35;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 09:26:35;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Fri, 08 Jul 2016 09:26:35;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Fri, 08 Jul 2016 09:26:35;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Fri, 08 Jul 2016 09:26:35;INFO] do model train...
+[base_model.py:183 - run Fri, 08 Jul 2016 09:26:35;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Fri, 08 Jul 2016 09:27:07;DEBUG] train_x.shape (26729, 311)
+[base_model.py:188 - run Fri, 08 Jul 2016 09:27:07;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Fri, 08 Jul 2016 09:27:07;DEBUG] test_x.shape (11456, 311)
+[base_model.py:206 - run Fri, 08 Jul 2016 09:27:16;INFO] splited_key[all] do train
+[base_model.py:212 - run Fri, 08 Jul 2016 09:27:16;DEBUG] splited_key[all] fit data
+[base_model.py:247 - run Fri, 08 Jul 2016 10:13:50;INFO] load test model...
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 10:25:14;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 10:25:14;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Fri, 08 Jul 2016 10:25:14;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Fri, 08 Jul 2016 10:25:14;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Fri, 08 Jul 2016 10:25:14;INFO] do model train...
+[base_model.py:183 - run Fri, 08 Jul 2016 10:25:14;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Fri, 08 Jul 2016 10:25:47;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Fri, 08 Jul 2016 10:25:47;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Fri, 08 Jul 2016 10:25:47;DEBUG] test_x.shape (11456, 312)
+[base_model.py:206 - run Fri, 08 Jul 2016 10:25:47;INFO] splited_key[all] do train
+[base_model.py:212 - run Fri, 08 Jul 2016 10:25:47;DEBUG] splited_key[all] fit data
+[base_model.py:247 - run Fri, 08 Jul 2016 11:13:07;INFO] load test model...
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 16:56:28;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 16:56:28;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Fri, 08 Jul 2016 16:56:28;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Fri, 08 Jul 2016 16:56:28;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Fri, 08 Jul 2016 16:56:28;INFO] do model train...
+[base_model.py:183 - run Fri, 08 Jul 2016 16:56:28;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Fri, 08 Jul 2016 16:57:03;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Fri, 08 Jul 2016 16:57:03;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Fri, 08 Jul 2016 16:57:03;DEBUG] test_x.shape (11456, 312)
+[base_model.py:206 - run Fri, 08 Jul 2016 16:57:03;INFO] splited_key[all] do train
+[base_model.py:212 - run Fri, 08 Jul 2016 16:57:03;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 16:59:31;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 16:59:31;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Fri, 08 Jul 2016 16:59:31;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Fri, 08 Jul 2016 16:59:31;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Fri, 08 Jul 2016 16:59:31;INFO] do model train...
+[base_model.py:183 - run Fri, 08 Jul 2016 16:59:31;INFO] splited_key[all] transfer origin data
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 17:46:54;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 17:46:54;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Fri, 08 Jul 2016 17:46:54;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Fri, 08 Jul 2016 17:46:54;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Fri, 08 Jul 2016 17:46:54;INFO] do model train...
+[base_model.py:183 - run Fri, 08 Jul 2016 17:46:54;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Fri, 08 Jul 2016 17:47:28;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Fri, 08 Jul 2016 17:47:28;DEBUG] train_y.shape (26729,)
+[base_model.py:189 - run Fri, 08 Jul 2016 17:47:28;DEBUG] test_x.shape (11456, 312)
+[base_model.py:206 - run Fri, 08 Jul 2016 17:47:28;INFO] splited_key[all] do train
+[base_model.py:212 - run Fri, 08 Jul 2016 17:47:28;DEBUG] splited_key[all] fit data
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 17:49:57;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 17:49:57;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Fri, 08 Jul 2016 17:49:57;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Fri, 08 Jul 2016 17:49:57;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Fri, 08 Jul 2016 17:49:57;INFO] do model train...
+[base_model.py:183 - run Fri, 08 Jul 2016 17:49:57;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Fri, 08 Jul 2016 17:50:23;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Fri, 08 Jul 2016 17:50:23;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Fri, 08 Jul 2016 17:50:23;INFO] splited_key[all] do train
+[base_model.py:212 - run Fri, 08 Jul 2016 17:50:23;DEBUG] splited_key[all] fit data
+[shelter.py:48 - <module> Fri, 08 Jul 2016 17:50:23;ERROR] local variable 'test_x' referenced before assignment
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 219, in run
+    watch_list  = [(test_x,'eval'), (dtrain,'train')]
+UnboundLocalError: local variable 'test_x' referenced before assignment
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 18:27:32;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 18:27:32;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Fri, 08 Jul 2016 18:27:32;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Fri, 08 Jul 2016 18:27:32;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Fri, 08 Jul 2016 18:27:32;INFO] do model train...
+[base_model.py:183 - run Fri, 08 Jul 2016 18:27:32;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Fri, 08 Jul 2016 18:27:56;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Fri, 08 Jul 2016 18:27:56;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Fri, 08 Jul 2016 18:27:56;INFO] splited_key[all] do train
+[base_model.py:212 - run Fri, 08 Jul 2016 18:27:56;DEBUG] splited_key[all] fit data
+[base_model.py:246 - run Fri, 08 Jul 2016 19:15:16;INFO] load test model...
+[shelter.py:48 - <module> Fri, 08 Jul 2016 19:15:16;ERROR] _transfer_test_to_model() takes exactly 7 arguments (6 given)
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 248, in run
+    (test_x, model_infos) = self._transfer_test_to_model('all', test_splited_data_dict['all'], combine_data, external_data, logger)
+TypeError: _transfer_test_to_model() takes exactly 7 arguments (6 given)
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 19:28:55;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 19:28:56;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Fri, 08 Jul 2016 19:28:56;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Fri, 08 Jul 2016 19:28:56;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Fri, 08 Jul 2016 19:28:56;INFO] do model train...
+[base_model.py:183 - run Fri, 08 Jul 2016 19:28:56;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Fri, 08 Jul 2016 19:29:21;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Fri, 08 Jul 2016 19:29:21;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Fri, 08 Jul 2016 19:29:21;INFO] splited_key[all] do train
+[base_model.py:212 - run Fri, 08 Jul 2016 19:29:21;DEBUG] splited_key[all] fit data
+[shelter.py:48 - <module> Fri, 08 Jul 2016 19:30:06;ERROR] [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 222, in run
+    metrics='mlogloss', seed = 121, verbose_eval=True, callbacks=[xgb.callback.print_evaluation(show_stdv=True)])
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/training.py", line 418, in cv
+    evaluation_result_list=res))
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/callback.py", line 46, in callback
+    rabit.tracker_print('[%d]\t%s\n' % (i, msg))
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/rabit.py", line 78, in tracker_print
+    sys.stdout.write(msg)
+IOError: [Errno 5] Input/output error
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 21:24:17;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 21:24:17;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Fri, 08 Jul 2016 21:24:17;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Fri, 08 Jul 2016 21:24:17;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Fri, 08 Jul 2016 21:24:17;INFO] do model train...
+[base_model.py:183 - run Fri, 08 Jul 2016 21:24:17;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Fri, 08 Jul 2016 21:24:42;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Fri, 08 Jul 2016 21:24:42;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Fri, 08 Jul 2016 21:24:42;INFO] splited_key[all] do train
+[base_model.py:212 - run Fri, 08 Jul 2016 21:24:42;DEBUG] splited_key[all] fit data
+[base_model.py:246 - run Fri, 08 Jul 2016 21:45:30;INFO] load test model...
+[shelter.py:48 - <module> Fri, 08 Jul 2016 21:45:40;ERROR] too many values to unpack
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 248, in run
+    (test_x, model_infos) = self._transfer_test_to_model('all', test_splited_data_dict['all'], model_infos, combine_data, external_data, logger)
+ValueError: too many values to unpack
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 21:50:36;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:66 - _load_and_clean_data Fri, 08 Jul 2016 21:50:36;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:170 - run Fri, 08 Jul 2016 21:50:36;DEBUG] train_data shape (26729, 10)
+[base_model.py:171 - run Fri, 08 Jul 2016 21:50:36;DEBUG] test_data shape (11456, 8)
+[base_model.py:181 - run Fri, 08 Jul 2016 21:50:36;INFO] do model train...
+[base_model.py:183 - run Fri, 08 Jul 2016 21:50:36;INFO] splited_key[all] transfer origin data
+[base_model.py:187 - run Fri, 08 Jul 2016 21:51:01;DEBUG] train_x.shape (26729, 312)
+[base_model.py:188 - run Fri, 08 Jul 2016 21:51:01;DEBUG] train_y.shape (26729,)
+[base_model.py:206 - run Fri, 08 Jul 2016 21:51:01;INFO] splited_key[all] do train
+[base_model.py:212 - run Fri, 08 Jul 2016 21:51:01;DEBUG] splited_key[all] fit data
+[base_model.py:246 - run Fri, 08 Jul 2016 22:11:55;INFO] load test model...
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:09:44;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:09:44;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 15:09:44;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 15:09:44;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 15:09:44;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 15:09:44;INFO] splited_key[all] transfer origin data
+[base_model.py:179 - run Sat, 09 Jul 2016 15:10:08;DEBUG] train_x.shape (26729, 312)
+[base_model.py:180 - run Sat, 09 Jul 2016 15:10:08;DEBUG] train_y.shape (26729,)
+[base_model.py:187 - run Sat, 09 Jul 2016 15:10:08;INFO] splited_key[all] do train
+[base_model.py:193 - run Sat, 09 Jul 2016 15:10:08;INFO] splited_key[all] fit data
+[shelter_common_model.py:271 - _train Sat, 09 Jul 2016 15:10:08;INFO] splited_key[all] do training
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:10:34;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:10:34;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 15:10:34;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 15:10:34;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 15:10:34;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 15:10:34;INFO] splited_key[all] transfer origin data
+[base_model.py:179 - run Sat, 09 Jul 2016 15:10:59;DEBUG] train_x.shape (26729, 312)
+[base_model.py:180 - run Sat, 09 Jul 2016 15:10:59;DEBUG] train_y.shape (26729,)
+[base_model.py:187 - run Sat, 09 Jul 2016 15:10:59;INFO] splited_key[all] do train
+[base_model.py:193 - run Sat, 09 Jul 2016 15:10:59;INFO] splited_key[all] fit data
+[shelter_common_model.py:271 - _train Sat, 09 Jul 2016 15:10:59;INFO] splited_key[all] do training
+[shelter_common_model.py:280 - _do_validation Sat, 09 Jul 2016 15:11:12;INFO] splited_key[all] do validation
+[base_model.py:220 - run Sat, 09 Jul 2016 15:11:38;INFO] load test model...
+[shelter.py:48 - <module> Sat, 09 Jul 2016 15:11:45;ERROR] can not initialize DMatrix from DMatrix
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 228, in run
+    predict_y = clf.predict(splited_test_x)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/sklearn.py", line 459, in predict
+    test_dmatrix = DMatrix(data, missing=self.missing)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/core.py", line 274, in __init__
+    raise TypeError('can not initialize DMatrix from {}'.format(type(data).__name__))
+TypeError: can not initialize DMatrix from DMatrix
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:19:48;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:19:48;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 15:19:48;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 15:19:48;DEBUG] test_data shape (11456, 8)
+[base_model.py:205 - run Sat, 09 Jul 2016 15:19:48;INFO] load trained model...
+[base_model.py:207 - run Sat, 09 Jul 2016 15:19:48;INFO] splited_key[all] load trained model
+[shelter.py:48 - <module> Sat, 09 Jul 2016 15:19:48;ERROR] 'ShelterCommonModel' object has no attribute 'load_model_infos'
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 209, in run
+    (clf, model_infos) = self._load_trained_model(splited_key, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 140, in _load_trained_model
+    model_infos = self.load_model_infos(model_names, self.model_info_filename_prefix, splited_key, logger)
+AttributeError: 'ShelterCommonModel' object has no attribute 'load_model_infos'
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:21:28;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:21:29;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 15:21:29;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 15:21:29;DEBUG] test_data shape (11456, 8)
+[base_model.py:205 - run Sat, 09 Jul 2016 15:21:29;INFO] load trained model...
+[base_model.py:207 - run Sat, 09 Jul 2016 15:21:29;INFO] splited_key[all] load trained model
+[base_model.py:217 - run Sat, 09 Jul 2016 15:21:29;INFO] load test model...
+[shelter_common_model.py:192 - _transfer_test_to_model Sat, 09 Jul 2016 15:21:29;ERROR] no vectorizer_x defined for model
+[shelter.py:48 - <module> Sat, 09 Jul 2016 15:21:29;ERROR] need to call fit beforehand
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 226, in run
+    predict_y = clf.predict(splited_test_x)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/sklearn.py", line 460, in predict
+    class_probs = self.booster().predict(test_dmatrix,
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/sklearn.py", line 163, in booster
+    raise XGBoostError('need to call fit beforehand')
+XGBoostError: need to call fit beforehand
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:21:50;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:21:50;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 15:21:50;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 15:21:50;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 15:21:50;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 15:21:50;INFO] splited_key[all] transfer origin data
+[base_model.py:179 - run Sat, 09 Jul 2016 15:22:14;DEBUG] train_x.shape (26729, 312)
+[base_model.py:180 - run Sat, 09 Jul 2016 15:22:14;DEBUG] train_y.shape (26729,)
+[base_model.py:187 - run Sat, 09 Jul 2016 15:22:14;INFO] splited_key[all] do train
+[base_model.py:193 - run Sat, 09 Jul 2016 15:22:14;INFO] splited_key[all] fit data
+[shelter_common_model.py:271 - _train Sat, 09 Jul 2016 15:22:14;INFO] splited_key[all] do training
+[shelter_common_model.py:280 - _do_validation Sat, 09 Jul 2016 15:22:27;INFO] splited_key[all] do validation
+[base_model.py:217 - run Sat, 09 Jul 2016 15:22:53;INFO] load test model...
+[shelter.py:48 - <module> Sat, 09 Jul 2016 15:23:01;ERROR] can not initialize DMatrix from DMatrix
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 226, in run
+    predict_y = clf.predict(splited_test_x)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/sklearn.py", line 459, in predict
+    test_dmatrix = DMatrix(data, missing=self.missing)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/core.py", line 274, in __init__
+    raise TypeError('can not initialize DMatrix from {}'.format(type(data).__name__))
+TypeError: can not initialize DMatrix from DMatrix
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:23:55;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:23:55;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 15:23:56;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 15:23:56;DEBUG] test_data shape (11456, 8)
+[base_model.py:205 - run Sat, 09 Jul 2016 15:23:56;INFO] load trained model...
+[base_model.py:207 - run Sat, 09 Jul 2016 15:23:56;INFO] splited_key[all] load trained model
+[base_model.py:217 - run Sat, 09 Jul 2016 15:23:56;INFO] load test model...
+[shelter_common_model.py:192 - _transfer_test_to_model Sat, 09 Jul 2016 15:23:56;ERROR] no vectorizer_x defined for model
+[shelter.py:48 - <module> Sat, 09 Jul 2016 15:23:56;ERROR] need to call fit beforehand
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 226, in run
+    predict_y = clf.predict(splited_test_x)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/sklearn.py", line 460, in predict
+    class_probs = self.booster().predict(test_dmatrix,
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/sklearn.py", line 163, in booster
+    raise XGBoostError('need to call fit beforehand')
+XGBoostError: need to call fit beforehand
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:24:03;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:24:03;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 15:24:03;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 15:24:03;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 15:24:03;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 15:24:03;INFO] splited_key[all] transfer origin data
+[base_model.py:179 - run Sat, 09 Jul 2016 15:24:27;DEBUG] train_x.shape (26729, 312)
+[base_model.py:180 - run Sat, 09 Jul 2016 15:24:27;DEBUG] train_y.shape (26729,)
+[base_model.py:187 - run Sat, 09 Jul 2016 15:24:27;INFO] splited_key[all] do train
+[base_model.py:193 - run Sat, 09 Jul 2016 15:24:27;INFO] splited_key[all] fit data
+[shelter_common_model.py:270 - _train Sat, 09 Jul 2016 15:24:27;INFO] splited_key[all] do training
+[shelter_common_model.py:279 - _do_validation Sat, 09 Jul 2016 15:24:40;INFO] splited_key[all] do validation
+[base_model.py:217 - run Sat, 09 Jul 2016 15:25:06;INFO] load test model...
+[shelter.py:48 - <module> Sat, 09 Jul 2016 15:25:14;ERROR] need to call fit beforehand
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 226, in run
+    predict_y = clf.predict(splited_test_x)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/sklearn.py", line 460, in predict
+    class_probs = self.booster().predict(test_dmatrix,
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/sklearn.py", line 163, in booster
+    raise XGBoostError('need to call fit beforehand')
+XGBoostError: need to call fit beforehand
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:26:22;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:26:22;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 15:26:22;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 15:26:22;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 15:26:22;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 15:26:22;INFO] splited_key[all] transfer origin data
+[base_model.py:179 - run Sat, 09 Jul 2016 15:26:47;DEBUG] train_x.shape (26729, 312)
+[base_model.py:180 - run Sat, 09 Jul 2016 15:26:47;DEBUG] train_y.shape (26729,)
+[base_model.py:187 - run Sat, 09 Jul 2016 15:26:47;INFO] splited_key[all] do train
+[base_model.py:193 - run Sat, 09 Jul 2016 15:26:47;INFO] splited_key[all] fit data
+[shelter_common_model.py:270 - _train Sat, 09 Jul 2016 15:26:47;INFO] splited_key[all] do training
+[shelter_common_model.py:279 - _do_validation Sat, 09 Jul 2016 15:26:59;INFO] splited_key[all] do validation
+[base_model.py:217 - run Sat, 09 Jul 2016 15:27:26;INFO] load test model...
+[shelter.py:48 - <module> Sat, 09 Jul 2016 15:27:33;ERROR] 'DataFrame' object has no attribute 'feature_names'
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 226, in run
+    predict_y = clf.predict(splited_test_x)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/core.py", line 939, in predict
+    self._validate_features(data)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/core.py", line 1164, in _validate_features
+    if self.feature_names != data.feature_names:
+  File "/usr/lib/python2.7/dist-packages/pandas/core/generic.py", line 1815, in __getattr__
+    (type(self).__name__, name))
+AttributeError: 'DataFrame' object has no attribute 'feature_names'
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:28:24;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:28:24;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 15:28:24;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 15:28:24;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 15:28:24;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 15:28:24;INFO] splited_key[all] transfer origin data
+[base_model.py:179 - run Sat, 09 Jul 2016 15:28:49;DEBUG] train_x.shape (26729, 312)
+[base_model.py:180 - run Sat, 09 Jul 2016 15:28:49;DEBUG] train_y.shape (26729,)
+[base_model.py:187 - run Sat, 09 Jul 2016 15:28:49;INFO] splited_key[all] do train
+[base_model.py:193 - run Sat, 09 Jul 2016 15:28:49;INFO] splited_key[all] fit data
+[shelter_common_model.py:270 - _train Sat, 09 Jul 2016 15:28:49;INFO] splited_key[all] do training
+[shelter_common_model.py:279 - _do_validation Sat, 09 Jul 2016 15:29:02;INFO] splited_key[all] do validation
+[base_model.py:217 - run Sat, 09 Jul 2016 15:29:28;INFO] load test model...
+[shelter.py:48 - <module> Sat, 09 Jul 2016 15:29:36;ERROR] not enough arguments for format string
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 227, in run
+    logger.info('splited_key[%s] predict_y.shape %s' % str(predict_y.shape))
+TypeError: not enough arguments for format string
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:31:22;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:31:22;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 15:31:22;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 15:31:22;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 15:31:22;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 15:31:22;INFO] splited_key[all] transfer origin data
+[base_model.py:179 - run Sat, 09 Jul 2016 15:31:46;DEBUG] train_x.shape (26729, 312)
+[base_model.py:180 - run Sat, 09 Jul 2016 15:31:46;DEBUG] train_y.shape (26729,)
+[base_model.py:187 - run Sat, 09 Jul 2016 15:31:46;INFO] splited_key[all] do train
+[base_model.py:193 - run Sat, 09 Jul 2016 15:31:46;INFO] splited_key[all] fit data
+[shelter_common_model.py:270 - _train Sat, 09 Jul 2016 15:31:46;INFO] splited_key[all] do training
+[shelter_common_model.py:279 - _do_validation Sat, 09 Jul 2016 15:31:59;INFO] splited_key[all] do validation
+[base_model.py:217 - run Sat, 09 Jul 2016 15:32:25;INFO] load test model...
+[base_model.py:227 - run Sat, 09 Jul 2016 15:32:33;INFO] splited_key[all] predict_y.shape (11456, 5)
+[base_model.py:228 - run Sat, 09 Jul 2016 15:32:33;INFO] splited_key[all] predict_y [[ 0.18639696  0.18499736  0.18764472  0.20497078  0.23599015]
+ [ 0.24284993  0.1835296   0.18444711  0.20020919  0.18896417]
+ [ 0.20888296  0.18360645  0.18582797  0.19258094  0.22910172]
+ ..., 
+ [ 0.18441783  0.1845964   0.18912171  0.18455483  0.25730926]
+ [ 0.22483374  0.1847302   0.18636395  0.21387176  0.19020031]
+ [ 0.20058979  0.18543404  0.20985909  0.21536922  0.18874785]]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:52:53;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:52:53;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 15:52:53;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 15:52:53;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 15:52:53;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 15:52:53;INFO] splited_key[all] transfer origin data
+[shelter.py:48 - <module> Sat, 09 Jul 2016 15:53:02;ERROR] 'ShelterCommonModel' object has no attribute '_transfer_intact_infos'
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 178, in run
+    (train_x, train_y, model_infos) = self._transfer_data_to_model(splited_key, splited_data, combine_data, external_data, logger)
+  File "/home/test/model_trainer/lib/shelter_common_model.py", line 251, in _transfer_data_to_model
+    data['Intact'] = data['SexuponOutcome'].apply(self._transfer_intact_infos)
+AttributeError: 'ShelterCommonModel' object has no attribute '_transfer_intact_infos'
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:53:41;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:53:41;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 15:53:41;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 15:53:41;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 15:53:41;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 15:53:41;INFO] splited_key[all] transfer origin data
+[base_model.py:179 - run Sat, 09 Jul 2016 15:54:10;DEBUG] train_x.shape (26729, 528)
+[base_model.py:180 - run Sat, 09 Jul 2016 15:54:10;DEBUG] train_y.shape (26729,)
+[base_model.py:187 - run Sat, 09 Jul 2016 15:54:10;INFO] splited_key[all] do train
+[base_model.py:193 - run Sat, 09 Jul 2016 15:54:10;INFO] splited_key[all] fit data
+[shelter_common_model.py:264 - _train Sat, 09 Jul 2016 15:54:10;INFO] splited_key[all] do training
+[shelter_common_model.py:273 - _do_validation Sat, 09 Jul 2016 15:54:31;INFO] splited_key[all] do validation
+[base_model.py:217 - run Sat, 09 Jul 2016 15:55:15;INFO] load test model...
+[base_model.py:227 - run Sat, 09 Jul 2016 15:55:26;INFO] splited_key[all] predict_y.shape (11456, 5)
+[base_model.py:228 - run Sat, 09 Jul 2016 15:55:26;INFO] splited_key[all] predict_y [[ 0.18638201  0.18478329  0.1882052   0.20584877  0.23478071]
+ [ 0.2199093   0.18968667  0.19069038  0.19687559  0.20283803]
+ [ 0.21311934  0.18419456  0.18480934  0.19281094  0.22506577]
+ ..., 
+ [ 0.18505394  0.1853724   0.18571272  0.18526182  0.2585991 ]
+ [ 0.22306278  0.18569241  0.18664117  0.21187216  0.19273145]
+ [ 0.19126743  0.18955918  0.1996628   0.22520699  0.19430362]]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:56:50;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:56:50;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 15:56:50;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 15:56:50;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 15:56:50;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 15:56:50;INFO] splited_key[all] transfer origin data
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:56:58;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 15:56:58;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 15:56:58;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 15:56:58;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 15:56:58;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 15:56:58;INFO] splited_key[all] transfer origin data
+[base_model.py:179 - run Sat, 09 Jul 2016 15:57:27;DEBUG] train_x.shape (26729, 528)
+[base_model.py:180 - run Sat, 09 Jul 2016 15:57:27;DEBUG] train_y.shape (26729,)
+[base_model.py:187 - run Sat, 09 Jul 2016 15:57:27;INFO] splited_key[all] do train
+[base_model.py:193 - run Sat, 09 Jul 2016 15:57:27;INFO] splited_key[all] fit data
+[shelter_common_model.py:264 - _train Sat, 09 Jul 2016 15:57:27;INFO] splited_key[all] do training
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 16:03:55;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 16:03:55;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 16:03:55;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 16:03:55;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 16:03:55;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 16:03:55;INFO] splited_key[all] transfer origin data
+[base_model.py:179 - run Sat, 09 Jul 2016 16:04:25;DEBUG] train_x.shape (26729, 528)
+[base_model.py:180 - run Sat, 09 Jul 2016 16:04:25;DEBUG] train_y.shape (26729,)
+[base_model.py:187 - run Sat, 09 Jul 2016 16:04:25;INFO] splited_key[all] do train
+[base_model.py:193 - run Sat, 09 Jul 2016 16:04:25;INFO] splited_key[all] fit data
+[shelter_common_model.py:273 - _do_validation Sat, 09 Jul 2016 16:04:25;INFO] splited_key[all] do validation
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 17:03:41;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 17:03:41;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 17:03:41;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 17:03:41;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 17:03:41;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 17:03:41;INFO] splited_key[all] transfer origin data
+[base_model.py:179 - run Sat, 09 Jul 2016 17:04:10;DEBUG] train_x.shape (26729, 528)
+[base_model.py:180 - run Sat, 09 Jul 2016 17:04:10;DEBUG] train_y.shape (26729,)
+[base_model.py:187 - run Sat, 09 Jul 2016 17:04:10;INFO] splited_key[all] do train
+[base_model.py:193 - run Sat, 09 Jul 2016 17:04:10;INFO] splited_key[all] fit data
+[shelter_common_model.py:274 - _do_validation Sat, 09 Jul 2016 17:04:10;INFO] splited_key[all] do validation
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 17:07:50;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 17:07:50;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 17:07:50;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 17:07:50;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 17:07:50;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 17:07:50;INFO] splited_key[all] transfer origin data
+[base_model.py:179 - run Sat, 09 Jul 2016 17:08:19;DEBUG] train_x.shape (26729, 528)
+[base_model.py:180 - run Sat, 09 Jul 2016 17:08:19;DEBUG] train_y.shape (26729,)
+[base_model.py:187 - run Sat, 09 Jul 2016 17:08:19;INFO] splited_key[all] do train
+[base_model.py:193 - run Sat, 09 Jul 2016 17:08:19;INFO] splited_key[all] fit data
+[shelter_common_model.py:274 - _do_validation Sat, 09 Jul 2016 17:08:19;INFO] splited_key[all] do validation
+[shelter_common_model.py:264 - _train Sat, 09 Jul 2016 17:46:48;INFO] splited_key[all] do training
+[base_model.py:217 - run Sat, 09 Jul 2016 18:05:36;INFO] load test model...
+[base_model.py:227 - run Sat, 09 Jul 2016 18:05:48;INFO] splited_key[all] predict_y.shape (11456, 5)
+[base_model.py:228 - run Sat, 09 Jul 2016 18:05:48;INFO] splited_key[all] predict_y [[  2.35543903e-02   1.14688382e-03   2.68009268e-02   1.56698048e-01
+    7.91799784e-01]
+ [  7.27431417e-01   5.11147780e-04   1.42220650e-02   2.03218579e-01
+    5.46167903e-02]
+ [  3.66182417e-01   1.16091606e-03   1.73080973e-02   1.74647048e-01
+    4.40701514e-01]
+ ..., 
+ [  2.89096264e-03   2.41497601e-03   2.78993808e-02   1.87037152e-03
+    9.64924276e-01]
+ [  5.08115649e-01   7.09002663e-04   1.42345866e-02   4.06665146e-01
+    7.02756569e-02]
+ [  7.97962621e-02   2.67529697e-03   1.28453270e-01   6.22253656e-01
+    1.66821569e-01]]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 18:43:36;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 18:43:36;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 18:43:36;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 18:43:36;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 18:43:36;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 18:43:36;INFO] splited_key[all] transfer origin data
+[base_model.py:179 - run Sat, 09 Jul 2016 18:44:04;DEBUG] train_x.shape (26729, 527)
+[base_model.py:180 - run Sat, 09 Jul 2016 18:44:04;DEBUG] train_y.shape (26729,)
+[base_model.py:187 - run Sat, 09 Jul 2016 18:44:04;INFO] splited_key[all] do train
+[base_model.py:193 - run Sat, 09 Jul 2016 18:44:04;INFO] splited_key[all] fit data
+[shelter_common_model.py:273 - _do_validation Sat, 09 Jul 2016 18:44:04;INFO] splited_key[all] do validation
+[base_model.py:217 - run Sat, 09 Jul 2016 19:52:50;INFO] load test model...
+[shelter.py:48 - <module> Sat, 09 Jul 2016 19:53:00;ERROR] can not initialize DMatrix from DMatrix
+Traceback (most recent call last):
+  File "bin/shelter.py", line 46, in <module>
+    m.run(now, logger)
+  File "/home/test/model_trainer/lib/base_model.py", line 226, in run
+    predict_y = clf.predict(splited_test_x)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/sklearn.py", line 459, in predict
+    test_dmatrix = DMatrix(data, missing=self.missing)
+  File "/usr/local/lib/python2.7/dist-packages/xgboost-0.4-py2.7.egg/xgboost/core.py", line 274, in __init__
+    raise TypeError('can not initialize DMatrix from {}'.format(type(data).__name__))
+TypeError: can not initialize DMatrix from DMatrix
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 20:24:39;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 20:24:39;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 20:24:39;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 20:24:39;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 20:24:39;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 20:24:39;INFO] splited_key[all] transfer origin data
+[base_model.py:179 - run Sat, 09 Jul 2016 20:25:07;DEBUG] train_x.shape (26729, 527)
+[base_model.py:180 - run Sat, 09 Jul 2016 20:25:07;DEBUG] train_y.shape (26729,)
+[base_model.py:187 - run Sat, 09 Jul 2016 20:25:07;INFO] splited_key[all] do train
+[base_model.py:193 - run Sat, 09 Jul 2016 20:25:07;INFO] splited_key[all] fit data
+[shelter_common_model.py:273 - _do_validation Sat, 09 Jul 2016 20:25:07;INFO] splited_key[all] do validation
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 21:17:07;INFO] model external_loader loads [/home/test/model_trainer/data/train.csv]
+[base_model.py:60 - _load_and_clean_data Sat, 09 Jul 2016 21:17:07;INFO] model external_loader loads [/home/test/model_trainer/data/test.csv]
+[base_model.py:165 - run Sat, 09 Jul 2016 21:17:07;DEBUG] train_data shape (26729, 10)
+[base_model.py:166 - run Sat, 09 Jul 2016 21:17:07;DEBUG] test_data shape (11456, 8)
+[base_model.py:175 - run Sat, 09 Jul 2016 21:17:07;INFO] do model train...
+[base_model.py:177 - run Sat, 09 Jul 2016 21:17:07;INFO] splited_key[all] transfer origin data
+[base_model.py:179 - run Sat, 09 Jul 2016 21:17:37;DEBUG] train_x.shape (26729, 528)
+[base_model.py:180 - run Sat, 09 Jul 2016 21:17:37;DEBUG] train_y.shape (26729,)
+[base_model.py:187 - run Sat, 09 Jul 2016 21:17:37;INFO] splited_key[all] do train
+[base_model.py:193 - run Sat, 09 Jul 2016 21:17:37;INFO] splited_key[all] fit data
+[shelter_common_model.py:264 - _train Sat, 09 Jul 2016 21:17:37;INFO] splited_key[all] do training

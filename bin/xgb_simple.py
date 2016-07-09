@@ -25,6 +25,7 @@ from sklearn import cross_validation
 from sklearn.grid_search import GridSearchCV, RandomizedSearchCV
 
 backup_color_list = ['White', 'Green', 'Blue', 'Black', 'Pink', 'Red', 'Brown', 'Orange', 'Yellow', 'Silver', 'Gold', 'Gray', 'Tan']
+filename = os.path.splitext(os.path.basename(__file__))[0]
 
 
 class SimpleModel(object):
@@ -91,13 +92,14 @@ class SimpleModel(object):
 	    day_num = day.group(1)
 	    age_in_day = int(day_num) 
 
-	# manual split age
-	age_list = [0, 30, 90, 365 * 0.5, 365, 365 * 2, 365 * 5, 365 * 10]
-	for idx, start_age in enumerate(age_list):
-	    if age_in_day < start_age:
-		return 'age' + str(idx + 1)
-	    
-	return 'age' + str(len(age_list) + 1)
+	## manual split age
+	#age_list = [0, 30, 90, 365 * 0.5, 365, 365 * 2, 365 * 5, 365 * 10]
+	#for idx, start_age in enumerate(age_list):
+	#    if age_in_day < start_age:
+	#	return 'age' + str(idx + 1)
+	#    
+	#return 'age' + str(len(age_list) + 1)
+	return 'age' + str(age_in_day)
 	#return age_in_day
 
     def _transfer_age_infos(self, origin_age_info):
@@ -236,6 +238,16 @@ class SimpleModel(object):
 	intact = origin_sex_info.apply(self._transfer_intact_info)
 	return intact
 
+    def _transfer_name_len_info(self, name):
+	#return True if name else False
+	#return 'HasName' if name else 'HasNotName'
+	return len(name) if name is not np.nan else 0
+
+    def _transfer_name_len_infos(self, origin_name_info):
+	#print 'origin_name_info', origin_name_info
+	name_len = origin_name_info.apply(self._transfer_name_len_info)
+	return name_len
+
     def _transfer_name_info(self, name):
 	#return True if name else False
 	#return 'HasName' if name else 'HasNotName'
@@ -243,7 +255,7 @@ class SimpleModel(object):
 		return False
 	else:
 		return True
-	#return len(name) > 0
+	#return len(name)
 
     def _transfer_name_infos(self, origin_name_info):
 	#print 'origin_name_info', origin_name_info
@@ -260,11 +272,11 @@ class SimpleModel(object):
 
     def _transfer_weekday_info(self, animal_time):
 	s = time.strptime(animal_time, '%Y-%m-%d %H:%M:%S')
-	return s.tm_wday
-	#if 5 <= s.tm_wday <= 6:
-	#	return 'weekend'
-	#else:
-	#	return 'weekday'
+	#return s.tm_wday
+	if 5 <= s.tm_wday <= 6:
+		return 'weekend'
+	else:
+		return 'weekday'
 
     def _transfer_hour_info(self, animal_time):
 	s = time.strptime(animal_time, '%Y-%m-%d %H:%M:%S')
@@ -356,6 +368,7 @@ class SimpleModel(object):
 		#drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome']
 
 	data['HasName'] = self._transfer_name_infos(data['Name'])
+	data['NameLen'] = self._transfer_name_len_infos(data['Name'])
 	data['Sex'] = self._transfer_sex_infos(data['SexuponOutcome'])
 	data['Intact'] = self._transfer_intact_infos(data['SexuponOutcome'])
 	data['IsMix'] = self._transfer_mix_infos(data['Breed'])
@@ -369,8 +382,8 @@ class SimpleModel(object):
 		data['Color%s' % color_type] = self._transfer_color_type_infos(data['Color'], color_type)
 	(found_location, intake_type, intake_condition) = self._transfer_intake_infos(data['AnimalID'], intake_df)
 	#data['FoundLocation'] = found_location
-	#data['IntakeType'] = intake_type
-	#data['IntakeCondition'] = intake_condition
+	data['IntakeType'] = intake_type
+	data['IntakeCondition'] = intake_condition
 
 	#print np.isnan(data.any())
 	#print np.isfinite(data.all())
@@ -500,9 +513,9 @@ class SimpleModel(object):
 
     def run(self, now, logger):
 
-	animals = ['All', 'Cat', 'Dog']
+	#animals = ['All', 'Cat', 'Dog']
 	#animals = ['Cat', 'Dog']
-	#animals = ['All']
+	animals = ['All']
 	animal_dict = {}
 
 	# load train data
@@ -581,11 +594,12 @@ class SimpleModel(object):
 				#	'min_child_weight':range(1,5,2),
 				#}
 				# xgboost parameter group1
-				#param_grid = {"learning_rate": [0.03, 0.04, 0.05],
-				#}
 				param_grid = {
-					"colsample_bytree": [0.7, 0.8, 0.9]
+					"n_estimators": [100, 150, 200, 250],
 				}
+				#param_grid = {
+				#	"colsample_bytree": [0.7, 0.8, 0.9]
+				#}
 				# RF
 				#param_grid = {"max_depth": range(3, 100, 5),
 				#      "max_features": [1, 3, 10],
@@ -619,7 +633,7 @@ class SimpleModel(object):
 				if self.do_validate:
 					scores = cross_validation.cross_val_score(clf, train_x, train_y, pre_dispatch=1, scoring='log_loss')
 					print 'accrucy mean %0.2f +/- %0.2f' % (scores.mean(), scores.std()*2)
-					logger.info('animal %s accrucy mean %0.2f +/- %0.2f' % (animal, scores.mean(), scores.std()*2))
+					logger.info('filanem[%s] animal %s accrucy mean %0.2f +/- %0.2f' % (filename, animal, scores.mean(), scores.std()*2))
 
 					if self.store_model:
 						postfix_time = time.strftime('%Y%m%d%H%M', now)
@@ -663,7 +677,7 @@ class TsXgbClassifier(SimpleModel):
 
     def _get_grid_search_model(self, animal, logger):
 	return XGBClassifier(
-		learning_rate=0.03,
+		learning_rate=0.04,
 		n_estimators=200,
 		max_depth=11,
 		subsample=0.75,
@@ -672,11 +686,10 @@ class TsXgbClassifier(SimpleModel):
 		)
 
     def _get_model(self, animal, logger):
-	return XGBClassifier(learning_rate=0.03,
-		n_estimators=200,
+	return XGBClassifier(learning_rate=0.2,
+		n_estimators=125,
 		#silent=False,
-		max_depth=11,
-		min_child_weight=3,
+		max_depth=6,
 		subsample=0.75,
 		colsample_bytree=0.85,
 		seed=121,

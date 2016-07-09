@@ -26,6 +26,7 @@ from sklearn import cross_validation
 from sklearn.grid_search import GridSearchCV, RandomizedSearchCV
 
 backup_color_list = ['White', 'Green', 'Blue', 'Black', 'Pink', 'Red', 'Brown', 'Orange', 'Yellow', 'Silver', 'Gold', 'Gray', 'Tan']
+filename = os.path.splitext(os.path.basename(__file__))[0]
 
 
 class SimpleModel(object):
@@ -597,7 +598,7 @@ class SimpleModel(object):
 				if self.do_validate:
 					scores = cross_validation.cross_val_score(clf, train_x, train_y, pre_dispatch=1, scoring='log_loss')
 					print 'accrucy mean %0.2f +/- %0.2f' % (scores.mean(), scores.std()*2)
-					logger.info('animal %s accrucy mean %0.2f +/- %0.2f' % (animal, scores.mean(), scores.std()*2))
+					logger.info('filanem[%s] animal %s accrucy mean %0.2f +/- %0.2f' % (filename, animal, scores.mean(), scores.std()*2))
 
 					if self.store_model:
 						postfix_time = time.strftime('%Y%m%d%H%M', now)
@@ -662,5 +663,7 @@ if __name__ == '__main__':
 
     now = time.localtime()
     TsKNNClassifier(conf).run(now, logger)
+
+
 
 

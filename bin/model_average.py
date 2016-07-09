@@ -378,10 +378,10 @@ class SimpleModel(object):
 		data['Breed%s' % breed_type] = self._transfer_breed_type_infos(data['Breed'], breed_type)
 	for color_type in total_color:
 		data['Color%s' % color_type] = self._transfer_color_type_infos(data['Color'], color_type)
-	#(found_location, intake_type, intake_condition) = self._transfer_intake_infos(data['AnimalID'], intake_df)
+	(found_location, intake_type, intake_condition) = self._transfer_intake_infos(data['AnimalID'], intake_df)
 	#data['FoundLocation'] = found_location
-	#data['IntakeType'] = intake_type
-	#data['IntakeCondition'] = intake_condition
+	data['IntakeType'] = intake_type
+	data['IntakeCondition'] = intake_condition
 
 	#print np.isnan(data.any())
 	#print np.isfinite(data.all())
@@ -644,58 +644,93 @@ class SimpleModel(object):
 		intake_df = self._load_csv_data(self.intake_filename, logger)
 		total_info.append(intake_df)
 
-		if self.do_train:
+		# split data based on animal type
+		for animal in animals:
+			print animal, 'train'
+			# transfer to model format
+			if animal == 'All':
+				animal_train_data = cleaned_train_data.copy()
+			else:
+				animal_train_data = cleaned_train_data[cleaned_train_data['AnimalType']==animal].copy()
+			(train_x, train_y, vectorizer_x, le_y) = self._transfer_data_to_model(animal_train_data, animal, total_info, logger)
+			print 'train_x.shape', train_x.shape
+			print 'train_y.shape', train_y.shape
+			clf_name_dict = self._get_models(animal, logger)
 
-			# split data based on animal type
-			for animal in animals:
-				print animal, 'train'
-				# transfer to model format
-				if animal == 'All':
-					animal_train_data = cleaned_train_data.copy()
+			## validation set
+			#n_fold = 5
+			#total_score = 0
+			#skf = list(cross_validation.StratifiedKFold(train_y, n_fold))
+			#clf_weight_dict =  { 
+			#	'rf_classifier': 0.2,
+			#	'xgb_classifier': 0.4,
+			#	'xgb_classifier_2': 0.4,
+			#}
+			#for i, (train, test) in enumerate(skf):
+			#	X_train = train_x[train]
+			#	y_train = train_y[train]
+			#	X_test = train_x[test]
+			#	y_test = train_y[test]
+			#	print 'train_shape', X_train.shape, y_train.shape
+			#	print 'test_shape', X_test.shape, y_test.shape
+
+			#	validate_y_test = np.zeros((len(y_test), 5))
+			#	for clf_name, clf in clf_name_dict.iteritems():
+			#		clf.fit(X_train, y_train)
+			#		clf_y_test = clf.predict_proba(X_test)
+			#		#validate_y_test = validate_y_test + clf_y_test * 1.0 / len(clf_name_dict.values())
+			#		# use weight method
+			#		validate_y_test = validate_y_test + clf_y_test * clf_weight_dict[clf_name]
+			#	validate_score = metrics.log_loss(y_test, validate_y_test)
+			#	logger.info('animal[%s] Fold[%d] validate_score %f' % (animal, i, validate_score))
+			#	total_score = total_score + validate_score
+			#total_score = total_score * 1.0 / n_fold
+			#logger.info('animal[%s] total_average_validate_score %f' % (animal, total_score))
+
+			y_submission = np.zeros((11456, 5))
+			clf_weight_dict =  { 
+				'rf_classifier': 0.2,
+				'xgb_classifier': 0.4,
+				'xgb_classifier_2': 0.4,
+			}
+			for clf_name, clf in clf_name_dict.iteritems():
+				if 'xgb' in clf_name:
+					print 'train xgb'
+					clf.fit(train_x, train_y, eval_metric='mlogloss')
 				else:
-					animal_train_data = cleaned_train_data[cleaned_train_data['AnimalType']==animal].copy()
-				(train_x, train_y, vectorizer_x, le_y) = self._transfer_data_to_model(animal_train_data, animal, total_info, logger)
+					print 'train other'
+					clf.fit(train_x, train_y)
+
+				if not clf:
+				    logger.error('model not defined, no more train, quit')
+				    return
 					
-				clf_name_dict = self._get_models(animal, logger)
+				if self.do_validate:
+					scores = cross_validation.cross_val_score(clf, train_x, train_y, pre_dispatch=1, scoring='log_loss')
+					print 'accrucy mean %0.2f +/- %0.2f' % (scores.mean(), scores.std()*2)
+					logger.info('filename[%s] animal[%s] clf_name[%s] animal %s accrucy mean %0.2f +/- %0.2f' % (filename, animal, clf_name, animal, scores.mean(), scores.std()*2))
 
-				y_submission = np.zeros((11456, 5))
-				for clf_name, clf in clf_name_dict.iteritems():
-					if 'xgb' in clf_name:
-						print 'train xgb'
-						clf.fit(train_x, train_y, eval_metric='mlogloss')
-					else:
-						print 'train other'
-						clf.fit(train_x, train_y)
+				test_x = self._transfer_x(cleaned_test_data, vectorizer_x, animal, total_info, logger)	
+				print 'test_x', test_x.shape
+				logger.info('test_x')
+				clf_test_y = clf.predict_proba(test_x)
+				#y_submission = y_submission + clf_test_y * 1.0 / len(clf_name_dict.values())
+				y_submission = y_submission + clf_test_y * clf_weight_dict[clf_name]
 
-					if not clf:
-					    logger.error('model not defined, no more train, quit')
-					    return
-						
-					if self.do_validate:
-						scores = cross_validation.cross_val_score(clf, train_x, train_y, pre_dispatch=1, scoring='log_loss')
-						print 'accrucy mean %0.2f +/- %0.2f' % (scores.mean(), scores.std()*2)
-						logger.info('filename[%s] animal[%s] clf_name[%s] animal %s accrucy mean %0.2f +/- %0.2f' % (filename, animal, clf_name, animal, scores.mean(), scores.std()*2))
-
-					test_x = self._transfer_x(cleaned_test_data, vectorizer_x, animal, total_info, logger)	
-					print 'test_x', test_x.shape
-					logger.info('test_x')
-					clf_test_y = clf.predict_proba(test_x)
-					y_submission = y_submission + clf_test_y * 1.0 / len(clf_name_dict.values())
-
-				position_match_dict = {
-				    0:'Adoption',
-				    1:'Died',
-				    2:'Euthanasia',
-				    3:'Return_to_owner',
-				    4:'Transfer'
-				}
-				# normalize y
-				encode_test_y = normalize(y_submission, axis=1, norm='l1')
-				logger.info('tmp finish')
-				output_y_list = self._output_y(encode_test_y, position_match_dict, logger)
-				output_y = pd.DataFrame(output_y_list)
-				output_y.index += 1
-				self._dump_csv_data(output_y, self.submission_filename, logger)
+			position_match_dict = {
+			    0:'Adoption',
+			    1:'Died',
+			    2:'Euthanasia',
+			    3:'Return_to_owner',
+			    4:'Transfer'
+			}
+			# normalize y
+			encode_test_y = normalize(y_submission, axis=1, norm='l1')
+			logger.info('tmp finish')
+			output_y_list = self._output_y(encode_test_y, position_match_dict, logger)
+			output_y = pd.DataFrame(output_y_list)
+			output_y.index += 1
+			self._dump_csv_data(output_y, self.submission_filename, logger)
 	except Exception as e:
 		logger.exception(e)
 	
@@ -786,7 +821,7 @@ class TsMultiModelClassifier(SimpleModel):
 		seed=121,
 		objective='multi:softprob',
 	)
-	xgb_classifier_2 = XGBClassifier(learning_rate=0.1,
+	xgb_classifier_2 = XGBClassifier(learning_rate=0.04,
 		n_estimators=100,
 		#silent=False,
 		max_depth=9,
