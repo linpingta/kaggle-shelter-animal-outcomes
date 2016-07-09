@@ -2,38 +2,38 @@
 
 这是我参加shelter-animal-outcome比赛的项目，其中包含我用到过的所有文件和尝试（因此bin文件里看到起来非常dirty，下面我会解释）。
 
-我在比赛中的排名是 54th/1229 （截止文档发布时，我会在比赛结束后更新这一数据）。
+我在比赛中的排名是 54th/1229 （截止文档发布时2016.7.10，我会在比赛结束后更新这一数据）。
 
 运行脚本需要满足以下python模块被安装：
 
-  numpy / pandas / scikit-learn / xgboost
+    numpy / pandas / scikit-learn / xgboost
 
 同时替换conf/shelter.conf中以下目录为实际train.csv、test.csv和submission.csv目录：
 
-  train_filename=/home/test/model_trainer/data/train.csv
-  test_filename=/home/test/model_trainer/data/test.csv
-  submission_filename=/home/test/model_trainer/data/submission.csv
+    train_filename=/home/test/model_trainer/data/train.csv
+    test_filename=/home/test/model_trainer/data/test.csv
+    submission_filename=/home/test/model_trainer/data/submission.csv
 
 然后运行 bin目录下的 shelter.py
 
-  python bin/shelter.py
+    python bin/shelter.py
   
 在conf/shelter.conf中的以下配置控制操作：
-  
-  do_train=1          #是否训练
-  do_validation=1     #是否做validation
-  do_search_parameter #是否做参数搜索 （需要在代码中对应指定参数范围）
-  do_test=1           #是否测试
+
+    do_train=1          #是否训练
+    do_validation=1     #是否做validation
+    do_search_parameter #是否做参数搜索 （需要在代码中对应指定参数范围）
+    do_test=1           #是否测试
 
 项目文件结构：
 
-  bin /
-    simple.py / shelter.py : 与最终版本的项目结果相关
-  lib /
-    * ：与最终版本的项目结果相关
+    bin /
+      simple.py / shelter.py : 与最终版本的项目结果相关
+    lib /
+      * ：与最终版本的项目结果相关
   
-  bin /
-    *_simple.py , model_average.py : 历史尝试，包括单独使用的随机森林，KNN, XGBoost以及model融合尝试
+    bin /
+      *_simple.py , model_average.py : 历史尝试，包括单独使用的随机森林，KNN, XGBoost以及model融合尝试
 
 关于项目的介绍请见我的[博客](linpingta.cn)。
 
