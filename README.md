@@ -35,7 +35,7 @@
     bin /
       *_simple.py , model_average.py : 历史尝试，包括单独使用的随机森林，KNN, XGBoost以及model融合尝试
 
-关于项目的介绍请见我的[博客](linpingta.cn)。
+关于项目的介绍请见我的[博客](https://linpingta.github.io/blog/2016/07/10/kaggle-shelter-animal-outcome/)。
 
 我在项目中保留了所有历史版本，并且没有对其中的格式做修正，主要原因在于我在初期并没有一个合适的model training模板用于尝试不同的模型方法，
 后续在各种模型方法上统一后，我开发了我的[model trainer模板方法](https://github.com/linpingta/tools/tree/master/model_trainer)，并在
