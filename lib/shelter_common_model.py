@@ -40,7 +40,7 @@ class ShelterCommonModel(TsModel):
 			new_color.extend(color.split(' '))
 		return new_color
 
-	def _generate_combine_and_external_data(self, cleaned_train_data, cleaned_test_data, logger):
+	def _generate_combine_data(self, cleaned_train_data, cleaned_test_data, logger):
 
 		train_breed = cleaned_train_data['Breed'].unique()
 		test_breed = cleaned_test_data['Breed'].unique()
@@ -54,7 +54,7 @@ class ShelterCommonModel(TsModel):
 		new_test_color = self._transfer_color_input(test_color, logger)
 		total_color = list(set(new_train_color) | set(new_test_color))
 
-		return ((total_breed, total_color), ())
+		return (total_breed, total_color)
 
 	def _split_data(self, data, logger):
 		return {'all': data}
@@ -197,7 +197,7 @@ class ShelterCommonModel(TsModel):
 		data['EncodeMonth'] = data['DateTime'].apply(self._transfer_month_info)
 		data['EncodeWeekday'] = data['DateTime'].apply(self._transfer_weekday_info)
 		data['EncodeHour'] = data['DateTime'].apply(self._transfer_hour_info)
-		data['UnixDateTime'] = data['DateTime'].apply(self._transfer_unix_datetime_info)
+		#data['UnixDateTime'] = data['DateTime'].apply(self._transfer_unix_datetime_info)
 
 		data['EncodeAgeuponOutcome'] = data['AgeuponOutcome'].apply(self._transfer_age_info)
 
@@ -223,12 +223,18 @@ class ShelterCommonModel(TsModel):
 		#return encode_x
 
 	def _transfer_data_to_model(self, splited_key, splited_data, combine_data, external_data, logger):
+		""" feature transfer and encoding """
+
+		logger.info('splited_key[%s] transfer data to model' % splited_key)
+
 		(total_breed, total_color) = combine_data
 		data = splited_data
 
 		# encode y
+		logger.debug('splited_key[%s] encode y' % splited_key)
 		(encode_y, le_y) = self._encode_y(data['OutcomeType'].values, logger)
 
+		logger.debug('splited_key[%s] encode x' % splited_key)
 		data['EncodeYear'] = data['DateTime'].apply(self._transfer_year_info)
 		data['EncodeMonth'] = data['DateTime'].apply(self._transfer_month_info)
 		data['EncodeWeekday'] = data['DateTime'].apply(self._transfer_weekday_info)
@@ -252,19 +258,20 @@ class ShelterCommonModel(TsModel):
 		drop_list = ['AnimalID', 'Name', 'DateTime', 'OutcomeType', 'OutcomeSubtype', 'AgeuponOutcome', 'SexuponOutcome', 'Breed', 'Color']
 
 		transfer_data = data.drop(drop_list, 1)
-		print transfer_data.shape
+		logger.debug('splited_key[%s] input transfer_data shape %s' % (splited_key, str(transfer_data.shape)))
 		x = transfer_data.T.to_dict().values()
 		vectorizer_x = DV(sparse=False)
 		encode_x = pd.DataFrame(vectorizer_x.fit_transform(x))
-		print encode_x.shape
-		print encode_y.shape
+		logger.debug('splited_key[%s] encode_x shape %s' % (splited_key, str(encode_x.shape)))
+		logger.debug('splited_key[%s] encode_y shape %s' % (splited_key, str(encode_y.shape)))
+
 		return (encode_x, encode_y, {'vectorizer_x':vectorizer_x, 'le_y':le_y})
 
 	def _train(self, clf, train_x, train_y, splited_key, logger):
 		logger.info('splited_key[%s] do training' % splited_key)
 		# xgb training
-		param = {'max_depth':11, 'eta':0.03, 'subsample':0.75, 'colsample_bytree':0.85, 'eval_metric':'mlogloss', 'objective':'multi:softprob', 'num_class':5, 'verbose':1}
-		num_round = 400
+		param = {'nthread':4, 'max_depth':11, 'eta':0.03, 'subsample':0.75, 'colsample_bytree':0.85, 'eval_metric':'mlogloss', 'objective':'multi:softprob', 'num_class':5, 'verbose':1}
+		num_round = 40
 		dtrain = xgb.DMatrix(train_x, label=train_y)
 		clf = xgb.train(param, dtrain, num_round) 		
 		return clf
@@ -272,11 +279,12 @@ class ShelterCommonModel(TsModel):
 	def _do_validation(self, clf, train_x, train_y, splited_key, logger):
 		logger.info('splited_key[%s] do validation' % splited_key)
 		# xgb training
-		param = {'max_depth':11, 'eta':0.03, 'subsample':0.75, 'colsample_bytree':0.85, 'eval_metric':'mlogloss', 'objective':'multi:softprob', 'num_class':5, 'verbose':1}
+		param = {'nthread':4, 'max_depth':11, 'eta':0.03, 'subsample':0.75, 'colsample_bytree':0.85, 'eval_metric':'mlogloss', 'objective':'multi:softprob', 'num_class':5, 'verbose':1}
 		num_round = 400
 		dtrain = xgb.DMatrix(train_x, label=train_y)
-		xgb.cv(param, dtrain, num_round, nfold=3,
-		       metrics='mlogloss', seed = 121, verbose_eval=True, callbacks=[xgb.callback.print_evaluation(show_stdv=True)])
+		res = xgb.cv(param, dtrain, num_round, nfold=3, metrics={ 'mlogloss' }, seed = 0)
+		#res = xgb.cv(param, dtrain, num_round, nfold=3, metrics='mlogloss', seed = 0, verbose_eval=True, callbacks=[xgb.callback.print_evaluation(show_stdv=True)])
+		print res
 
-	def _output_result(self, predict_y, submission_filename, logger):
-            	np.savetxt(submission_filename, predict_y, delimiter=',')
+	def _output(self, predict_y, submission_filename, logger):
+		np.savetxt(submission_filename, predict_y, delimiter=',')

@@ -3,6 +3,8 @@
 /lib/gen-py
 test/
 
+fabfile.*
+
 *.swp
 *.pyc
 *.log
