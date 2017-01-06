@@ -252,12 +252,13 @@ class ShelterCommonModel(TsModel):
 		data = data[data['SexuponOutcome'] != '']
 
 		data['NameLen'] = data['Name'].apply(self._transfer_name_len)
-		#for breed_type in total_breed:
-		#	data[breed_type] = data['Breed'].apply(self._transfer_breed_type_info, args=(breed_type,))
+
+		if self._encode_type == 'dv':
+			for breed_type in total_breed:
+				data[breed_type] = data['Breed'].apply(self._transfer_breed_type_info, args=(breed_type,))
+			for color_type in total_color:
+				data[color_type] = data['Color'].apply(self._transfer_color_type_info, args=(color_type,))
 		data['BreedMix'] = data['Breed'].apply(self._transfer_breed_mix_info)
-		
-		#for color_type in total_color:
-		#	data[color_type] = data['Color'].apply(self._transfer_color_type_info, args=(color_type,))
 		data['ColorCount'] = data['Color'].apply(self._transfer_color_count_info)
 		data['Sex'] = data['SexuponOutcome'].apply(self._transfer_sex_info)
 		data['Intact'] = data['SexuponOutcome'].apply(self._transfer_intact_info)
@@ -274,8 +275,7 @@ class ShelterCommonModel(TsModel):
 		transfer_test_data = transfer_test_data.drop(type_drop_list, 1)
 		data = data.drop(type_drop_list, 1)
 
-		# one-hot encoder
-		if True:
+		if self._encode_type == 'dv': # one-hot encoder
 			x_all = data.T.to_dict().values()
 			vectorizer_x = DV(sparse=False)
 			vectorizer_x.fit(x_all)
@@ -287,12 +287,13 @@ class ShelterCommonModel(TsModel):
 
 			model_infos = {'vectorizer_x':vectorizer_x, 'le_y':le_y}
 
-		# label encode
-		if False:
+		elif self._encode_type == 'label': # label encode
 			col_le_dict = self._fit(data, logger)
 			train_x = self._transform(transfer_train_data, col_le_dict, logger)
 			test_x = self._transform(transfer_test_data, col_le_dict, logger)
 			model_infos = {'col_le_dict':col_le_dict, 'le_y':le_y}
+		else:
+			raise ValueError("encode_type not valid, [label, dv] supported")
 
 		logger.debug('splited_key[%s] train_x shape %s' % (splited_key, str(train_x.shape)))
 		logger.debug('splited_key[%s] train_y shape %s' % (splited_key, str(train_y.shape)))

@@ -35,9 +35,10 @@ class TsModel(object):
 		self._do_validate = conf.getboolean('simple_model', 'do_validate')
 		self._do_test = conf.getboolean('simple_model', 'do_test')
 
+		self._encode_type = conf.get('encoder', 'encode_type')
+
 		self._search_parameter_loss = conf.get('search_parameter', 'search_parameter_loss')
 		self._search_parameter_best_score_num = conf.getint('search_parameter', 'search_parameter_best_score_num')
-		self._train_loss = conf.get('train_parameter', 'train_loss')
 		self._validate_loss = conf.get('validate_parameter', 'validate_loss')
 
 		self._external_loader = None
