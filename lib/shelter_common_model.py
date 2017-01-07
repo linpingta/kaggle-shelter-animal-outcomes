@@ -301,27 +301,27 @@ class ShelterCommonModel(TsModel):
 
 		return (train_x, train_y, test_x, model_infos)
 
-	def _train(self, clf, train_x, train_y, splited_key, logger):
-		logger.info('splited_key[%s] do training' % splited_key)
-		# xgb training
-		param = {'nthread':4, 'max_depth':11, 'eta':0.03, 'subsample':0.75, 'colsample_bytree':0.85, 'eval_metric':'mlogloss', 'objective':'multi:softprob', 'num_class':5, 'verbose':1}
-		num_round = 400
-		dtrain = xgb.DMatrix(train_x, label=train_y)
-		clf = xgb.train(param, dtrain, num_round) 		
-		return clf
-	   
-	def _do_validation(self, clf, train_x, train_y, splited_key, logger):
-		logger.info('splited_key[%s] do validation' % splited_key)
-		# xgb training
-		param = {'nthread':4, 'max_depth':11, 'eta':0.03, 'subsample':0.75, 'colsample_bytree':0.85, 'eval_metric':'mlogloss', 'objective':'multi:softprob', 'num_class':5, 'verbose':1}
-		num_round = 400
-		dtrain = xgb.DMatrix(train_x, label=train_y)
-		res = xgb.cv(param, dtrain, num_round, nfold=3, metrics={ 'mlogloss' }, seed = 0)
-		#res = xgb.cv(param, dtrain, num_round, nfold=3, metrics='mlogloss', seed = 0, verbose_eval=True, callbacks=[xgb.callback.print_evaluation(show_stdv=True)])
-		logger.info('splited_key[%s] validation result' % (splited_key, str(res)))
+	#def _train(self, clf, train_x, train_y, splited_key, logger):
+	#	logger.info('splited_key[%s] do training' % splited_key)
+	#	# xgb training
+	#	param = {'nthread':4, 'max_depth':11, 'eta':0.03, 'subsample':0.75, 'colsample_bytree':0.85, 'eval_metric':'mlogloss', 'objective':'multi:softprob', 'num_class':5, 'verbose':1}
+	#	num_round = 400
+	#	dtrain = xgb.DMatrix(train_x, label=train_y)
+	#	clf = xgb.train(param, dtrain, num_round) 		
+	#	return clf
+	#   
+	#def _do_validation(self, clf, train_x, train_y, splited_key, logger):
+	#	logger.info('splited_key[%s] do validation' % splited_key)
+	#	# xgb training
+	#	param = {'nthread':4, 'max_depth':11, 'eta':0.03, 'subsample':0.75, 'colsample_bytree':0.85, 'eval_metric':'mlogloss', 'objective':'multi:softprob', 'num_class':5, 'verbose':1}
+	#	num_round = 400
+	#	dtrain = xgb.DMatrix(train_x, label=train_y)
+	#	res = xgb.cv(param, dtrain, num_round, nfold=3, metrics={ 'mlogloss' }, seed = 0)
+	#	#res = xgb.cv(param, dtrain, num_round, nfold=3, metrics='mlogloss', seed = 0, verbose_eval=True, callbacks=[xgb.callback.print_evaluation(show_stdv=True)])
+	#	logger.info('splited_key[%s] validation result' % (splited_key, str(res)))
 
-	def _predict(self, clf, test_x, splited_key, logger):
-		return clf.predict(xgb.DMatrix(test_x))
+	#def _predict(self, clf, test_x, splited_key, logger):
+	#	return clf.predict(xgb.DMatrix(test_x))
 
 	def _output(self, predict_y, submission_filename, logger):
 		np.savetxt(submission_filename, predict_y, delimiter=',')

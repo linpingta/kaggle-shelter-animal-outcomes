@@ -47,7 +47,7 @@ if __name__ == '__main__':
 	m = ShelterCommonModel(conf)
 	m.external_loader = TsCsvLoader()
 	m.model_loader = XgboostModel(model_conf)
-	#m.model_loader = RandomForestModel(model_conf)
+	m.model_loader = RandomForestModel(model_conf)
 	m.data_cleaner = ShelterCleaner()
 	try:
 		m.run(now, logger)

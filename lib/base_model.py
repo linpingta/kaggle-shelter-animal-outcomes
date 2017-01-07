@@ -155,6 +155,12 @@ class TsModel(object):
 		clf.fit(train_x, train_y)
 		return clf
 
+	def _report_feature_importance(self, clf, train_x, logger):
+		importances = clf.feature_importances_
+		indices = np.argsort(importances)[::-1]
+		for f in range(train_x.shape[1]):
+			logger.info("%d. feature_name %s feature %d (%f)" % (f+1, train_x.columns[indices[f]], indices[f], importances[indices[f]]))
+
 	def _predict(self, clf, test_x, splited_key, logger):
 		return clf.predict(test_x)
 
@@ -232,7 +238,8 @@ class TsModel(object):
 				else:
 					logger.info('splited_key[%s] do train' % splited_key)
 					clf = self._get_model(splited_key, logger)
-					if not clf:
+					#if not clf:
+					if clf is None:
 						logger.error('splited_key[%s] model not defined' % splited_key)
 						continue
 
@@ -244,6 +251,9 @@ class TsModel(object):
 						scores = self._do_validation(clf, train_x, train_y, splited_key, logger)
 					else:
 						clf = self._train(clf, train_x, train_y, splited_key, logger)
+
+						# feature importances
+						self._report_feature_importance(clf, train_x, logger)
 
 						# store model info
 						model_splited_dict = self._store_trained_model(clf, model_infos, splited_key, logger, scores)
