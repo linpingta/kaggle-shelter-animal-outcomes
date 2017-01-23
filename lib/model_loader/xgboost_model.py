@@ -1,16 +1,16 @@
 #-*- coding: utf-8 -*-
 #!/usr/bin/env python
 # vim: set bg=dark noet ts=4 sw=4 fdm=indent :
-''' xgboost model'''
+""" xgboost model"""
 __author__ = 'chutong'
 
-from joblib_loader import TsJoblibModelLoader
 from xgboost.sklearn import XGBClassifier
+from joblib_loader import TsJoblibModelLoader
 
 
 class XgboostModel(TsJoblibModelLoader):
-	''' Xgboost Model
-	'''
+	""" Xgboost Model
+	"""
 	def __init__(self, model_conf):
 		super(XgboostModel, self).__init__(model_conf)
 

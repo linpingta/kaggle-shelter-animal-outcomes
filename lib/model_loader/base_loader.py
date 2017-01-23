@@ -15,7 +15,7 @@ class TsModelLoader(object):
 	__meta__ = ABCMeta
 
 	def __init__(self, model_conf):
-		pass
+		self.n_jobs = model_conf.getint('base', 'n_jobs')
 
 	@abstractmethod
 	def load_model(self, filename, logger):

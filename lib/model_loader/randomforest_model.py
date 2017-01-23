@@ -1,16 +1,17 @@
 #-*- coding: utf-8 -*-
 #!/usr/bin/env python
 # vim: set bg=dark noet ts=4 sw=4 fdm=indent :
-''' xgboost model'''
+
+""" rf model"""
 __author__ = 'chutong'
 
-from joblib_loader import TsJoblibModelLoader
 from sklearn.ensemble import RandomForestClassifier
+from joblib_loader import TsJoblibModelLoader
 
 
 class RandomForestModel(TsJoblibModelLoader):
-	''' RandomForest Model
-	'''
+	""" RandomForest Model
+	"""
 	def __init__(self, model_conf):
 		super(RandomForestModel, self).__init__(model_conf)
 
@@ -18,4 +19,4 @@ class RandomForestModel(TsJoblibModelLoader):
 		self.max_depth_num = model_conf.getint('random_forest_classifier', 'max_depth_num')
 
 	def get_model(self, splited_key, logger):
-		return RandomForestClassifier(n_estimators=self.sub_tree_num, max_depth=self.max_depth_num, verbose=True)
+		return RandomForestClassifier(n_estimators=self.sub_tree_num, max_depth=self.max_depth_num, n_jobs=self.n_jobs, verbose=True)

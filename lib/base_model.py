@@ -36,6 +36,7 @@ class TsModel(object):
 		self._do_test = conf.getboolean('simple_model', 'do_test')
 
 		self._encode_type = conf.get('encoder', 'encode_type')
+		self._use_prob = conf.getboolean('output', 'use_prob')
 
 		self._search_parameter_loss = conf.get('search_parameter', 'search_parameter_loss')
 		self._search_parameter_best_score_num = conf.getint('search_parameter', 'search_parameter_best_score_num')
@@ -156,13 +157,19 @@ class TsModel(object):
 		return clf
 
 	def _report_feature_importance(self, clf, train_x, logger):
-		importances = clf.feature_importances_
-		indices = np.argsort(importances)[::-1]
-		for f in range(train_x.shape[1]):
-			logger.info("%d. feature_name %s feature %d (%f)" % (f+1, train_x.columns[indices[f]], indices[f], importances[indices[f]]))
+		try:
+			importances = clf.feature_importances_
+			indices = np.argsort(importances)[::-1]
+			for f in range(train_x.shape[1]):
+				logger.info("%d. feature_name %s feature %d (%f)" % (f+1, train_x.columns[indices[f]], indices[f], importances[indices[f]]))
+		except Exception as e:
+			logger.warning("model doesn't have feature_importances_")
 
 	def _predict(self, clf, test_x, splited_key, logger):
-		return clf.predict(test_x)
+		if self._use_prob:
+			return clf.predict_proba(test_x)
+		else:
+			return clf.predict(test_x)
 
 	def _output(self, predict_y, submission_filename, logger):
 		np.savetxt(submission_filename, predict_y, delimiter=',')
@@ -219,7 +226,6 @@ class TsModel(object):
 			if splited_key not in splited_test_data_dict:
 				logger.error('splited_key[%s] has no test data' % splited_key)
 				continue
-
 			splited_test_data = splited_test_data_dict[splited_key]
 
 			logger.info('splited_key[%s] encode origin data' % splited_key)

@@ -12,7 +12,7 @@ import pandas as pd
 import re
 import time
 from sklearn.feature_extraction import DictVectorizer as DV
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder, normalize
 
 
 class ShelterCommonModel(TsModel):
@@ -20,6 +20,8 @@ class ShelterCommonModel(TsModel):
 	'''
 	def __init__(self, conf):
 		super(ShelterCommonModel, self).__init__(conf) 
+
+		self._use_local_xgboost = conf.getboolean('xgboost_setting', 'use_local_xgboost')
 
 	def _clean_data(self, data, logger):
 		return data
@@ -263,10 +265,8 @@ class ShelterCommonModel(TsModel):
 		data['Sex'] = data['SexuponOutcome'].apply(self._transfer_sex_info)
 		data['Intact'] = data['SexuponOutcome'].apply(self._transfer_intact_info)
 
-		logger.debug('transfer feature_train_data shape %s' % str(feature_train_data.shape))
-		logger.debug('transfer feature_test_data shape %s' % str(feature_test_data.shape))
-
 		drop_list = ['AnimalID', 'Name', 'DateTime', 'AgeuponOutcome', 'SexuponOutcome']
+		#drop_list = ['Name', 'DateTime', 'AgeuponOutcome', 'SexuponOutcome']
 		data = data.drop(drop_list, 1)
 		transfer_train_data = data[data['data_type'] == 'train']
 		transfer_test_data = data[data['data_type'] == 'test']
@@ -275,15 +275,18 @@ class ShelterCommonModel(TsModel):
 		transfer_test_data = transfer_test_data.drop(type_drop_list, 1)
 		data = data.drop(type_drop_list, 1)
 
-		if self._encode_type == 'dv': # one-hot encoder
+		logger.debug('transfer feature_train_data shape %s' % str(feature_train_data.shape))
+		logger.debug('transfer feature_test_data shape %s' % str(feature_test_data.shape))
+
+		if self._encode_type == 'dv': # one-hot encoder and scale
 			x_all = data.T.to_dict().values()
 			vectorizer_x = DV(sparse=False)
 			vectorizer_x.fit(x_all)
 
 			x1 = transfer_train_data.T.to_dict().values()
-			train_x = pd.DataFrame(vectorizer_x.fit_transform(x1))
+			train_x = pd.DataFrame(normalize(vectorizer_x.fit_transform(x1), axis=0))
 			x2 = transfer_test_data.T.to_dict().values()
-			test_x = pd.DataFrame(vectorizer_x.transform(x2))
+			test_x = pd.DataFrame(normalize(vectorizer_x.transform(x2), axis=0))
 
 			model_infos = {'vectorizer_x':vectorizer_x, 'le_y':le_y}
 
@@ -301,27 +304,36 @@ class ShelterCommonModel(TsModel):
 
 		return (train_x, train_y, test_x, model_infos)
 
-	#def _train(self, clf, train_x, train_y, splited_key, logger):
-	#	logger.info('splited_key[%s] do training' % splited_key)
-	#	# xgb training
-	#	param = {'nthread':4, 'max_depth':11, 'eta':0.03, 'subsample':0.75, 'colsample_bytree':0.85, 'eval_metric':'mlogloss', 'objective':'multi:softprob', 'num_class':5, 'verbose':1}
-	#	num_round = 400
-	#	dtrain = xgb.DMatrix(train_x, label=train_y)
-	#	clf = xgb.train(param, dtrain, num_round) 		
-	#	return clf
-	#   
-	#def _do_validation(self, clf, train_x, train_y, splited_key, logger):
-	#	logger.info('splited_key[%s] do validation' % splited_key)
-	#	# xgb training
-	#	param = {'nthread':4, 'max_depth':11, 'eta':0.03, 'subsample':0.75, 'colsample_bytree':0.85, 'eval_metric':'mlogloss', 'objective':'multi:softprob', 'num_class':5, 'verbose':1}
-	#	num_round = 400
-	#	dtrain = xgb.DMatrix(train_x, label=train_y)
-	#	res = xgb.cv(param, dtrain, num_round, nfold=3, metrics={ 'mlogloss' }, seed = 0)
-	#	#res = xgb.cv(param, dtrain, num_round, nfold=3, metrics='mlogloss', seed = 0, verbose_eval=True, callbacks=[xgb.callback.print_evaluation(show_stdv=True)])
-	#	logger.info('splited_key[%s] validation result' % (splited_key, str(res)))
+	def _train(self, clf, train_x, train_y, splited_key, logger):
+		if self._use_local_xgboost:
+			logger.info('splited_key[%s] do training' % splited_key)
+			# xgb training
+			param = {'nthread':4, 'max_depth':11, 'eta':0.03, 'subsample':0.75, 'colsample_bytree':0.85, 'eval_metric':'mlogloss', 'objective':'multi:softprob', 'num_class':5, 'verbose':1}
+			num_round = 400
+			dtrain = xgb.DMatrix(train_x, label=train_y)
+			clf = xgb.train(param, dtrain, num_round) 		
+			return clf
+		else:
+			return super(ShelterCommonModel, self)._train(clf, train_x, train_y, splited_key, logger)
+	   
+	def _do_validation(self, clf, train_x, train_y, splited_key, logger):
+		if self._use_local_xgboost:
+			logger.info('splited_key[%s] do validation' % splited_key)
+			# xgb training
+			param = {'nthread':4, 'max_depth':11, 'eta':0.03, 'subsample':0.75, 'colsample_bytree':0.85, 'eval_metric':'mlogloss', 'objective':'multi:softprob', 'num_class':5, 'verbose':1}
+			num_round = 400
+			dtrain = xgb.DMatrix(train_x, label=train_y)
+			res = xgb.cv(param, dtrain, num_round, nfold=3, metrics={ 'mlogloss' }, seed = 0)
+			#res = xgb.cv(param, dtrain, num_round, nfold=3, metrics='mlogloss', seed = 0, verbose_eval=True, callbacks=[xgb.callback.print_evaluation(show_stdv=True)])
+			logger.info('splited_key[%s] validation result %s' % (splited_key, str(res)))
+		else:
+			super(ShelterCommonModel, self)._do_validation(clf, train_x, train_y, splited_key, logger)
 
 	def _predict(self, clf, test_x, splited_key, logger):
-		return clf.predict(xgb.DMatrix(test_x))
+		if self._use_local_xgboost:
+			return clf.predict(xgb.DMatrix(test_x))
+		else:
+			return super(ShelterCommonModel, self)._predict(clf, test_x, splited_key, logger)
 
 	def _output(self, predict_y, submission_filename, logger):
 		np.savetxt(submission_filename, predict_y, delimiter=',')

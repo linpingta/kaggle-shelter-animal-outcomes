@@ -21,6 +21,7 @@ from shelter_common_model import ShelterCommonModel
 from external_loader.csv_loader import TsCsvLoader
 from model_loader.xgboost_model import XgboostModel
 from model_loader.randomforest_model import RandomForestModel
+from model_loader.lr_model import LRModel
 from cleaner.shelter_cleaner import ShelterCleaner
 
 
@@ -48,6 +49,7 @@ if __name__ == '__main__':
 	m.external_loader = TsCsvLoader()
 	m.model_loader = XgboostModel(model_conf)
 	m.model_loader = RandomForestModel(model_conf)
+	#m.model_loader = LRModel(model_conf)
 	m.data_cleaner = ShelterCleaner()
 	try:
 		m.run(now, logger)
